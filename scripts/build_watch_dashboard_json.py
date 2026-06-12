@@ -27,6 +27,11 @@ from psycopg.rows import dict_row
 
 KST = ZoneInfo("Asia/Seoul")
 DEFAULT_DB_URL = "postgresql://jenty521@127.0.0.1:5432/invest?sslmode=disable"
+EXCLUDED_PRODUCT_NAME_RE = (
+    r"^(TIGER|KODEX|KOSEF|ARIRANG|ACE|SOL|KBSTAR|HANARO|KINDEX|PLUS|RISE|TREX|TIMEFOLIO|"
+    r"WON|SMART|FOCUS|TRUE|MIRAE|KIWOOM|BNK|IBK|SHINYOUNG|NH|AUM)"
+    r"|ETF|ETN|레버리지|인버스|선물|커버드콜|채권|달러"
+)
 
 DEFAULT_PAYLOAD: dict[str, Any] = {
     "title": "COOLPEACE AGENT WATCH",
@@ -62,6 +67,18 @@ def money(value) -> str:
         return "—"
 
 
+def is_tradeable_equity_name(name: str | None) -> bool:
+    if not name:
+        return False
+    import re
+
+    return re.search(EXCLUDED_PRODUCT_NAME_RE, name, flags=re.IGNORECASE) is None
+
+
+def tradeable_name_sql_filter(expr: str) -> str:
+    return f"coalesce({expr}, '') !~* $${EXCLUDED_PRODUCT_NAME_RE}$$"
+
+
 def fmt_kst(value) -> str:
     if value in (None, ""):
         return "—"
@@ -95,7 +112,7 @@ def safe_tag_list(value: Any) -> list[str]:
 
 def build_theme_summary(cur) -> list[dict[str, Any]]:
     cur.execute(
-        """
+        f"""
         with tagged as (
           select
             published_at,
@@ -137,7 +154,7 @@ def build_theme_summary(cur) -> list[dict[str, Any]]:
 
 def build_candidates(cur) -> list[dict[str, Any]]:
     cur.execute(
-        """
+        f"""
         select
           c.symbol,
           coalesce(i.name, c.meta_json->>'name', c.symbol) as name,
@@ -157,6 +174,7 @@ def build_candidates(cur) -> list[dict[str, Any]]:
           limit 1
         ) a on true
         left join public.instruments i on i.symbol = c.symbol
+        where {tradeable_name_sql_filter("coalesce(i.name, c.meta_json->>'name', c.symbol)")}
         order by c.updated_at desc nulls last, c.score desc nulls last, c.symbol asc
         limit 12;
         """
@@ -189,7 +207,7 @@ def build_candidates(cur) -> list[dict[str, Any]]:
 
 def build_watchlist(cur) -> list[dict[str, Any]]:
     cur.execute(
-        """
+        f"""
         select
           a.symbol,
           coalesce(i.name, c.meta_json->>'name', a.symbol) as name,
@@ -209,6 +227,7 @@ def build_watchlist(cur) -> list[dict[str, Any]]:
         ) c on true
         left join public.instruments i on i.symbol = a.symbol
         where a.is_active is true
+          and {tradeable_name_sql_filter("coalesce(i.name, c.meta_json->>'name', a.symbol)")}
         order by a.score desc nulls last, a.updated_at desc nulls last, a.symbol asc
         limit 12;
         """
@@ -252,10 +271,11 @@ def build_watchlist(cur) -> list[dict[str, Any]]:
 
 def build_signal_on(cur) -> list[dict[str, Any]]:
     cur.execute(
-        """
+        f"""
         with ranked as (
           select
             s.symbol,
+            coalesce(i.name, s.symbol) as name,
             s.source,
             s.kind,
             s.rank,
@@ -269,7 +289,9 @@ def build_signal_on(cur) -> list[dict[str, Any]]:
             s.consumed_at,
             row_number() over (partition by s.symbol order by s.captured_at desc nulls last, s.id desc) as rn
           from public.surge_pool s
+          left join public.instruments i on i.symbol = s.symbol
           where s.captured_at >= now() - interval '24 hours'
+            and {tradeable_name_sql_filter("coalesce(i.name, s.symbol)")}
         )
         select * from ranked where rn = 1 order by captured_at desc nulls last, trigger_strength desc nulls last, symbol asc limit 8;
         """
@@ -297,7 +319,7 @@ def build_signal_on(cur) -> list[dict[str, Any]]:
 
 def build_buy_list(cur) -> list[dict[str, Any]]:
     cur.execute(
-        """
+        f"""
         select
           i.symbol,
           coalesce(i.name, i.symbol) as name,
@@ -313,6 +335,7 @@ def build_buy_list(cur) -> list[dict[str, Any]]:
         from public.positions p
         left join public.instruments i on i.id = p.instrument_id
         where coalesce(p.quantity, 0) > 0
+          and {tradeable_name_sql_filter("coalesce(i.name, i.symbol)")}
         order by p.last_updated_at desc nulls last, p.updated_at desc nulls last, i.symbol asc
         limit 20;
         """
