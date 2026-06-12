@@ -1,17 +1,21 @@
 # agent-dashboard
 
-GitHub 기반 정적 대시보드 샘플입니다.
+GitHub 기반의 정적 대시보드 샘플입니다.
 
 ## 구조
-- `index.html` — `gh-pages` 브랜치 루트에서 서빙할 대시보드
-- `data/latest.json` — 대시보드가 읽는 단일 JSON 스냅샷
-- `docs/` — 개발 중 미리보기용 동일 자산
+- `docs/index.html` — 화면 렌더러
+- `docs/data/latest.json` — 대시보드가 읽는 최신 스냅샷
+- `data/source.json` — workflow가 읽는 원본 JSON
+- `scripts/build_dashboard_json.py` — 원본 JSON을 latest.json으로 변환
+- `.github/workflows/deploy.yml` — 10분 단위로 갱신 후 `gh-pages` 브랜치 배포
 
 ## 갱신 방식
-1. 수집 스크립트 또는 수동 작업으로 `data/latest.json` 또는 `docs/data/latest.json` 갱신
-2. GitHub에 push
-3. `gh-pages` 브랜치 루트가 갱신되면 정적 대시보드도 함께 업데이트
+1. `data/source.json` 을 갱신
+2. `main` 브랜치에 push
+3. GitHub Actions가 `docs/data/latest.json` 을 재생성
+4. `gh-pages` 브랜치로 정적 배포
 
 ## 비고
-- 이 저장소는 `gh-pages` 브랜치 루트 기준으로 바로 서빙할 수 있게 준비되어 있습니다.
-- 현재 계정/플랜에서는 GitHub Pages 사이트 생성 API가 허용되지 않아, GitHub repo settings에서 Pages 소스를 수동으로 `gh-pages` / `/`로 지정해야 할 수 있습니다.
+- `source.json`이 없더라도 workflow는 heartbeat 스냅샷을 생성합니다.
+- GitHub Pages가 이미 켜져 있으면 `gh-pages` 브랜치 루트를 바라보게 하면 됩니다.
+- Pages 활성화가 안 되어 있으면 repo settings에서 소스를 한 번 지정해야 할 수 있습니다.
