@@ -169,7 +169,7 @@
     {
       "ticker": "005930",
       "name": "삼성전자",
-      "reason": "태그: breakout, market_ticks+orderbook / 시그널: breakout / 후보점수 100.0",
+      "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 100.0",
       "signal": "돌파",
       "collected_at": "2026-06-12T07:43:46.179644+00:00",
       "score": 86.325,
@@ -178,7 +178,7 @@
     {
       "ticker": "000660",
       "name": "SK하이닉스",
-      "reason": "태그: breakout, market_ticks+orderbook / 시그널: breakout / 후보점수 99.0",
+      "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 99.0",
       "signal": "돌파",
       "collected_at": "2026-06-12T07:43:46.179644+00:00",
       "score": 85.9566,
@@ -187,7 +187,7 @@
     {
       "ticker": "093370",
       "name": "093370",
-      "reason": "후성 장중 급등 추적용 hot override / 태그: lock, market_ticks+orderbook, 후성 장중 급등 추적용 hot override / 시그널: lock",
+      "reason": "후성 장중 급등 추적용 hot override / 태그: 잠금, 시장 틱·호가, 후성 장중 급등 추적용 hot override / 시그널: 잠금",
       "signal": "후성 장중 급등 추적용 hot override",
       "collected_at": "2026-06-12T07:43:46.179644+00:00",
       "score": 65.225,
@@ -196,7 +196,7 @@
     {
       "ticker": "089030",
       "name": "테크윙",
-      "reason": "태그: breakout, market_ticks+orderbook / 시그널: breakout",
+      "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파",
       "signal": "돌파",
       "collected_at": "2026-06-12T07:43:46.179644+00:00",
       "score": 49.4875,
@@ -205,7 +205,7 @@
     {
       "ticker": "403870",
       "name": "HPSP",
-      "reason": "태그: lock, market_ticks+orderbook / 시그널: lock",
+      "reason": "태그: 잠금, 시장 틱·호가 / 시그널: 잠금",
       "signal": "잠금",
       "collected_at": "2026-06-12T07:43:46.179644+00:00",
       "score": 49.4875,
@@ -327,8 +327,8 @@
   ],
   "buy_list": [],
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions",
-  "updated_at": "2026-06-13 00:22:20 KST",
-  "generated_at_utc": "2026-06-12T15:22:20Z",
+  "updated_at": "2026-06-13 00:23:32 KST",
+  "generated_at_utc": "2026-06-12T15:23:32Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
