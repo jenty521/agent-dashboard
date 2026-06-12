@@ -176,7 +176,7 @@ def build_theme_summary(cur) -> list[dict[str, Any]]:
         last_at = row["last_at"]
         summary.append(
             {
-                "theme": tag,
+                "theme": display_label(tag),
                 "score": score_letter(cnt, max_catalyst),
                 "reason": f"최근 {cnt}건 뉴스 태그 · 최고 촉매 {max_catalyst:.1f}",
                 "updated_at": fmt_kst(last_at),
@@ -220,8 +220,8 @@ def build_candidates(cur) -> list[dict[str, Any]]:
         theme_tags = safe_tag_list(active_meta.get("theme_tags"))
         hot_override = active_meta.get("hot_override") or {}
         surge = active_meta.get("surge") or {}
-        theme = theme_tags[0] if theme_tags else hot_override.get("reason") or surge.get("stage") or row.get("source") or "watchlist"
-        signal = hot_override.get("reason") or surge.get("stage") or row.get("source") or f"score {float(row.get('score') or 0):.1f}"
+        theme = display_label(theme_tags[0]) if theme_tags else display_label(hot_override.get("reason") or surge.get("stage") or row.get("source") or "watchlist")
+        signal = display_label(hot_override.get("reason") or surge.get("stage") or row.get("source") or f"score {float(row.get('score') or 0):.1f}")
         collected_at = row.get("active_updated_at") or row.get("list_date")
         items.append(
             {
@@ -287,7 +287,7 @@ def build_watchlist(cur) -> list[dict[str, Any]]:
             reason_parts.append("sources: " + ", ".join(map(str, sources[:3])))
         if not reason_parts:
             reason_parts.append("관심 유지")
-        signal = hot_override.get("reason") or surge.get("stage") or (theme_tags[0] if theme_tags else row.get("candidate_source") or "watch")
+        signal = display_label(hot_override.get("reason") or surge.get("stage") or (theme_tags[0] if theme_tags else row.get("candidate_source") or "watch"))
         items.append(
             {
                 "ticker": row["symbol"],
@@ -333,7 +333,7 @@ def build_signal_on(cur) -> list[dict[str, Any]]:
     items = []
     for row in rows:
         payload = row.get("payload_json") or {}
-        stage = payload.get("stage") or row.get("kind") or row.get("source") or "signal"
+        stage = display_label(payload.get("stage") or row.get("kind") or row.get("source") or "signal")
         items.append(
             {
                 "ticker": row["symbol"],
@@ -383,7 +383,7 @@ def build_buy_list(cur) -> list[dict[str, Any]]:
         buy_amount = avg_price * qty
         diff = market_value - buy_amount
         rate = (diff / buy_amount * 100) if buy_amount else 0.0
-        signal = row.get("side") or "보유"
+        signal = display_label(row.get("side") or "보유")
         items.append(
             {
                 "ticker": row["symbol"],
