@@ -3,13 +3,14 @@
   "subtitle": "오늘 관심 테마와 후보를 DB에서 읽어 10분 단위로 갱신하는 페이지",
   "market_state": "대기",
   "summary": "실제 PostgreSQL 데이터로 테마, 후보종목, 관심목록, 시그널, 보유종목을 보여줍니다.",
-  "note": "watchlist_active / watchlist_candidates / surge_pool / news_events / positions를 읽어 생성합니다.",
+  "note": "watchlist_active / watchlist_candidates / surge_pool / news_events / positions / account_events를 읽어 생성합니다.",
   "tags": [
     "실데이터",
     "DB-first",
     "관심목록",
     "시그널",
-    "보유종목"
+    "보유종목",
+    "계좌자산"
   ],
   "theme_summary": [
     {
@@ -325,15 +326,62 @@
       "trigger_strength": 0.262
     }
   ],
-  "buy_list": [],
-  "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions",
-  "updated_at": "2026-06-13 00:30:56 KST",
-  "generated_at_utc": "2026-06-12T15:30:56Z",
+  "buy_list": [
+    {
+      "ticker": "217590",
+      "name": "티엠씨",
+      "buy_amount": 47600,
+      "current_amount": 43400,
+      "diff_amount": -4200,
+      "diff_rate": -8.823529411764707,
+      "signal": "보유",
+      "collected_at": "2026-06-13 00:35:07 KST",
+      "buy_amount_text": "47,600원",
+      "current_amount_text": "43,400원",
+      "diff_amount_text": "-4,200원",
+      "diff_rate_text": "-8.82%",
+      "source": "account_status_snapshot"
+    },
+    {
+      "ticker": "403870",
+      "name": "HPSP",
+      "buy_amount": 109800,
+      "current_amount": 143000,
+      "diff_amount": 33200,
+      "diff_rate": 30.2367941712204,
+      "signal": "보유",
+      "collected_at": "2026-06-13 00:35:07 KST",
+      "buy_amount_text": "109,800원",
+      "current_amount_text": "143,000원",
+      "diff_amount_text": "+33,200원",
+      "diff_rate_text": "+30.24%",
+      "source": "account_status_snapshot"
+    }
+  ],
+  "portfolio": {
+    "account_no": "65597023",
+    "updated_at": "2026-06-13 00:35:07 KST",
+    "current_total_assets": 466004,
+    "current_total_assets_text": "466,004원",
+    "initial_total_assets": 466004,
+    "initial_total_assets_text": "466,004원",
+    "growth_amount": 0,
+    "growth_amount_text": "+0원",
+    "growth_rate": 0.0,
+    "growth_rate_text": "+0.00%",
+    "cash_text": "279,604원",
+    "holdings_value_text": "186,400원",
+    "baseline_note": "seeded from latest kiwoom account snapshot"
+  },
+  "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
+  "updated_at": "2026-06-13 00:40:01 KST",
+  "generated_at_utc": "2026-06-12T15:40:01Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
     "watchlist": 10,
     "signals": 6,
-    "buys": 0
+    "buys": 2,
+    "portfolio": 1
   }
 }
