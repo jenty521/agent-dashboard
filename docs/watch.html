@@ -287,8 +287,12 @@
       kis_ranking_scan: 'KIS 랭킹 스캔',
       intraday_surge_detector: '장중 급등 감지',
       signal_chart_capture: '시그널 차트 캡처',
+      breakout: '돌파',
+      lock: '잠금',
+      continuation: '추세 지속',
+      watch: '관심 유지',
     };
-    const prettyLabel = (value) => LABELS[String(value ?? '')] || String(value ?? '').replaceAll('_', ' ').replaceAll('-', ' ');
+    const prettyLabel = (value) => LABELS[String(value ?? '').toLowerCase()] || String(value ?? '').replaceAll('_', ' ').replaceAll('-', ' ');
 
     const renderStats = (data) => {
       const stats = [
