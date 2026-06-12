@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Dashboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --line: #dbe3ef;
+      --text: #102033;
+      --muted: #5c6f87;
+      --accent: #2563eb;
+      --accent-weak: #dbeafe;
+      --ok: #dcfce7;
+      --ok-text: #166534;
+      --warn: #fef3c7;
+      --warn-text: #92400e;
+      --danger: #fee2e2;
+      --danger-text: #991b1b;
+      --shadow: 0 10px 25px rgba(16,32,51,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 30%, var(--bg) 100%);
+    }
+    a { color: var(--accent); }
+    header {
+      padding: 28px 24px 18px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+    .title-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    h1 { margin: 0; font-size: 28px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 10px; border-radius: 999px;
+      background: var(--accent-weak); color: var(--accent);
+      font-weight: 700; font-size: 12px;
+    }
+    .meta { margin-top: 8px; color: var(--muted); display: grid; gap: 4px; }
+    main { max-width: 1260px; margin: 0 auto; padding: 20px 18px 36px; display: grid; gap: 16px; }
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .stat { padding: 16px; }
+    .stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .stat .value { margin-top: 8px; font-size: 28px; font-weight: 800; }
+    .stat .desc { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    .grid-2 { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+    .panel { padding: 16px; }
+    .panel h2 { margin: 0 0 8px; font-size: 20px; }
+    .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+    .list { display: grid; gap: 10px; }
+    .item {
+      border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: #fbfdff;
+    }
+    .item-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .item-title { font-weight: 700; }
+    .item-body { margin-top: 6px; line-height: 1.5; }
+    .item-foot { margin-top: 6px; color: var(--muted); font-size: 13px; }
+    .tag {
+      display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px;
+      font-size: 12px; font-weight: 700; border: 1px solid var(--line);
+    }
+    .tag.ok { background: var(--ok); color: var(--ok-text); }
+    .tag.warn { background: var(--warn); color: var(--warn-text); }
+    .tag.danger { background: var(--danger); color: var(--danger-text); }
+    .tag.neutral { background: #eef2ff; color: #4338ca; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip {
+      padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px;
+      background: #fff; color: var(--muted); font-size: 13px;
+    }
+    .footer { color: var(--muted); font-size: 13px; padding: 4px 2px 0; }
+    .error {
+      border: 1px solid #fca5a5; background: #fff1f2; color: #9f1239;
+      padding: 12px 14px; border-radius: 14px;
+    }
+    @media (max-width: 1050px) {
+      .stats, .grid-2 { grid-template-columns: 1fr; }
+      header { position: static; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-row">
+      <h1 id="dashboard-title">Agent Dashboard</h1>
+      <span class="pill" id="market-pill">loading…</span>
+    </div>
+    <div class="meta">
+      <div id="dashboard-subtitle">GitHub Pages 기반 정적 대시보드</div>
+      <div id="dashboard-meta">JSON을 읽어 화면을 갱신합니다.</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats" id="stats"></section>
+
+    <section class="grid-2">
+      <article class="card panel">
+        <h2>상태 요약</h2>
+        <div class="subtitle" id="summary-subtitle">최근 스냅샷</div>
+        <div class="chips" id="chips"></div>
+        <div class="footer" id="summary-note"></div>
+      </article>
+
+      <article class="card panel">
+        <h2>운영 메모</h2>
+        <div class="subtitle">10분 단위 JSON 갱신용</div>
+        <div class="list" id="notes"></div>
+      </article>
+    </section>
+
+    <section class="card panel">
+      <h2>체크리스트</h2>
+      <div class="subtitle">실행 전/중/후 점검 항목</div>
+      <div class="list" id="checklists"></div>
+    </section>
+
+    <section class="card panel">
+      <h2>최근 업데이트</h2>
+      <div class="subtitle">JSON에서 직접 렌더링</div>
+      <div class="list" id="updates"></div>
+    </section>
+
+    <section class="card panel">
+      <h2>원본 JSON</h2>
+      <div class="subtitle">docs/data/latest.json</div>
+      <pre id="raw-json" style="margin:0; overflow:auto; padding:14px; border:1px solid var(--line); border-radius:14px; background:#0f172a; color:#e2e8f0; font-size:12px; line-height:1.5;"></pre>
+    </section>
+  </main>
+
+  <script>
+    const fmt = (v) => v == null ? '' : String(v);
+    const badgeClass = (status) => {
+      const s = String(status || '').toLowerCase();
+      if (['done', 'ok', 'ready', 'published', 'pass'].includes(s)) return 'ok';
+      if (['blocked', 'warn', 'pending', 'todo'].includes(s)) return 'warn';
+      if (['error', 'danger', 'fail'].includes(s)) return 'danger';
+      return 'neutral';
+    };
+
+    function renderStats(stats) {
+      const root = document.getElementById('stats');
+      root.innerHTML = (stats || []).map(item => `
+        <div class="card stat">
+          <div class="label">${fmt(item.label)}</div>
+          <div class="value">${fmt(item.value)}</div>
+          <div class="desc">${fmt(item.desc || '')}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderList(rootId, items, fields) {
+      const root = document.getElementById(rootId);
+      root.innerHTML = (items || []).map(item => `
+        <div class="item">
+          <div class="item-head">
+            <div class="item-title">${fmt(item[fields.title])}</div>
+            <span class="tag ${badgeClass(item[fields.status])}">${fmt(item[fields.status] || 'neutral')}</span>
+          </div>
+          <div class="item-body">${fmt(item[fields.body] || '')}</div>
+          <div class="item-foot">${fmt(item[fields.foot] || '')}</div>
+        </div>
+      `).join('') || '<div class="item">데이터가 없습니다.</div>';
+    }
+
+    function renderChips(items) {
+      document.getElementById('chips').innerHTML = (items || []).map(x => `<span class="chip">${fmt(x)}</span>`).join('');
+    }
+
+    fetch('./data/latest.json', { cache: 'no-store' })
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then(data => {
+        document.getElementById('dashboard-title').textContent = data.title || 'Agent Dashboard';
+        document.getElementById('dashboard-subtitle').textContent = data.subtitle || 'GitHub Pages 기반 정적 대시보드';
+        document.getElementById('dashboard-meta').textContent = `updated_at: ${fmt(data.updated_at)} · source: ${fmt(data.source || 'json')}`;
+        document.getElementById('market-pill').textContent = data.market_state || '대기';
+        document.getElementById('summary-subtitle').textContent = data.summary || '최근 스냅샷';
+        document.getElementById('summary-note').textContent = data.note || '';
+        renderStats(data.stats || []);
+        renderChips(data.tags || []);
+        renderList('notes', data.notes || [], { title: 'title', status: 'status', body: 'body', foot: 'foot' });
+        renderList('checklists', data.checklists || [], { title: 'task', status: 'status', body: 'detail', foot: 'foot' });
+        renderList('updates', data.updates || [], { title: 'name', status: 'status', body: 'detail', foot: 'time' });
+        document.getElementById('raw-json').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(err => {
+        document.getElementById('market-pill').textContent = 'JSON load failed';
+        document.getElementById('stats').innerHTML = `<div class="error">데이터를 불러오지 못했습니다: ${fmt(err.message)}</div>`;
+      });
+  </script>
+</body>
+</html>
