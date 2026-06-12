@@ -299,8 +299,8 @@ def build_buy_list(cur) -> list[dict[str, Any]]:
     cur.execute(
         """
         select
-          p.symbol,
-          coalesce(i.name, p.symbol) as name,
+          i.symbol,
+          coalesce(i.name, i.symbol) as name,
           p.side,
           p.quantity,
           p.avg_price,
@@ -311,9 +311,9 @@ def build_buy_list(cur) -> list[dict[str, Any]]:
           p.last_updated_at,
           p.position_json
         from public.positions p
-        left join public.instruments i on i.symbol = p.symbol
+        left join public.instruments i on i.id = p.instrument_id
         where coalesce(p.quantity, 0) > 0
-        order by p.last_updated_at desc nulls last, p.updated_at desc nulls last, p.symbol asc
+        order by p.last_updated_at desc nulls last, p.updated_at desc nulls last, i.symbol asc
         limit 20;
         """
     )
