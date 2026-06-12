@@ -1,5 +1,5 @@
 {
-  "title": "PKJ-Stock Watchlist",
+  "title": "COOLPEACE AGENT WATCH",
   "subtitle": "오늘 관심 테마와 후보를 DB에서 읽어 10분 단위로 갱신하는 페이지",
   "market_state": "대기",
   "summary": "실제 PostgreSQL 데이터로 테마, 후보종목, 관심목록, 시그널, 보유종목을 보여줍니다.",
@@ -327,8 +327,8 @@
   ],
   "buy_list": [],
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions",
-  "updated_at": "2026-06-12 23:40:30 KST",
-  "generated_at_utc": "2026-06-12T14:40:30Z",
+  "updated_at": "2026-06-12 23:47:44 KST",
+  "generated_at_utc": "2026-06-12T14:47:44Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
