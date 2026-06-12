@@ -3,149 +3,847 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agent Dashboard</title>
+  <meta name="color-scheme" content="dark light" />
+  <title>PKJ-Stock Agent</title>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f5f7fb;
-      --panel: #ffffff;
-      --line: #dbe3ef;
-      --text: #102033;
-      --muted: #5c6f87;
-      --accent: #2563eb;
-      --accent-weak: #dbeafe;
-      --ok: #dcfce7;
-      --ok-text: #166534;
-      --warn: #fef3c7;
-      --warn-text: #92400e;
-      --danger: #fee2e2;
-      --danger-text: #991b1b;
-      --shadow: 0 10px 25px rgba(16,32,51,.08);
+      color-scheme: dark;
+      --bg: #07111f;
+      --bg2: #0a1730;
+      --panel: rgba(10, 23, 48, 0.72);
+      --panel-strong: rgba(14, 29, 58, 0.92);
+      --line: rgba(173, 198, 255, 0.14);
+      --text: #e8efff;
+      --muted: #90a3c7;
+      --accent: #6aa8ff;
+      --accent-2: #8b5cf6;
+      --accent-3: #22c55e;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
     }
+
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: Inter, Pretendard, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 30%, var(--bg) 100%);
+      background:
+        radial-gradient(circle at top left, rgba(106,168,255,.14), transparent 32%),
+        radial-gradient(circle at top right, rgba(139,92,246,.14), transparent 34%),
+        radial-gradient(circle at 50% 0%, rgba(34,197,94,.08), transparent 30%),
+        linear-gradient(180deg, #09101d 0%, #07111f 24%, #06101d 100%);
+      min-height: 100vh;
     }
-    a { color: var(--accent); }
-    header {
-      padding: 28px 24px 18px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 5;
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 26px 22px 44px;
     }
-    .title-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-    h1 { margin: 0; font-size: 28px; }
-    .pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 10px; border-radius: 999px;
-      background: var(--accent-weak); color: var(--accent);
-      font-weight: 700; font-size: 12px;
-    }
-    .meta { margin-top: 8px; color: var(--muted); display: grid; gap: 4px; }
-    main { max-width: 1260px; margin: 0 auto; padding: 20px 18px 36px; display: grid; gap: 16px; }
-    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .card {
-      background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(8, 18, 36, 0.65);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      margin-bottom: 18px;
     }
-    .stat { padding: 16px; }
-    .stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
-    .stat .value { margin-top: 8px; font-size: 28px; font-weight: 800; }
-    .stat .desc { margin-top: 6px; color: var(--muted); font-size: 13px; }
-    .grid-2 { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
-    .panel { padding: 16px; }
-    .panel h2 { margin: 0 0 8px; font-size: 20px; }
-    .subtitle { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
-    .list { display: grid; gap: 10px; }
-    .item {
-      border: 1px solid var(--line); border-radius: 14px; padding: 12px; background: #fbfdff;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
     }
-    .item-head { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
-    .item-title { font-weight: 700; }
-    .item-body { margin-top: 6px; line-height: 1.5; }
-    .item-foot { margin-top: 6px; color: var(--muted); font-size: 13px; }
-    .tag {
-      display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 10px;
-      font-size: 12px; font-weight: 700; border: 1px solid var(--line);
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(106,168,255,.95), rgba(139,92,246,.95));
+      box-shadow: 0 10px 30px rgba(106,168,255,.28);
+      flex: 0 0 auto;
+      font-weight: 900;
+      letter-spacing: -0.04em;
     }
-    .tag.ok { background: var(--ok); color: var(--ok-text); }
-    .tag.warn { background: var(--warn); color: var(--warn-text); }
-    .tag.danger { background: var(--danger); color: var(--danger-text); }
-    .tag.neutral { background: #eef2ff; color: #4338ca; }
-    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .brand-copy { min-width: 0; }
+    .brand-copy h1 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+    .brand-copy p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 54vw;
+    }
+
+    .top-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .pill strong { font-size: 11px; letter-spacing: .12em; opacity: .8; }
+
+    .pill.state {
+      background: linear-gradient(135deg, rgba(245,158,11,.16), rgba(139,92,246,.16));
+      border-color: rgba(245,158,11,.28);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(340px, .9fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(12, 25, 48, .88), rgba(8, 18, 35, .84));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-main {
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+    }
+
+    .hero-main::before,
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      filter: blur(24px);
+      opacity: .28;
+      pointer-events: none;
+    }
+
+    .hero-main::before {
+      top: -95px;
+      right: -70px;
+      background: radial-gradient(circle, rgba(106,168,255,.9), transparent 64%);
+    }
+
+    .hero-main::after {
+      bottom: -120px;
+      left: -90px;
+      background: radial-gradient(circle, rgba(139,92,246,.9), transparent 64%);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      color: #dce6ff;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #f6fbff, #7fb0ff 45%, #b48cff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin: 16px 0 0;
+      max-width: 800px;
+      color: #c7d5f4;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .hero-tags {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .chip {
-      padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px;
-      background: #fff; color: var(--muted); font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      color: #dbe7ff;
+      font-size: 12px;
+      font-weight: 600;
     }
-    .footer { color: var(--muted); font-size: 13px; padding: 4px 2px 0; }
+
+    .hero-actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(106,168,255,.95), rgba(139,92,246,.95));
+      border-color: transparent;
+      box-shadow: 0 12px 28px rgba(106,168,255,.24);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .snapshot {
+      padding: 22px;
+    }
+
+    .snapshot h2,
+    .section h2 {
+      margin: 0;
+      letter-spacing: -0.03em;
+      font-size: 20px;
+    }
+
+    .snapshot-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .snapshot-top p,
+    .section-sub {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .state-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(34,197,94,.11);
+      border: 1px solid rgba(34,197,94,.25);
+      color: #b8ffd1;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini-card {
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+    }
+
+    .mini-card .label {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .mini-card .value {
+      margin-top: 10px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .mini-card .desc {
+      margin-top: 6px;
+      color: #c6d6f1;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .stack {
+      padding: 22px;
+    }
+
+    .section {
+      margin-bottom: 18px;
+      padding: 24px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .section-head .title-wrap {
+      min-width: 0;
+    }
+
+    .section-head .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      color: #cfe0ff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric::after {
+      content: "";
+      position: absolute;
+      inset: auto -30px -42px auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      opacity: .18;
+      background: radial-gradient(circle, rgba(106,168,255,.95), transparent 62%);
+      pointer-events: none;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .metric .value {
+      margin-top: 12px;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .metric .desc {
+      margin-top: 8px;
+      color: #c9d7f4;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, .95fr);
+      gap: 18px;
+    }
+
+    .cards {
+      display: grid;
+      gap: 14px;
+    }
+
+    .strategy-card,
+    .feed-card,
+    .timeline-card,
+    .json-card {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+    }
+
+    .strategy-card {
+      display: grid;
+      gap: 14px;
+    }
+
+    .strategy-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .strategy-title {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .strategy-summary {
+      margin: 8px 0 0;
+      color: #d7e4fb;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tone-accent { background: rgba(106,168,255,.14); color: #b9d6ff; border-color: rgba(106,168,255,.24); }
+    .tone-blue { background: rgba(96,165,250,.12); color: #b9dbff; border-color: rgba(96,165,250,.24); }
+    .tone-amber { background: rgba(245,158,11,.12); color: #ffe0ab; border-color: rgba(245,158,11,.24); }
+    .tone-emerald { background: rgba(34,197,94,.12); color: #b9ffd0; border-color: rgba(34,197,94,.24); }
+
+    .points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .point {
+      padding: 12px 12px 12px 14px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.14);
+      border: 1px solid rgba(255,255,255,.06);
+      color: #dce7fb;
+      font-size: 13px;
+      line-height: 1.45;
+      min-height: 64px;
+    }
+
+    .card-foot {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .step {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(106,168,255,.95), rgba(139,92,246,.95), rgba(34,197,94,.8));
+    }
+
+    .step .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: 11px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: -0.03em;
+    }
+
+    .step p {
+      margin: 8px 0 0;
+      color: #ccdaf5;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .item {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.12);
+      padding: 14px;
+    }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .item-title {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 14px;
+    }
+
+    .item-body {
+      margin-top: 8px;
+      color: #d6e3fb;
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    .item-foot {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .tag.ok { background: rgba(34,197,94,.14); color: #c7ffd7; }
+    .tag.warn { background: rgba(245,158,11,.14); color: #ffe5b0; }
+    .tag.danger { background: rgba(239,68,68,.14); color: #ffc0c0; }
+    .tag.neutral { background: rgba(106,168,255,.12); color: #cee2ff; }
+
+    .content-panel {
+      min-width: 0;
+      display: grid;
+      gap: 18px;
+    }
+
+    .subgrid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .footnote {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .json-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    pre {
+      margin: 0;
+      overflow: auto;
+      padding: 16px;
+      border-radius: 18px;
+      background: #07101b;
+      border: 1px solid rgba(255,255,255,.08);
+      color: #d8e4f7;
+      font-size: 12px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
     .error {
-      border: 1px solid #fca5a5; background: #fff1f2; color: #9f1239;
-      padding: 12px 14px; border-radius: 14px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(239,68,68,.12);
+      border: 1px solid rgba(239,68,68,.22);
+      color: #ffd6d6;
     }
-    @media (max-width: 1050px) {
-      .stats, .grid-2 { grid-template-columns: 1fr; }
-      header { position: static; }
+
+    .footer {
+      padding: 8px 4px 0;
+      color: var(--muted);
+      font-size: 12px;
     }
-    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+
+    @media (max-width: 1200px) {
+      .hero,
+      .section-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4,
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .points {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page { padding: 14px 12px 28px; }
+      .topbar { border-radius: 24px; position: static; }
+      .hero-main, .snapshot, .stack, .section { padding: 18px; }
+      .grid-4,
+      .timeline,
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+      .topbar,
+      .section-head,
+      .snapshot-top,
+      .strategy-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .brand-copy p { max-width: 100%; white-space: normal; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="title-row">
-      <h1 id="dashboard-title">Agent Dashboard</h1>
-      <span class="pill" id="market-pill">loading…</span>
-    </div>
-    <div class="meta">
-      <div id="dashboard-subtitle">GitHub Pages 기반 정적 대시보드</div>
-      <div id="dashboard-meta">JSON을 읽어 화면을 갱신합니다.</div>
-    </div>
-  </header>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div class="brand-copy">
+          <h1 id="dashboard-title">PKJ-Stock Agent</h1>
+          <p id="dashboard-subtitle">에이전트 기반 단타 전략 대시보드</p>
+        </div>
+      </div>
+      <div class="top-meta">
+        <span class="pill state" id="market-pill">대기</span>
+        <span class="pill"><strong>UPDATED</strong> <span id="updated-pill">--</span></span>
+        <span class="pill"><strong>SOURCE</strong> <span id="source-pill">json</span></span>
+      </div>
+    </header>
 
-  <main>
-    <section class="stats" id="stats"></section>
-
-    <section class="grid-2">
-      <article class="card panel">
-        <h2>상태 요약</h2>
-        <div class="subtitle" id="summary-subtitle">최근 스냅샷</div>
-        <div class="chips" id="chips"></div>
-        <div class="footer" id="summary-note"></div>
+    <section class="hero">
+      <article class="card hero-main">
+        <div class="hero-kicker">GitHub Pages · 10분 자동 갱신 · JSON driven</div>
+        <h2 class="hero-title"><span>전략 상태</span>를
+          한 화면에서 정리해서 본다.</h2>
+        <p class="hero-subtitle" id="hero-summary">
+          전략 상태를 한눈에 확인하는 GitHub Pages + JSON 대시보드
+        </p>
+        <div class="hero-tags" id="hero-tags"></div>
+        <div class="hero-actions">
+          <a class="btn primary" href="#strategy">전략 프레임 보기</a>
+          <a class="btn" href="#json">원본 JSON 보기</a>
+        </div>
       </article>
 
-      <article class="card panel">
-        <h2>운영 메모</h2>
-        <div class="subtitle">10분 단위 JSON 갱신용</div>
+      <aside class="hero-side">
+        <article class="card snapshot">
+          <div class="snapshot-top">
+            <div>
+              <h2>스냅샷</h2>
+              <p id="snapshot-note">source.json이 있으면 그 내용을 반영하고, 없으면 heartbeat 스냅샷을 생성합니다.</p>
+            </div>
+            <span class="state-badge" id="state-badge">상태 확인</span>
+          </div>
+          <div class="mini-grid" id="stats"></div>
+        </article>
+      </aside>
+    </section>
+
+    <section class="card section" id="strategy">
+      <div class="section-head">
+        <div class="title-wrap">
+          <div class="eyebrow">strategy architecture</div>
+          <h2>전략 프레임</h2>
+          <p class="section-sub">시장 레짐 → 진입 시나리오 → 리스크 가드 → 청산 규칙의 순서로 정리합니다.</p>
+        </div>
+      </div>
+      <div class="cards" id="strategy-cards"></div>
+    </section>
+
+    <section class="card section">
+      <div class="section-head">
+        <div class="title-wrap">
+          <div class="eyebrow">operating loop</div>
+          <h2>운영 파이프라인</h2>
+          <p class="section-sub">수집부터 표시까지의 흐름을 4단계로 압축했습니다.</p>
+        </div>
+      </div>
+      <div class="timeline" id="flow-steps"></div>
+    </section>
+
+    <section class="content-grid">
+      <article class="card section content-panel">
+        <div class="section-head">
+          <div class="title-wrap">
+            <div class="eyebrow">status notes</div>
+            <h2>상태 요약</h2>
+          </div>
+        </div>
         <div class="list" id="notes"></div>
       </article>
+
+      <article class="card section content-panel">
+        <div class="section-head">
+          <div class="title-wrap">
+            <div class="eyebrow">checklist</div>
+            <h2>체크리스트</h2>
+          </div>
+        </div>
+        <div class="list" id="checklists"></div>
+      </article>
+
+      <article class="card section content-panel">
+        <div class="section-head">
+          <div class="title-wrap">
+            <div class="eyebrow">release log</div>
+            <h2>최근 업데이트</h2>
+          </div>
+        </div>
+        <div class="list" id="updates"></div>
+      </article>
     </section>
 
-    <section class="card panel">
-      <h2>체크리스트</h2>
-      <div class="subtitle">실행 전/중/후 점검 항목</div>
-      <div class="list" id="checklists"></div>
+    <section class="card section" id="json">
+      <div class="json-toolbar">
+        <div>
+          <div class="eyebrow">json snapshot</div>
+          <h2>원본 JSON</h2>
+        </div>
+        <div class="footnote">docs/data/latest.json · cache: no-store</div>
+      </div>
+      <pre id="raw-json">loading…</pre>
+      <div class="footer" id="dashboard-meta"></div>
     </section>
-
-    <section class="card panel">
-      <h2>최근 업데이트</h2>
-      <div class="subtitle">JSON에서 직접 렌더링</div>
-      <div class="list" id="updates"></div>
-    </section>
-
-    <section class="card panel">
-      <h2>원본 JSON</h2>
-      <div class="subtitle">docs/data/latest.json</div>
-      <pre id="raw-json" style="margin:0; overflow:auto; padding:14px; border:1px solid var(--line); border-radius:14px; background:#0f172a; color:#e2e8f0; font-size:12px; line-height:1.5;"></pre>
-    </section>
-  </main>
+  </div>
 
   <script>
-    const fmt = (v) => v == null ? '' : String(v);
+    const $ = (id) => document.getElementById(id);
+    const escapeHTML = (value) => String(value ?? '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+
+    const fmt = (value) => value == null || value === '' ? '—' : String(value);
     const badgeClass = (status) => {
       const s = String(status || '').toLowerCase();
       if (['done', 'ok', 'ready', 'published', 'pass'].includes(s)) return 'ok';
@@ -153,34 +851,65 @@
       if (['error', 'danger', 'fail'].includes(s)) return 'danger';
       return 'neutral';
     };
+    const toneClass = (tone) => {
+      const s = String(tone || '').toLowerCase();
+      if (['accent', 'blue', 'amber', 'emerald'].includes(s)) return `tone-${s}`;
+      return 'tone-accent';
+    };
+
+    function renderPills(items) {
+      $('hero-tags').innerHTML = (items || []).map(item => `<span class="chip">${escapeHTML(item)}</span>`).join('');
+    }
 
     function renderStats(stats) {
-      const root = document.getElementById('stats');
-      root.innerHTML = (stats || []).map(item => `
-        <div class="card stat">
-          <div class="label">${fmt(item.label)}</div>
-          <div class="value">${fmt(item.value)}</div>
-          <div class="desc">${fmt(item.desc || '')}</div>
+      $('stats').innerHTML = (stats || []).map(item => `
+        <div class="mini-card">
+          <div class="label">${escapeHTML(item.label)}</div>
+          <div class="value">${escapeHTML(item.value)}</div>
+          <div class="desc">${escapeHTML(item.desc || '')}</div>
         </div>
       `).join('');
     }
 
-    function renderList(rootId, items, fields) {
-      const root = document.getElementById(rootId);
-      root.innerHTML = (items || []).map(item => `
-        <div class="item">
-          <div class="item-head">
-            <div class="item-title">${fmt(item[fields.title])}</div>
-            <span class="tag ${badgeClass(item[fields.status])}">${fmt(item[fields.status] || 'neutral')}</span>
+    function renderStrategyCards(cards) {
+      $('strategy-cards').innerHTML = (cards || []).map(card => `
+        <article class="strategy-card">
+          <div class="strategy-top">
+            <div>
+              <span class="badge ${toneClass(card.tone)}">${escapeHTML(card.badge || 'CARD')}</span>
+              <h3 class="strategy-title">${escapeHTML(card.title)}</h3>
+              <p class="strategy-summary">${escapeHTML(card.summary || '')}</p>
+            </div>
           </div>
-          <div class="item-body">${fmt(item[fields.body] || '')}</div>
-          <div class="item-foot">${fmt(item[fields.foot] || '')}</div>
-        </div>
-      `).join('') || '<div class="item">데이터가 없습니다.</div>';
+          <div class="points">
+            ${(Array.isArray(card.points) ? card.points : []).map(point => `<div class="point">${escapeHTML(point)}</div>`).join('')}
+          </div>
+          <div class="card-foot">${escapeHTML(card.foot || '')}</div>
+        </article>
+      `).join('') || '<div class="strategy-card">데이터가 없습니다.</div>';
     }
 
-    function renderChips(items) {
-      document.getElementById('chips').innerHTML = (items || []).map(x => `<span class="chip">${fmt(x)}</span>`).join('');
+    function renderTimeline(items) {
+      $('flow-steps').innerHTML = (items || []).map(step => `
+        <div class="step">
+          <div class="num">${escapeHTML(step.badge || '')}</div>
+          <h3>${escapeHTML(step.title || '')}</h3>
+          <p>${escapeHTML(step.body || '')}</p>
+        </div>
+      `).join('') || '<div class="step">데이터가 없습니다.</div>';
+    }
+
+    function renderList(rootId, items, map) {
+      $(rootId).innerHTML = (items || []).map(item => `
+        <div class="item">
+          <div class="item-head">
+            <div class="item-title">${escapeHTML(item[map.title])}</div>
+            <span class="tag ${badgeClass(item[map.status])}">${escapeHTML(item[map.status] || 'neutral')}</span>
+          </div>
+          <div class="item-body">${escapeHTML(item[map.body] || '')}</div>
+          <div class="item-foot">${escapeHTML(item[map.foot] || '')}</div>
+        </div>
+      `).join('') || '<div class="item">데이터가 없습니다.</div>';
     }
 
     fetch('./data/latest.json', { cache: 'no-store' })
@@ -189,22 +918,28 @@
         return r.json();
       })
       .then(data => {
-        document.getElementById('dashboard-title').textContent = data.title || 'Agent Dashboard';
-        document.getElementById('dashboard-subtitle').textContent = data.subtitle || 'GitHub Pages 기반 정적 대시보드';
-        document.getElementById('dashboard-meta').textContent = `updated_at: ${fmt(data.updated_at)} · source: ${fmt(data.source || 'json')}`;
-        document.getElementById('market-pill').textContent = data.market_state || '대기';
-        document.getElementById('summary-subtitle').textContent = data.summary || '최근 스냅샷';
-        document.getElementById('summary-note').textContent = data.note || '';
+        $('dashboard-title').textContent = data.title || 'PKJ-Stock Agent';
+        $('dashboard-subtitle').textContent = data.subtitle || '에이전트 기반 단타 전략 대시보드';
+        $('market-pill').textContent = data.market_state || '대기';
+        $('updated-pill').textContent = fmt(data.updated_at);
+        $('source-pill').textContent = fmt(data.source || 'json');
+        $('hero-summary').textContent = data.summary || '전략 상태를 한눈에 확인하는 GitHub Pages + JSON 대시보드';
+        $('snapshot-note').textContent = data.note || '';
+        $('state-badge').textContent = `${fmt(data.market_state || '대기')} · ${fmt(data.summary || '')}`;
+        $('dashboard-meta').textContent = `updated_at: ${fmt(data.updated_at)} · generated_at_utc: ${fmt(data.generated_at_utc)} · source: ${fmt(data.source || 'json')}`;
+        $('raw-json').textContent = JSON.stringify(data, null, 2);
+        renderPills(data.tags || []);
         renderStats(data.stats || []);
-        renderChips(data.tags || []);
+        renderStrategyCards(data.strategy_cards || []);
+        renderTimeline(data.flow_steps || []);
         renderList('notes', data.notes || [], { title: 'title', status: 'status', body: 'body', foot: 'foot' });
         renderList('checklists', data.checklists || [], { title: 'task', status: 'status', body: 'detail', foot: 'foot' });
         renderList('updates', data.updates || [], { title: 'name', status: 'status', body: 'detail', foot: 'time' });
-        document.getElementById('raw-json').textContent = JSON.stringify(data, null, 2);
       })
       .catch(err => {
-        document.getElementById('market-pill').textContent = 'JSON load failed';
-        document.getElementById('stats').innerHTML = `<div class="error">데이터를 불러오지 못했습니다: ${fmt(err.message)}</div>`;
+        $('market-pill').textContent = 'JSON load failed';
+        $('state-badge').textContent = '불러오기 실패';
+        $('raw-json').innerHTML = `<span class="error">데이터를 불러오지 못했습니다: ${escapeHTML(err.message)}</span>`;
       });
   </script>
 </body>
