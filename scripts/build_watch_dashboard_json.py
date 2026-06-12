@@ -54,6 +54,7 @@ DISPLAY_LABELS: dict[str, str] = {
     "kis_ranking_scan": "KIS 랭킹 스캔",
     "intraday_surge_detector": "장중 급등 감지",
     "signal_chart_capture": "시그널 차트 캡처",
+    "market_ticks+orderbook": "시장 틱·호가",
     "breakout": "돌파",
     "lock": "잠금",
     "continuation": "추세 지속",
@@ -278,13 +279,13 @@ def build_watchlist(cur) -> list[dict[str, Any]]:
         if hot_override.get("reason"):
             reason_parts.append(str(hot_override["reason"]))
         if theme_tags:
-            reason_parts.append("태그: " + ", ".join(theme_tags[:3]))
+            reason_parts.append("태그: " + ", ".join(display_label(tag) for tag in theme_tags[:3]))
         if surge.get("stage"):
-            reason_parts.append(f"시그널: {surge.get('stage')}")
+            reason_parts.append(f"시그널: {display_label(surge.get('stage'))}")
         if candidate.get("score") is not None:
             reason_parts.append(f"후보점수 {float(candidate['score']):.1f}")
         if not reason_parts and sources:
-            reason_parts.append("sources: " + ", ".join(map(str, sources[:3])))
+            reason_parts.append("sources: " + ", ".join(display_label(v) for v in sources[:3]))
         if not reason_parts:
             reason_parts.append("관심 유지")
         signal = display_label(hot_override.get("reason") or surge.get("stage") or (theme_tags[0] if theme_tags else row.get("candidate_source") or "watch"))
