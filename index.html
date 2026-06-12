@@ -922,7 +922,7 @@
         return r.json();
       })
       .then(data => {
-        $('dashboard-title').textContent = data.title || 'PKJ-Stock Agent';
+        $('dashboard-title').textContent = data.title || 'COOLPEACE AGENT';
         $('dashboard-subtitle').textContent = data.subtitle || '에이전트 기반 단타 전략 대시보드';
         $('market-pill').textContent = data.market_state || '대기';
         $('updated-pill').textContent = fmt(data.updated_at);
