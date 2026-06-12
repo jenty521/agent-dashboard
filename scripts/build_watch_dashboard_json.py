@@ -79,6 +79,7 @@ DEFAULT_PAYLOAD: dict[str, Any] = {
     "watchlist": [],
     "signal_on": [],
     "buy_list": [],
+    "portfolio": {},
 }
 
 
@@ -351,6 +352,91 @@ def build_signal_on(cur) -> list[dict[str, Any]]:
     return items
 
 
+def _normalize_symbol(code: Any) -> str:
+    text = str(code or "").strip().upper()
+    if text.startswith("A") and text[1:].isdigit():
+        return text[1:]
+    if text.startswith("*") and len(text) > 2:
+        return _normalize_symbol(text.lstrip("*"))
+    return text
+
+
+def _signed_money_text(value: float) -> str:
+    return f"{value:+,.0f}원"
+
+
+def _signed_rate_text(value: float) -> str:
+    return f"{value:+.2f}%"
+
+
+def _latest_kiwoom_account_snapshot(cur) -> dict[str, Any] | None:
+    cur.execute(
+        """
+        select id, account_no, observed_at, normalized_json, raw_json
+        from public.account_events
+        where broker_name = 'kiwoom'
+          and event_type = 'account_status_snapshot'
+        order by observed_at desc, id desc
+        limit 1
+        """
+    )
+    return cur.fetchone()
+
+
+def _baseline_for_account(cur, account_no: str) -> dict[str, Any] | None:
+    cur.execute(
+        """
+        select initial_total_assets, observed_at, source_account_event_id, note
+        from public.account_capital_baselines
+        where broker_name = 'kiwoom' and account_no = %s
+        order by id desc
+        limit 1
+        """,
+        [account_no],
+    )
+    return cur.fetchone()
+
+
+def _extract_holdings_from_snapshot(snapshot: dict[str, Any] | None) -> list[dict[str, Any]]:
+    if not snapshot:
+        return []
+    normalized = snapshot.get("normalized_json") or {}
+    raw_payload = normalized.get("raw_payload") or snapshot.get("raw_json") or {}
+    balance = raw_payload.get("balance_and_holdings") if isinstance(raw_payload, dict) else {}
+    holdings = balance.get("acnt_evlt_remn_indv_tot") if isinstance(balance, dict) else []
+    if not isinstance(holdings, list):
+        return []
+    items: list[dict[str, Any]] = []
+    for item in holdings:
+        if not isinstance(item, dict):
+            continue
+        qty = float(item.get("rmnd_qty") or item.get("trde_able_qty") or item.get("qty") or 0)
+        buy_amount = float(item.get("pur_amt") or (float(item.get("pur_pric") or 0) * qty) or 0)
+        current_amount = float(item.get("evlt_amt") or (float(item.get("cur_prc") or 0) * qty) or 0)
+        diff = current_amount - buy_amount
+        rate = (diff / buy_amount * 100) if buy_amount else 0.0
+        symbol = _normalize_symbol(item.get("stk_cd") or item.get("symbol") or item.get("code"))
+        name = str(item.get("stk_nm") or item.get("name") or symbol or "")
+        items.append(
+            {
+                "ticker": symbol,
+                "name": name,
+                "buy_amount": round(buy_amount),
+                "current_amount": round(current_amount),
+                "diff_amount": round(diff),
+                "diff_rate": rate,
+                "signal": "보유",
+                "collected_at": fmt_kst(snapshot.get("observed_at")),
+                "buy_amount_text": money(buy_amount),
+                "current_amount_text": money(current_amount),
+                "diff_amount_text": _signed_money_text(diff),
+                "diff_rate_text": _signed_rate_text(rate),
+                "source": "account_status_snapshot",
+            }
+        )
+    return items
+
+
 def build_buy_list(cur) -> list[dict[str, Any]]:
     cur.execute(
         f"""
@@ -375,6 +461,10 @@ def build_buy_list(cur) -> list[dict[str, Any]]:
         """
     )
     rows = cur.fetchall()
+    if not rows:
+        rows = _extract_holdings_from_snapshot(_latest_kiwoom_account_snapshot(cur))
+        return rows
+
     items = []
     for row in rows:
         qty = float(row.get("quantity") or 0)
@@ -397,11 +487,41 @@ def build_buy_list(cur) -> list[dict[str, Any]]:
                 "collected_at": fmt_kst(row.get("last_updated_at")),
                 "buy_amount_text": money(buy_amount),
                 "current_amount_text": money(market_value),
-                "diff_amount_text": f"{diff:+,.0f}원" if diff % 1 == 0 else f"{diff:+,.2f}원",
-                "diff_rate_text": f"{rate:+.2f}%",
+                "diff_amount_text": _signed_money_text(diff),
+                "diff_rate_text": _signed_rate_text(rate),
+                "source": "positions",
             }
         )
     return items
+
+
+def build_portfolio_summary(cur) -> dict[str, Any] | None:
+    snapshot = _latest_kiwoom_account_snapshot(cur)
+    if not snapshot:
+        return None
+    normalized = snapshot.get("normalized_json") or {}
+    current_total_assets = float(normalized.get("total_assets") or 0)
+    if not current_total_assets:
+        current_total_assets = float((normalized.get("available_cash") or 0)) + float((normalized.get("holdings_value") or 0))
+    baseline = _baseline_for_account(cur, str(snapshot.get("account_no") or ""))
+    initial_total_assets = float(baseline.get("initial_total_assets") or current_total_assets) if baseline else current_total_assets
+    growth_amount = current_total_assets - initial_total_assets
+    growth_rate = (growth_amount / initial_total_assets * 100) if initial_total_assets else 0.0
+    return {
+        "account_no": snapshot.get("account_no") or "",
+        "updated_at": fmt_kst(snapshot.get("observed_at")),
+        "current_total_assets": round(current_total_assets),
+        "current_total_assets_text": money(current_total_assets),
+        "initial_total_assets": round(initial_total_assets),
+        "initial_total_assets_text": money(initial_total_assets),
+        "growth_amount": round(growth_amount),
+        "growth_amount_text": _signed_money_text(growth_amount),
+        "growth_rate": growth_rate,
+        "growth_rate_text": _signed_rate_text(growth_rate),
+        "cash_text": money(normalized.get("available_cash")),
+        "holdings_value_text": money(normalized.get("holdings_value")),
+        "baseline_note": baseline.get("note") if baseline else "baseline not yet seeded",
+    }
 
 
 @dataclass
@@ -419,26 +539,28 @@ def build_from_database(db_url: str) -> WatchPayload | None:
                 watchlist = build_watchlist(cur)
                 signal_on = build_signal_on(cur)
                 buy_list = build_buy_list(cur)
+                portfolio = build_portfolio_summary(cur) or {}
 
-        source_label = "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions"
-        payload = deepcopy(DEFAULT_PAYLOAD)
-        payload.update(
-            {
-                "title": "COOLPEACE AGENT WATCH",
-                "subtitle": "오늘 관심 테마와 후보를 DB에서 읽어 10분 단위로 갱신하는 페이지",
-                "market_state": "대기",
-                "summary": "실제 PostgreSQL 데이터로 테마, 후보종목, 관심목록, 시그널, 보유종목을 보여줍니다.",
-                "note": "watchlist_active / watchlist_candidates / surge_pool / news_events / positions를 읽어 생성합니다.",
-                "source": source_label,
-                "theme_summary": theme_summary,
-                "candidate_list": candidate_list,
-                "watchlist": watchlist,
-                "signal_on": signal_on,
-                "buy_list": buy_list,
-            }
-        )
-        payload["tags"] = ["실데이터", "DB-first", "관심목록", "시그널", "보유종목"]
-        return WatchPayload(payload=payload, source_label=source_label)
+                source_label = "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines"
+                payload = deepcopy(DEFAULT_PAYLOAD)
+                payload.update(
+                    {
+                        "title": "COOLPEACE AGENT WATCH",
+                        "subtitle": "오늘 관심 테마와 후보를 DB에서 읽어 10분 단위로 갱신하는 페이지",
+                        "market_state": "대기",
+                        "summary": "실제 PostgreSQL 데이터로 테마, 후보종목, 관심목록, 시그널, 보유종목을 보여줍니다.",
+                        "note": "watchlist_active / watchlist_candidates / surge_pool / news_events / positions / account_events를 읽어 생성합니다.",
+                        "source": source_label,
+                        "theme_summary": theme_summary,
+                        "candidate_list": candidate_list,
+                        "watchlist": watchlist,
+                        "signal_on": signal_on,
+                        "buy_list": buy_list,
+                        "portfolio": portfolio,
+                    }
+                )
+                payload["tags"] = ["실데이터", "DB-first", "관심목록", "시그널", "보유종목", "계좌자산"]
+                return WatchPayload(payload=payload, source_label=source_label)
     except Exception as exc:
         print(f"db fetch failed: {exc}")
         return None
@@ -479,6 +601,7 @@ def finalize_payload(watch: WatchPayload, source_name: str) -> dict[str, Any]:
         "watchlist": len(payload["watchlist"]),
         "signals": len(payload["signal_on"]),
         "buys": len(payload["buy_list"]),
+        "portfolio": 1 if payload.get("portfolio") else 0,
     }
     return payload
 

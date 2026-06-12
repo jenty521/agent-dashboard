@@ -144,7 +144,7 @@ def build_payload(source: dict | None, source_name: str) -> dict:
     payload["checklists"] = as_list(source.get("checklists"), payload["checklists"])
     payload["updates"] = as_list(source.get("updates"), payload["updates"])
 
-    for key in ("gate", "positions", "watchlist", "alerts", "links", "signals", "controls"):
+    for key in ("gate", "positions", "watchlist", "alerts", "links", "signals", "controls", "portfolio"):
         if key in source:
             payload[key] = source[key]
 
