@@ -1,0 +1,26 @@
+{
+  "title": "Agent Dashboard",
+  "subtitle": "GitHub Pages + JSON snapshot",
+  "market_state": "대기",
+  "summary": "10분 단위 JSON 갱신 구조",
+  "note": "source.json을 갱신하면 workflow가 latest.json으로 반영합니다.",
+  "tags": ["GitHub Pages", "JSON", "10분 갱신", "정적 대시보드"],
+  "stats": [
+    {"label": "Mode", "value": "WAIT", "desc": "매매 대기 상태"},
+    {"label": "Refresh", "value": "10m", "desc": "권장 갱신 주기"},
+    {"label": "Source", "value": "JSON", "desc": "data/source.json"},
+    {"label": "Deploy", "value": "Pages", "desc": "gh-pages 브랜치"}
+  ],
+  "notes": [
+    {"title": "운영 방식", "status": "ok", "body": "JSON만 갱신해서 GitHub에 push", "foot": "자동 배포 가능"},
+    {"title": "확장", "status": "warn", "body": "실데이터 소스가 연결되면 source.json만 바꾸면 됨", "foot": "외부 수집기 연결"}
+  ],
+  "checklists": [
+    {"task": "JSON 생성", "status": "done", "detail": "latest.json 생성", "foot": "docs/data/latest.json"},
+    {"task": "Pages 배포", "status": "todo", "detail": "repo settings에서 Pages source 확인", "foot": "gh-pages / 루트"}
+  ],
+  "updates": [
+    {"name": "seed", "status": "done", "detail": "초기 샘플 데이터", "time": "manual"},
+    {"name": "schedule", "status": "ready", "detail": "10분마다 워크플로우 갱신", "time": "github-actions"}
+  ]
+}
