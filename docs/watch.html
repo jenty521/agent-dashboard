@@ -374,7 +374,7 @@
       $('buy-summary').textContent = `합계: 매수 ${totalBuy.toLocaleString('ko-KR')}원 · 현재 ${totalCurrent.toLocaleString('ko-KR')}원 · 차액 ${totalDiff >= 0 ? '+' : ''}${totalDiff.toLocaleString('ko-KR')}원 (${totalRate >= 0 ? '+' : ''}${totalRate.toFixed(2)}%)`;
     };
 
-    fetch('./data/watch.json', { cache: 'no-store' })
+    fetch(`./data/watch.json?ts=${Date.now()}`, { cache: 'no-store' })
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
       .then(data => {
         $('dashboard-title').textContent = data.title || 'PKJ-Stock Watchlist';
