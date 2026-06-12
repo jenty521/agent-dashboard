@@ -377,7 +377,7 @@
     fetch(`./data/watch.json?ts=${Date.now()}`, { cache: 'no-store' })
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
       .then(data => {
-        $('dashboard-title').textContent = data.title || 'PKJ-Stock Watchlist';
+        $('dashboard-title').textContent = data.title || 'COOLPEACE AGENT WATCH';
         $('dashboard-subtitle').textContent = data.subtitle || '오늘 관심 테마와 후보를 10분 단위로 갱신하는 페이지';
         $('state-pill').textContent = data.market_state || '대기';
         $('updated-pill').textContent = data.updated_at || '—';
