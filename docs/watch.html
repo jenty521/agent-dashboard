@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <title>PKJ-Stock Watchlist</title>
+  <title>COOLPEACE AGENT WATCH</title>
   <style>
     :root {
       color-scheme: dark;
@@ -136,9 +136,9 @@
   <div class="wrap">
     <header class="topbar">
       <div class="brand">
-        <div class="logo">W</div>
+        <div class="logo">C</div>
         <div>
-          <h1 id="dashboard-title">PKJ-Stock Watchlist</h1>
+          <h1 id="dashboard-title">COOLPEACE AGENT WATCH</h1>
           <p id="dashboard-subtitle">오늘 관심 테마와 후보를 10분 단위로 갱신하는 페이지</p>
         </div>
       </div>
@@ -146,7 +146,7 @@
         <a class="pill" href="./index.html"><strong>HOME</strong> <span>대시보드</span></a>
         <span class="pill state" id="state-pill">대기</span>
         <span class="pill"><strong>UPDATED</strong> <span id="updated-pill">--</span></span>
-        <span class="pill"><strong>SOURCE</strong> <span id="source-pill">json</span></span>
+        <span class="pill"><strong>JSON</strong> <span id="source-pill">docs/data/watch.json</span></span>
       </div>
     </header>
 
@@ -381,7 +381,7 @@
         $('dashboard-subtitle').textContent = data.subtitle || '오늘 관심 테마와 후보를 10분 단위로 갱신하는 페이지';
         $('state-pill').textContent = data.market_state || '대기';
         $('updated-pill').textContent = data.updated_at || '—';
-        $('source-pill').textContent = data.source || 'json';
+        $('source-pill').textContent = 'docs/data/watch.json · DB-first';
         $('hero-summary').textContent = data.summary || '';
         $('snapshot-note').textContent = data.note || '';
         $('status-badge').textContent = `${data.market_state || '대기'} · ${data.summary || ''}`;

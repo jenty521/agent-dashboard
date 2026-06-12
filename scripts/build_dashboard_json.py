@@ -21,7 +21,7 @@ from zoneinfo import ZoneInfo
 KST = ZoneInfo("Asia/Seoul")
 
 DEFAULT_PAYLOAD = {
-    "title": "PKJ-Stock Agent",
+    "title": "COOLPEACE AGENT",
     "subtitle": "에이전트 기반 단타 전략 대시보드",
     "market_state": "대기",
     "summary": "전략 상태를 한눈에 확인하는 GitHub Pages + JSON 대시보드",

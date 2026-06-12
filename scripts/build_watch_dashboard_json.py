@@ -29,7 +29,7 @@ KST = ZoneInfo("Asia/Seoul")
 DEFAULT_DB_URL = "postgresql://jenty521@127.0.0.1:5432/invest?sslmode=disable"
 
 DEFAULT_PAYLOAD: dict[str, Any] = {
-    "title": "PKJ-Stock Watchlist",
+    "title": "COOLPEACE AGENT WATCH",
     "subtitle": "오늘 관심 테마와 후보를 10분 단위로 갱신하는 페이지",
     "market_state": "대기",
     "summary": "테마, 후보종목, 관심목록, 시그널, 매수목록을 한 화면에 정리합니다.",
@@ -367,7 +367,7 @@ def build_from_database(db_url: str) -> WatchPayload | None:
         payload = deepcopy(DEFAULT_PAYLOAD)
         payload.update(
             {
-                "title": "PKJ-Stock Watchlist",
+                "title": "COOLPEACE AGENT WATCH",
                 "subtitle": "오늘 관심 테마와 후보를 DB에서 읽어 10분 단위로 갱신하는 페이지",
                 "market_state": "대기",
                 "summary": "실제 PostgreSQL 데이터로 테마, 후보종목, 관심목록, 시그널, 보유종목을 보여줍니다.",
