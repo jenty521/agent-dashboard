@@ -49,7 +49,7 @@
     .topmeta { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
     .pill {
       display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid var(--line);
-      background: rgba(255,255,255,.04); font-size:12px; font-weight:700;
+      background: rgba(255,255,255,.04); font-size:12px; font-weight:700; color: inherit; text-decoration: none;
     }
     .pill.state { background: rgba(34,197,94,.12); color:#bfffd0; border-color: rgba(34,197,94,.24); }
     .hero {
@@ -143,6 +143,7 @@
         </div>
       </div>
       <div class="topmeta">
+        <a class="pill" href="./index.html"><strong>HOME</strong> <span>대시보드</span></a>
         <span class="pill state" id="state-pill">대기</span>
         <span class="pill"><strong>UPDATED</strong> <span id="updated-pill">--</span></span>
         <span class="pill"><strong>SOURCE</strong> <span id="source-pill">json</span></span>
@@ -160,6 +161,7 @@
           <a class="btn primary" href="#themes">테마 보기</a>
           <a class="btn" href="#buylist">매수 목록</a>
           <a class="btn" href="#raw">원본 JSON</a>
+          <a class="btn" href="./index.html">대시보드로</a>
         </div>
       </article>
       <aside class="side">
