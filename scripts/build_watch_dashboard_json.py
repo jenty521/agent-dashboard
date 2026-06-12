@@ -33,6 +33,39 @@ EXCLUDED_PRODUCT_NAME_RE = (
     r"|ETF|ETN|레버리지|인버스|선물|커버드콜|채권|달러"
 )
 
+DISPLAY_LABELS: dict[str, str] = {
+    "daily_universe_scan": "일일 유니버스 스캔",
+    "intraday_watchlist_refresh": "장중 워치리스트 재평가",
+    "market_news_refresh": "뉴스/블로그 최신 수집",
+    "pre_market_data_quality_check": "장전 데이터 품질/갭 점검",
+    "session_state_heartbeat": "세션 하트비트",
+    "intraday_risk_reconciliation": "장중 리스크/체결 대사",
+    "broker_readiness_snapshot": "브로커 상태 스냅샷",
+    "market_holiday_sync": "휴장일 동기화",
+    "account_holdings_snapshot": "계좌 보유 스냅샷",
+    "live_market_snapshot": "장중 시세 스냅샷",
+    "intraday_bars_rollup": "장중 분봉 롤업",
+    "strategy_pipeline_tick": "전략 후보 파이프라인",
+    "entry_signal_execution": "진입 시그널 실행",
+    "exit_signal_execution": "청산 시그널 실행",
+    "post_market_analysis_summary": "장마감 분석 요약",
+    "daily_pnl_and_risk_summary": "일일 손익/리스크 요약",
+    "overnight_drift_monitor": "야간 드리프트 모니터",
+    "kis_ranking_scan": "KIS 랭킹 스캔",
+    "intraday_surge_detector": "장중 급등 감지",
+    "signal_chart_capture": "시그널 차트 캡처",
+    "breakout": "돌파",
+    "lock": "잠금",
+    "continuation": "추세 지속",
+    "watch": "관심 유지",
+}
+
+
+def display_label(value: Any) -> str:
+    raw = str(value or "")
+    return DISPLAY_LABELS.get(raw.lower(), raw.replace("_", " ").replace("-", " ").replace("+", "·"))
+
+
 DEFAULT_PAYLOAD: dict[str, Any] = {
     "title": "COOLPEACE AGENT WATCH",
     "subtitle": "오늘 관심 테마와 후보를 10분 단위로 갱신하는 페이지",
