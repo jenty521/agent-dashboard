@@ -1,0 +1,129 @@
+{
+  "title": "PKJ-Stock Watchlist",
+  "subtitle": "오늘 관심 테마와 후보를 10분 단위로 갱신하는 페이지",
+  "market_state": "대기",
+  "summary": "테마, 후보종목, 관심목록, 시그널, 매수목록을 한 화면에 정리합니다.",
+  "note": "이 파일은 Python 스크립트가 읽어 docs/data/watch.json으로 변환합니다.",
+  "tags": [
+    "오늘 관심 테마",
+    "후보종목",
+    "관심목록",
+    "시그널",
+    "매수목록"
+  ],
+  "theme_summary": [
+    {
+      "theme": "2차전지",
+      "score": "A",
+      "reason": "수급 강세와 거래대금 동반",
+      "updated_at": "2026-06-12 19:10 KST"
+    },
+    {
+      "theme": "로봇",
+      "score": "A-",
+      "reason": "테마 순환 + 뉴스 모멘텀",
+      "updated_at": "2026-06-12 19:10 KST"
+    },
+    {
+      "theme": "반도체",
+      "score": "B+",
+      "reason": "대형주 중심 안정적 수급",
+      "updated_at": "2026-06-12 19:10 KST"
+    }
+  ],
+  "candidate_list": [
+    {
+      "ticker": "000000",
+      "name": "샘플A",
+      "theme": "2차전지",
+      "signal": "돌파",
+      "collected_at": "2026-06-12 19:08 KST"
+    },
+    {
+      "ticker": "000111",
+      "name": "샘플B",
+      "theme": "로봇",
+      "signal": "눌림",
+      "collected_at": "2026-06-12 19:08 KST"
+    },
+    {
+      "ticker": "000222",
+      "name": "샘플C",
+      "theme": "반도체",
+      "signal": "급등",
+      "collected_at": "2026-06-12 19:08 KST"
+    }
+  ],
+  "watchlist": [
+    {
+      "ticker": "000000",
+      "name": "샘플A",
+      "reason": "거래대금 상위 + 추세 유지",
+      "signal": "돌파",
+      "collected_at": "2026-06-12 19:08 KST"
+    },
+    {
+      "ticker": "000333",
+      "name": "샘플D",
+      "reason": "전고점 접근 + 체결강도 개선",
+      "signal": "관찰",
+      "collected_at": "2026-06-12 19:08 KST"
+    }
+  ],
+  "signal_on": [
+    {
+      "ticker": "000000",
+      "name": "샘플A",
+      "signal": "진입준비",
+      "collected_at": "2026-06-12 19:08 KST",
+      "signal_at": "2026-06-12 19:09 KST"
+    },
+    {
+      "ticker": "000111",
+      "name": "샘플B",
+      "signal": "모니터링",
+      "collected_at": "2026-06-12 19:08 KST",
+      "signal_at": "2026-06-12 19:09 KST"
+    }
+  ],
+  "buy_list": [
+    {
+      "ticker": "000000",
+      "name": "샘플A",
+      "buy_amount": 1000000,
+      "current_amount": 1085000,
+      "diff_amount": 85000,
+      "diff_rate": 8.5,
+      "signal": "분할매수",
+      "collected_at": "2026-06-12 19:08 KST",
+      "buy_amount_text": "1,000,000원",
+      "current_amount_text": "1,085,000원",
+      "diff_amount_text": "+85,000원",
+      "diff_rate_text": "+8.50%"
+    },
+    {
+      "ticker": "000111",
+      "name": "샘플B",
+      "buy_amount": 800000,
+      "current_amount": 772000,
+      "diff_amount": -28000,
+      "diff_rate": -3.5,
+      "signal": "보유",
+      "collected_at": "2026-06-12 19:08 KST",
+      "buy_amount_text": "800,000원",
+      "current_amount_text": "772,000원",
+      "diff_amount_text": "-28,000원",
+      "diff_rate_text": "-3.50%"
+    }
+  ],
+  "source": "data/watch_source.json",
+  "updated_at": "2026-06-12 19:43:09 KST",
+  "generated_at_utc": "2026-06-12T10:43:09Z",
+  "counts": {
+    "themes": 3,
+    "candidates": 3,
+    "watchlist": 2,
+    "signals": 2,
+    "buys": 2
+  }
+}
