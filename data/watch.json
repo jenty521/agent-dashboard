@@ -16,31 +16,31 @@
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 1048건 뉴스 태그 · 최고 촉매 10.0",
+      "reason": "최근 1027건 뉴스 태그 · 최고 촉매 10.0",
       "updated_at": "2026-06-12 16:54:00 KST"
     },
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 984건 뉴스 태그 · 최고 촉매 9.0",
+      "reason": "최근 971건 뉴스 태그 · 최고 촉매 9.0",
       "updated_at": "2026-06-12 16:54:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 874건 뉴스 태그 · 최고 촉매 10.0",
+      "reason": "최근 864건 뉴스 태그 · 최고 촉매 10.0",
       "updated_at": "2026-06-12 16:52:00 KST"
     },
     {
       "theme": "코스닥",
       "score": "A",
-      "reason": "최근 682건 뉴스 태그 · 최고 촉매 10.0",
+      "reason": "최근 668건 뉴스 태그 · 최고 촉매 10.0",
       "updated_at": "2026-06-12 16:52:00 KST"
     },
     {
       "theme": "급등",
       "score": "A",
-      "reason": "최근 374건 뉴스 태그 · 최고 촉매 10.0",
+      "reason": "최근 364건 뉴스 태그 · 최고 촉매 10.0",
       "updated_at": "2026-06-12 16:51:00 KST"
     }
   ],
@@ -313,17 +313,6 @@
       "trade_value_text": "8,777,261,605,000원",
       "change_pct_text": "+3.95%",
       "trigger_strength": 0.395
-    },
-    {
-      "ticker": "253450",
-      "name": "253450",
-      "signal": "돌파",
-      "collected_at": "2026-06-12 14:29:02 KST",
-      "signal_at": "2026-06-12 14:29:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "1,781,765,625원",
-      "change_pct_text": "+2.62%",
-      "trigger_strength": 0.262
     }
   ],
   "buy_list": [
@@ -374,13 +363,13 @@
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-13 14:20:47 KST",
-  "generated_at_utc": "2026-06-13T05:20:47Z",
+  "updated_at": "2026-06-13 14:30:52 KST",
+  "generated_at_utc": "2026-06-13T05:30:52Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
     "watchlist": 10,
-    "signals": 6,
+    "signals": 5,
     "buys": 2,
     "portfolio": 1
   }
