@@ -16,31 +16,31 @@
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 898건 뉴스 태그 · 최고 촉매 10.0",
+      "reason": "최근 883건 뉴스 태그 · 최고 촉매 10.0",
       "updated_at": "2026-06-12 16:54:00 KST"
     },
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 864건 뉴스 태그 · 최고 촉매 9.0",
+      "reason": "최근 852건 뉴스 태그 · 최고 촉매 9.0",
       "updated_at": "2026-06-12 16:54:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 780건 뉴스 태그 · 최고 촉매 10.0",
+      "reason": "최근 770건 뉴스 태그 · 최고 촉매 10.0",
       "updated_at": "2026-06-12 16:52:00 KST"
     },
     {
       "theme": "코스닥",
       "score": "A",
-      "reason": "최근 574건 뉴스 태그 · 최고 촉매 10.0",
+      "reason": "최근 562건 뉴스 태그 · 최고 촉매 10.0",
       "updated_at": "2026-06-12 16:52:00 KST"
     },
     {
       "theme": "급등",
       "score": "A",
-      "reason": "최근 322건 뉴스 태그 · 최고 촉매 10.0",
+      "reason": "최근 319건 뉴스 태그 · 최고 촉매 10.0",
       "updated_at": "2026-06-12 16:51:00 KST"
     }
   ],
@@ -258,52 +258,7 @@
       "source": "daily_universe_scan"
     }
   ],
-  "signal_on": [
-    {
-      "ticker": "089030",
-      "name": "089030",
-      "signal": "추세 지속",
-      "collected_at": "2026-06-12 15:59:01 KST",
-      "signal_at": "2026-06-12 15:59:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "572,274,226,000원",
-      "change_pct_text": "+6.87%",
-      "trigger_strength": 0.5725
-    },
-    {
-      "ticker": "005930",
-      "name": "005930",
-      "signal": "돌파",
-      "collected_at": "2026-06-12 15:59:01 KST",
-      "signal_at": "2026-06-12 15:59:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "10,151,457,209,500원",
-      "change_pct_text": "+7.86%",
-      "trigger_strength": 0.786
-    },
-    {
-      "ticker": "093370",
-      "name": "093370",
-      "signal": "잠금",
-      "collected_at": "2026-06-12 15:59:01 KST",
-      "signal_at": "2026-06-12 15:59:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "337,259,650,285원",
-      "change_pct_text": "+20.55%",
-      "trigger_strength": 1.0
-    },
-    {
-      "ticker": "403870",
-      "name": "403870",
-      "signal": "잠금",
-      "collected_at": "2026-06-12 15:59:01 KST",
-      "signal_at": "2026-06-12 15:59:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "1,121,585,002,450원",
-      "change_pct_text": "+30.00%",
-      "trigger_strength": 1.0
-    }
-  ],
+  "signal_on": [],
   "buy_list": [
     {
       "ticker": "217590",
@@ -352,13 +307,13 @@
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-13 15:50:34 KST",
-  "generated_at_utc": "2026-06-13T06:50:34Z",
+  "updated_at": "2026-06-13 16:00:40 KST",
+  "generated_at_utc": "2026-06-13T07:00:40Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
     "watchlist": 10,
-    "signals": 4,
+    "signals": 0,
     "buys": 2,
     "portfolio": 1
   }
