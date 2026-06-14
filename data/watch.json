@@ -14,33 +14,33 @@
   ],
   "theme_summary": [
     {
-      "theme": "AI",
-      "score": "A-",
-      "reason": "최근 24건 뉴스 태그 · 최고 촉매 8.0",
-      "updated_at": "2026-06-12 16:54:00 KST"
-    },
-    {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 20건 뉴스 태그 · 최고 촉매 9.0",
+      "reason": "최근 10건 뉴스 태그 · 최고 촉매 9.0",
       "updated_at": "2026-06-12 16:54:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 19건 뉴스 태그 · 최고 촉매 9.0",
+      "reason": "최근 8건 뉴스 태그 · 최고 촉매 9.0",
       "updated_at": "2026-06-12 16:52:00 KST"
+    },
+    {
+      "theme": "AI",
+      "score": "A-",
+      "reason": "최근 8건 뉴스 태그 · 최고 촉매 7.0",
+      "updated_at": "2026-06-12 16:54:00 KST"
     },
     {
       "theme": "코스닥",
       "score": "A",
-      "reason": "최근 11건 뉴스 태그 · 최고 촉매 9.0",
+      "reason": "최근 4건 뉴스 태그 · 최고 촉매 9.0",
       "updated_at": "2026-06-12 16:52:00 KST"
     },
     {
       "theme": "급등",
       "score": "A",
-      "reason": "최근 7건 뉴스 태그 · 최고 촉매 9.0",
+      "reason": "최근 1건 뉴스 태그 · 최고 촉매 9.0",
       "updated_at": "2026-06-12 16:51:00 KST"
     }
   ],
@@ -307,8 +307,8 @@
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-14 16:40:07 KST",
-  "generated_at_utc": "2026-06-14T07:40:07Z",
+  "updated_at": "2026-06-14 16:50:12 KST",
+  "generated_at_utc": "2026-06-14T07:50:12Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
