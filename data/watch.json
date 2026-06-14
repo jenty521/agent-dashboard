@@ -16,32 +16,32 @@
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 75건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 08:38:00 KST"
+      "reason": "최근 93건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 08:49:00 KST"
     },
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 71건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 08:38:00 KST"
+      "reason": "최근 87건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 08:49:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 50건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 08:38:00 KST"
+      "reason": "최근 65건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 08:49:00 KST"
     },
     {
       "theme": "코스닥",
       "score": "A",
-      "reason": "최근 35건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 08:38:00 KST"
+      "reason": "최근 44건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 08:48:00 KST"
     },
     {
-      "theme": "2차전지",
+      "theme": "실적",
       "score": "A-",
-      "reason": "최근 15건 뉴스 태그 · 최고 촉매 7.0",
-      "updated_at": "2026-06-15 08:38:00 KST"
+      "reason": "최근 18건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-06-15 08:48:00 KST"
     }
   ],
   "candidate_list": [
@@ -268,7 +268,7 @@
       "diff_amount": -4200,
       "diff_rate": -8.823529411764707,
       "signal": "보유",
-      "collected_at": "2026-06-15 08:30:02 KST",
+      "collected_at": "2026-06-15 08:45:01 KST",
       "buy_amount_text": "47,600원",
       "current_amount_text": "43,400원",
       "diff_amount_text": "-4,200원",
@@ -283,7 +283,7 @@
       "diff_amount": 33200,
       "diff_rate": 30.2367941712204,
       "signal": "보유",
-      "collected_at": "2026-06-15 08:30:02 KST",
+      "collected_at": "2026-06-15 08:45:01 KST",
       "buy_amount_text": "109,800원",
       "current_amount_text": "143,000원",
       "diff_amount_text": "+33,200원",
@@ -293,7 +293,7 @@
   ],
   "portfolio": {
     "account_no": "65597023",
-    "updated_at": "2026-06-15 08:30:02 KST",
+    "updated_at": "2026-06-15 08:45:01 KST",
     "current_total_assets": 466004,
     "current_total_assets_text": "466,004원",
     "initial_total_assets": 279176,
@@ -307,8 +307,8 @@
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-15 08:40:48 KST",
-  "generated_at_utc": "2026-06-14T23:40:48Z",
+  "updated_at": "2026-06-15 08:50:54 KST",
+  "generated_at_utc": "2026-06-14T23:50:54Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
