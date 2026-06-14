@@ -12,7 +12,38 @@
     "보유종목",
     "계좌자산"
   ],
-  "theme_summary": [],
+  "theme_summary": [
+    {
+      "theme": "반도체",
+      "score": "A-",
+      "reason": "최근 12건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-06-15 07:56:00 KST"
+    },
+    {
+      "theme": "AI",
+      "score": "A-",
+      "reason": "최근 10건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-06-15 07:58:00 KST"
+    },
+    {
+      "theme": "코스피",
+      "score": "A-",
+      "reason": "최근 9건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-06-15 07:57:00 KST"
+    },
+    {
+      "theme": "코스닥",
+      "score": "A-",
+      "reason": "최근 7건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-06-15 07:56:00 KST"
+    },
+    {
+      "theme": "2차전지",
+      "score": "A-",
+      "reason": "최근 5건 뉴스 태그 · 최고 촉매 7.0",
+      "updated_at": "2026-06-15 07:44:00 KST"
+    }
+  ],
   "candidate_list": [
     {
       "ticker": "319400",
@@ -228,62 +259,31 @@
     }
   ],
   "signal_on": [],
-  "buy_list": [
-    {
-      "ticker": "217590",
-      "name": "티엠씨",
-      "buy_amount": 47600,
-      "current_amount": 43400,
-      "diff_amount": -4200,
-      "diff_rate": -8.823529411764707,
-      "signal": "보유",
-      "collected_at": "2026-06-13 00:46:54 KST",
-      "buy_amount_text": "47,600원",
-      "current_amount_text": "43,400원",
-      "diff_amount_text": "-4,200원",
-      "diff_rate_text": "-8.82%",
-      "source": "account_status_snapshot"
-    },
-    {
-      "ticker": "403870",
-      "name": "HPSP",
-      "buy_amount": 109800,
-      "current_amount": 142200,
-      "diff_amount": 32400,
-      "diff_rate": 29.508196721311474,
-      "signal": "보유",
-      "collected_at": "2026-06-13 00:46:54 KST",
-      "buy_amount_text": "109,800원",
-      "current_amount_text": "142,200원",
-      "diff_amount_text": "+32,400원",
-      "diff_rate_text": "+29.51%",
-      "source": "account_status_snapshot"
-    }
-  ],
+  "buy_list": [],
   "portfolio": {
     "account_no": "65597023",
-    "updated_at": "2026-06-13 00:46:54 KST",
-    "current_total_assets": 279176,
-    "current_total_assets_text": "279,176원",
+    "updated_at": "2026-06-15 08:00:04 KST",
+    "current_total_assets": 0,
+    "current_total_assets_text": "0원",
     "initial_total_assets": 279176,
     "initial_total_assets_text": "279,176원",
-    "growth_amount": 0,
-    "growth_amount_text": "+0원",
-    "growth_rate": 0.0,
-    "growth_rate_text": "+0.00%",
-    "cash_text": "93,576원",
-    "holdings_value_text": "185,600원",
+    "growth_amount": -279176,
+    "growth_amount_text": "-279,176원",
+    "growth_rate": -100.0,
+    "growth_rate_text": "-100.00%",
+    "cash_text": "—",
+    "holdings_value_text": "—",
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-15 07:50:21 KST",
-  "generated_at_utc": "2026-06-14T22:50:21Z",
+  "updated_at": "2026-06-15 08:00:27 KST",
+  "generated_at_utc": "2026-06-14T23:00:27Z",
   "counts": {
-    "themes": 0,
+    "themes": 5,
     "candidates": 12,
     "watchlist": 10,
     "signals": 0,
-    "buys": 2,
+    "buys": 0,
     "portfolio": 1
   }
 }
