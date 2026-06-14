@@ -12,38 +12,7 @@
     "보유종목",
     "계좌자산"
   ],
-  "theme_summary": [
-    {
-      "theme": "반도체",
-      "score": "A",
-      "reason": "최근 10건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-12 16:54:00 KST"
-    },
-    {
-      "theme": "코스피",
-      "score": "A",
-      "reason": "최근 8건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-12 16:52:00 KST"
-    },
-    {
-      "theme": "AI",
-      "score": "A-",
-      "reason": "최근 8건 뉴스 태그 · 최고 촉매 7.0",
-      "updated_at": "2026-06-12 16:54:00 KST"
-    },
-    {
-      "theme": "코스닥",
-      "score": "A",
-      "reason": "최근 4건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-12 16:52:00 KST"
-    },
-    {
-      "theme": "급등",
-      "score": "A",
-      "reason": "최근 1건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-12 16:51:00 KST"
-    }
-  ],
+  "theme_summary": [],
   "candidate_list": [
     {
       "ticker": "319400",
@@ -307,10 +276,10 @@
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-14 16:50:12 KST",
-  "generated_at_utc": "2026-06-14T07:50:12Z",
+  "updated_at": "2026-06-14 17:00:18 KST",
+  "generated_at_utc": "2026-06-14T08:00:18Z",
   "counts": {
-    "themes": 5,
+    "themes": 0,
     "candidates": 12,
     "watchlist": 10,
     "signals": 0,
