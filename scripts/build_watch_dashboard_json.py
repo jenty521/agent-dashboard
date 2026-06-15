@@ -299,6 +299,12 @@ def build_watchlist(cur) -> list[dict[str, Any]]:
                 "collected_at": fmt_kst(meta.get("selected_at") or row.get("updated_at")),
                 "score": float(row.get("score") or 0),
                 "source": row.get("candidate_source") or "watchlist_active",
+                "score_breakdown": meta.get("score_breakdown") or {},
+                "strategy_variant": meta.get("strategy_variant") or "",
+                "strategy_variant_reason": meta.get("strategy_variant_reason") or "",
+                "signal_hits": safe_tag_list(meta.get("signal_hits")),
+                "derived_hot_override": meta.get("derived_hot_override") or {},
+                "hot_override": hot_override or {},
             }
         )
     return items
