@@ -365,6 +365,8 @@
         return;
       }
       const mismatchList = (risk.mismatches || []).slice(0, 3);
+      const policy = risk.product_risk_policy || {};
+      const policyText = policy.block_reason_label || '';
       const stateClass = String(risk.status || '').toLowerCase() === 'ok' ? 'ok' : 'warn';
       $('risk-summary').innerHTML = `
         <div class="risk-grid">
@@ -390,6 +392,7 @@
           </div>
         </div>
         ${mismatchList.length ? `<ul class="risk-notes">${mismatchList.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+        ${policyText ? `<ul class="risk-notes"><li>${esc(policyText)}</li></ul>` : ''}
       `;
     };
 
@@ -418,11 +421,13 @@
           <div class="item-top">
             <div>
               <div class="item-title">${esc(item.name || '')} <span style="color:#90a3c7;font-weight:600;">(${esc(item.ticker || '')})</span></div>
-              <div class="item-body">테마: ${esc(prettyLabel(item.theme || ''))}</div>
+              <div class="item-body">테마: ${esc(prettyLabel(item.theme || ''))} · ${esc(item.theme_role_label || '역할 미정')} ${item.theme_role_score ? `(${esc(item.theme_role_score)}점)` : ''}</div>
+              ${(item.risk_labels || []).length ? `<div class="item-body">위험태그: ${esc((item.risk_labels || []).join(' · '))}</div>` : ''}
+              ${(item.source_provenance || []).length ? `<div class="item-body">근거: ${esc((item.source_provenance || []).map(prettyLabel).join(' · '))}</div>` : ''}
             </div>
             <span class="tag neutral">${esc(prettyLabel(item.signal || 'signal'))}</span>
           </div>
-          <div class="item-foot">수집 시각: ${esc(item.collected_at || '—')}</div>
+          <div class="item-foot">수집 시각: ${esc(item.collected_at || '—')}${item.block_reason_label ? ` · 차단사유: ${esc(item.block_reason_label)}` : ''}</div>
         </div>
       `).join('') || '<div class="item">데이터가 없습니다.</div>';
     };
@@ -434,10 +439,13 @@
             <div>
               <div class="item-title">${esc(item.name || '')} <span style="color:#90a3c7;font-weight:600;">(${esc(item.ticker || '')})</span></div>
               <div class="item-body">관심 사유: ${esc(item.reason || '')}</div>
+              <div class="item-body">테마 역할: ${esc(item.theme_role_label || '역할 미정')} ${item.theme_role_score ? `(${esc(item.theme_role_score)}점)` : ''}</div>
+              ${(item.risk_labels || []).length ? `<div class="item-body">위험태그: ${esc((item.risk_labels || []).join(' · '))}</div>` : ''}
+              ${(item.source_provenance || []).length ? `<div class="item-body">근거: ${esc((item.source_provenance || []).map(prettyLabel).join(' · '))}</div>` : ''}
             </div>
             <span class="tag warn">${esc(prettyLabel(item.signal || 'watch'))}</span>
           </div>
-          <div class="item-foot">수집 시각: ${esc(item.collected_at || '—')}</div>
+          <div class="item-foot">수집 시각: ${esc(item.collected_at || '—')}${item.block_reason_label ? ` · 차단사유: ${esc(item.block_reason_label)}` : ''}</div>
         </div>
       `).join('') || '<div class="item">데이터가 없습니다.</div>';
     };
@@ -453,6 +461,9 @@
         const total = entries.reduce((sum, [, v]) => sum + Math.max(0, Number(v) || 0), 0) || 1;
         const chips = [];
         if (item.strategy_variant) chips.push(prettyLabel(item.strategy_variant));
+        if (item.theme_role_label) chips.push(item.theme_role_label);
+        (item.risk_labels || []).slice(0, 3).forEach(label => chips.push(label));
+        (item.source_provenance || []).slice(0, 3).forEach(src => chips.push(`근거:${prettyLabel(src)}`));
         (item.signal_hits || []).slice(0, 3).forEach(hit => chips.push(prettyLabel(hit)));
         const hot = item.derived_hot_override && item.derived_hot_override.priority ? `AUTO HOT ${item.derived_hot_override.priority}` : '';
         if (hot) chips.push(hot);
