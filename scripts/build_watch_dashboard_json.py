@@ -80,6 +80,7 @@ DEFAULT_PAYLOAD: dict[str, Any] = {
     "signal_on": [],
     "buy_list": [],
     "portfolio": {},
+    "risk_diagnostics": {},
 }
 
 
@@ -530,6 +531,45 @@ def build_portfolio_summary(cur) -> dict[str, Any] | None:
     }
 
 
+def build_risk_diagnostics(cur) -> dict[str, Any] | None:
+    cur.execute(
+        """
+        select id, observed_at, status, blocked_reason, detail_json
+        from public.collector_status_snapshots
+        where collector_name = 'intraday_risk_reconciliation'
+        order by observed_at desc, id desc
+        limit 1;
+        """
+    )
+    row = cur.fetchone()
+    if not row:
+        return None
+    detail = row.get("detail_json") or {}
+    if not isinstance(detail, dict):
+        detail = {}
+    local = detail.get("local") or {}
+    broker = detail.get("broker") or {}
+    comparison = detail.get("comparison") or {}
+    mismatches = comparison.get("mismatches") or []
+    if not isinstance(mismatches, list):
+        mismatches = [str(mismatches)]
+    return {
+        "status": str(row.get("status") or comparison.get("status") or "unknown"),
+        "observed_at": fmt_kst(row.get("observed_at")),
+        "blocked_reason": str(row.get("blocked_reason") or ""),
+        "mismatch_count": len(mismatches),
+        "mismatches": mismatches[:5],
+        "local_open_orders": int(local.get("open_orders") or 0),
+        "local_position_count": int(local.get("position_count") or 0),
+        "local_gross_exposure": float(local.get("gross_exposure") or 0),
+        "broker_open_orders": int(broker.get("broker_open_orders") or 0),
+        "broker_position_count": int(broker.get("broker_position_count") or 0),
+        "broker_available_cash": broker.get("broker_available_cash"),
+        "broker_can_trade": bool(broker.get("broker_can_trade")),
+        "detail_source": "collector_status_snapshots",
+    }
+
+
 @dataclass
 class WatchPayload:
     payload: dict[str, Any]
@@ -546,8 +586,9 @@ def build_from_database(db_url: str) -> WatchPayload | None:
                 signal_on = build_signal_on(cur)
                 buy_list = build_buy_list(cur)
                 portfolio = build_portfolio_summary(cur) or {}
+                risk_diagnostics = build_risk_diagnostics(cur) or {}
 
-                source_label = "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines"
+                source_label = "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots"
                 payload = deepcopy(DEFAULT_PAYLOAD)
                 payload.update(
                     {
@@ -563,6 +604,7 @@ def build_from_database(db_url: str) -> WatchPayload | None:
                         "signal_on": signal_on,
                         "buy_list": buy_list,
                         "portfolio": portfolio,
+                        "risk_diagnostics": risk_diagnostics,
                     }
                 )
                 payload["tags"] = ["실데이터", "DB-first", "관심목록", "시그널", "보유종목", "계좌자산"]
@@ -591,6 +633,8 @@ def build_from_source(source: dict | None, source_label: str) -> WatchPayload:
     payload["watchlist"] = as_list(source.get("watchlist"), payload["watchlist"])
     payload["signal_on"] = as_list(source.get("signal_on"), payload["signal_on"])
     payload["buy_list"] = as_list(source.get("buy_list"), payload["buy_list"])
+    if isinstance(source.get("risk_diagnostics"), dict):
+        payload["risk_diagnostics"] = source.get("risk_diagnostics")
     return WatchPayload(payload=payload, source_label=source_label)
 
 
@@ -608,6 +652,7 @@ def finalize_payload(watch: WatchPayload, source_name: str) -> dict[str, Any]:
         "signals": len(payload["signal_on"]),
         "buys": len(payload["buy_list"]),
         "portfolio": 1 if payload.get("portfolio") else 0,
+        "risk": 1 if payload.get("risk_diagnostics") else 0,
     }
     return payload
 

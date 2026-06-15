@@ -16,32 +16,32 @@
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 190건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 15:44:00 KST"
+      "reason": "최근 198건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 16:19:00 KST"
     },
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 179건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 15:44:00 KST"
+      "reason": "최근 193건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 16:18:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 163건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 15:44:00 KST"
+      "reason": "최근 177건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 16:18:00 KST"
     },
     {
       "theme": "코스닥",
       "score": "A",
-      "reason": "최근 115건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 15:44:00 KST"
+      "reason": "최근 125건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 16:18:00 KST"
     },
     {
       "theme": "급등",
       "score": "A",
-      "reason": "최근 57건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 15:44:00 KST"
+      "reason": "최근 65건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 16:18:00 KST"
     }
   ],
   "candidate_list": [
@@ -815,7 +815,7 @@
       "diff_amount": 28600,
       "diff_rate": 52.09471766848816,
       "signal": "보유",
-      "collected_at": "2026-06-15 16:00:02 KST",
+      "collected_at": "2026-06-15 16:15:01 KST",
       "buy_amount_text": "54,900원",
       "current_amount_text": "83,500원",
       "diff_amount_text": "+28,600원",
@@ -825,7 +825,7 @@
   ],
   "portfolio": {
     "account_no": "65597023",
-    "updated_at": "2026-06-15 16:00:02 KST",
+    "updated_at": "2026-06-15 16:15:01 KST",
     "current_total_assets": 288410,
     "current_total_assets_text": "288,410원",
     "initial_total_assets": 279176,
@@ -838,15 +838,34 @@
     "holdings_value_text": "83,500원",
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
-  "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-15 16:10:03 KST",
-  "generated_at_utc": "2026-06-15T07:10:03Z",
+  "risk_diagnostics": {
+    "status": "warn",
+    "observed_at": "2026-06-15 16:12:56 KST",
+    "blocked_reason": "open_orders_local=0 broker=3; positions_local=0 broker=1",
+    "mismatch_count": 2,
+    "mismatches": [
+      "open_orders_local=0 broker=3",
+      "positions_local=0 broker=1"
+    ],
+    "local_open_orders": 0,
+    "local_position_count": 0,
+    "local_gross_exposure": 0.0,
+    "broker_open_orders": 0,
+    "broker_position_count": 0,
+    "broker_available_cash": null,
+    "broker_can_trade": false,
+    "detail_source": "collector_status_snapshots"
+  },
+  "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots",
+  "updated_at": "2026-06-15 16:20:08 KST",
+  "generated_at_utc": "2026-06-15T07:20:08Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
     "watchlist": 10,
     "signals": 8,
     "buys": 1,
-    "portfolio": 1
+    "portfolio": 1,
+    "risk": 1
   }
 }
