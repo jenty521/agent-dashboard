@@ -16,32 +16,32 @@
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 175건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 14:34:00 KST"
+      "reason": "최근 182건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 15:08:00 KST"
     },
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 167건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 14:32:00 KST"
+      "reason": "최근 172건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 15:09:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 148건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 14:32:00 KST"
+      "reason": "최근 155건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 15:08:00 KST"
     },
     {
       "theme": "코스닥",
       "score": "A",
-      "reason": "최근 103건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 14:32:00 KST"
+      "reason": "최근 108건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 15:08:00 KST"
     },
     {
       "theme": "급등",
       "score": "A",
-      "reason": "최근 53건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-15 14:22:00 KST"
+      "reason": "최근 54건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-15 15:02:00 KST"
     }
   ],
   "candidate_list": [
@@ -172,7 +172,7 @@
       "name": "SK하이닉스",
       "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 99.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
       "score": 100.0,
       "source": "daily_universe_scan",
       "score_breakdown": {
@@ -223,7 +223,7 @@
       "name": "현대차",
       "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 98.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
       "score": 100.0,
       "source": "daily_universe_scan",
       "score_breakdown": {
@@ -233,38 +233,34 @@
           "auto:breakout:breakout:hod:relative_volume"
         ],
         "surge": 35.48,
-        "active": 17.0,
         "sources": [
           "daily_universe_scan",
-          "watchlist_active",
           "market_ticks_orderbook_surge",
           "watchlist_hot_overrides"
         ],
         "override": 12.5,
         "candidate": 34.3,
         "signal_hits": [
-          "relative_volume",
           "hod",
           "breakout"
         ],
         "surge_stage": "breakout",
-        "signal_score": 14.5,
+        "signal_score": 9.5,
         "strategy_variant": "leader_breakout",
         "trigger_strength": 0.791,
         "strategy_variant_bonus": 3.5,
         "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-        "derived_hot_override_reason": "auto:breakout:breakout:hod:relative_volume",
+        "derived_hot_override_reason": "auto:breakout:breakout:hod",
         "derived_hot_override_priority": 150
       },
       "strategy_variant": "leader_breakout",
       "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
       "signal_hits": [
-        "relative_volume",
         "hod",
         "breakout"
       ],
       "derived_hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
+        "reason": "auto:breakout:breakout:hod",
         "priority": 150
       },
       "hot_override": {
@@ -274,341 +270,11 @@
       }
     },
     {
-      "ticker": "005490",
-      "name": "POSCO홀딩스",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 94.0",
-      "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
-      "score": 100.0,
-      "source": "daily_universe_scan",
-      "score_breakdown": {
-        "tags": [
-          "breakout",
-          "market_ticks+orderbook",
-          "auto:breakout:breakout:hod:relative_volume"
-        ],
-        "surge": 28.4,
-        "active": 17.0,
-        "sources": [
-          "daily_universe_scan",
-          "watchlist_active",
-          "market_ticks_orderbook_surge",
-          "watchlist_hot_overrides"
-        ],
-        "override": 12.5,
-        "candidate": 32.9,
-        "signal_hits": [
-          "relative_volume",
-          "hod",
-          "breakout"
-        ],
-        "surge_stage": "breakout",
-        "signal_score": 14.5,
-        "strategy_variant": "leader_breakout",
-        "trigger_strength": 0.544,
-        "strategy_variant_bonus": 3.5,
-        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-        "derived_hot_override_reason": "auto:breakout:breakout:hod:relative_volume",
-        "derived_hot_override_priority": 150
-      },
-      "strategy_variant": "leader_breakout",
-      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-      "signal_hits": [
-        "relative_volume",
-        "hod",
-        "breakout"
-      ],
-      "derived_hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "priority": 150
-      },
-      "hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "symbol": "005490",
-        "priority": 150
-      }
-    },
-    {
-      "ticker": "005930",
-      "name": "삼성전자",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 100.0",
-      "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
-      "score": 100.0,
-      "source": "daily_universe_scan",
-      "score_breakdown": {
-        "tags": [
-          "breakout",
-          "market_ticks+orderbook",
-          "auto:breakout:breakout:hod:relative_volume"
-        ],
-        "surge": 29.21,
-        "active": 17.0,
-        "sources": [
-          "daily_universe_scan",
-          "watchlist_active",
-          "market_ticks_orderbook_surge",
-          "watchlist_hot_overrides"
-        ],
-        "override": 12.5,
-        "candidate": 35.0,
-        "signal_hits": [
-          "relative_volume",
-          "hod",
-          "breakout"
-        ],
-        "surge_stage": "breakout",
-        "signal_score": 14.5,
-        "strategy_variant": "leader_breakout",
-        "trigger_strength": 0.574,
-        "strategy_variant_bonus": 3.5,
-        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-        "derived_hot_override_reason": "auto:breakout:breakout:hod:relative_volume",
-        "derived_hot_override_priority": 150
-      },
-      "strategy_variant": "leader_breakout",
-      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-      "signal_hits": [
-        "relative_volume",
-        "hod",
-        "breakout"
-      ],
-      "derived_hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "priority": 150
-      },
-      "hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "symbol": "005930",
-        "priority": 150
-      }
-    },
-    {
-      "ticker": "005935",
-      "name": "삼성전자우",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 97.0",
-      "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
-      "score": 100.0,
-      "source": "daily_universe_scan",
-      "score_breakdown": {
-        "tags": [
-          "breakout",
-          "market_ticks+orderbook",
-          "auto:breakout:breakout:hod:relative_volume"
-        ],
-        "surge": 29.83,
-        "active": 17.0,
-        "sources": [
-          "daily_universe_scan",
-          "watchlist_active",
-          "market_ticks_orderbook_surge",
-          "watchlist_hot_overrides"
-        ],
-        "override": 12.5,
-        "candidate": 33.95,
-        "signal_hits": [
-          "relative_volume",
-          "hod",
-          "breakout"
-        ],
-        "surge_stage": "breakout",
-        "signal_score": 14.5,
-        "strategy_variant": "leader_breakout",
-        "trigger_strength": 0.604,
-        "strategy_variant_bonus": 3.5,
-        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-        "derived_hot_override_reason": "auto:breakout:breakout:hod:relative_volume",
-        "derived_hot_override_priority": 150
-      },
-      "strategy_variant": "leader_breakout",
-      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-      "signal_hits": [
-        "relative_volume",
-        "hod",
-        "breakout"
-      ],
-      "derived_hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "priority": 150
-      },
-      "hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "symbol": "005935",
-        "priority": 150
-      }
-    },
-    {
-      "ticker": "006400",
-      "name": "삼성SDI",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 92.0",
-      "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
-      "score": 100.0,
-      "source": "daily_universe_scan",
-      "score_breakdown": {
-        "tags": [
-          "breakout",
-          "market_ticks+orderbook",
-          "auto:breakout:breakout:hod:relative_volume"
-        ],
-        "surge": 28.63,
-        "active": 17.0,
-        "sources": [
-          "daily_universe_scan",
-          "watchlist_active",
-          "market_ticks_orderbook_surge",
-          "watchlist_hot_overrides"
-        ],
-        "override": 12.5,
-        "candidate": 32.2,
-        "signal_hits": [
-          "relative_volume",
-          "hod",
-          "breakout"
-        ],
-        "surge_stage": "breakout",
-        "signal_score": 14.5,
-        "strategy_variant": "leader_breakout",
-        "trigger_strength": 0.557,
-        "strategy_variant_bonus": 3.5,
-        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-        "derived_hot_override_reason": "auto:breakout:breakout:hod:relative_volume",
-        "derived_hot_override_priority": 150
-      },
-      "strategy_variant": "leader_breakout",
-      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-      "signal_hits": [
-        "relative_volume",
-        "hod",
-        "breakout"
-      ],
-      "derived_hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "priority": 150
-      },
-      "hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "symbol": "006400",
-        "priority": 150
-      }
-    },
-    {
-      "ticker": "035420",
-      "name": "NAVER",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 93.0",
-      "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
-      "score": 100.0,
-      "source": "daily_universe_scan",
-      "score_breakdown": {
-        "tags": [
-          "breakout",
-          "market_ticks+orderbook",
-          "auto:breakout:breakout:hod:relative_volume"
-        ],
-        "surge": 22.97,
-        "active": 17.0,
-        "sources": [
-          "daily_universe_scan",
-          "watchlist_active",
-          "market_ticks_orderbook_surge",
-          "watchlist_hot_overrides"
-        ],
-        "override": 12.5,
-        "candidate": 32.55,
-        "signal_hits": [
-          "relative_volume",
-          "hod",
-          "breakout"
-        ],
-        "surge_stage": "breakout",
-        "signal_score": 14.5,
-        "strategy_variant": "leader_breakout",
-        "trigger_strength": 0.364,
-        "strategy_variant_bonus": 3.5,
-        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-        "derived_hot_override_reason": "auto:breakout:breakout:hod:relative_volume",
-        "derived_hot_override_priority": 150
-      },
-      "strategy_variant": "leader_breakout",
-      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-      "signal_hits": [
-        "relative_volume",
-        "hod",
-        "breakout"
-      ],
-      "derived_hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "priority": 150
-      },
-      "hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "symbol": "035420",
-        "priority": 150
-      }
-    },
-    {
-      "ticker": "093370",
-      "name": "093370",
-      "reason": "후성 장중 급등 추적용 hot override / 태그: 잠금, 시장 틱·호가, 후성 장중 급등 추적용 hot override / 시그널: 잠금",
-      "signal": "후성 장중 급등 추적용 hot override",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
-      "score": 100.0,
-      "source": "watchlist_active",
-      "score_breakdown": {
-        "tags": [
-          "lock",
-          "market_ticks+orderbook",
-          "후성 장중 급등 추적용 hot override"
-        ],
-        "surge": 37.36,
-        "active": 17.0,
-        "sources": [
-          "watchlist_active",
-          "market_ticks_orderbook_surge",
-          "watchlist_hot_overrides"
-        ],
-        "override": 15.0,
-        "signal_hits": [
-          "relative_volume",
-          "hod",
-          "breakout",
-          "lock"
-        ],
-        "surge_stage": "lock",
-        "signal_score": 22.5,
-        "strategy_variant": "leader_breakout",
-        "trigger_strength": 1.0,
-        "strategy_variant_bonus": 3.5,
-        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-        "derived_hot_override_reason": "auto:lock:breakout:hod:lock:relative_volume",
-        "derived_hot_override_priority": 180
-      },
-      "strategy_variant": "leader_breakout",
-      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-      "signal_hits": [
-        "relative_volume",
-        "hod",
-        "breakout",
-        "lock"
-      ],
-      "derived_hot_override": {
-        "reason": "auto:lock:breakout:hod:lock:relative_volume",
-        "priority": 180
-      },
-      "hot_override": {
-        "reason": "후성 장중 급등 추적용 hot override",
-        "symbol": "093370",
-        "priority": 1000
-      }
-    },
-    {
       "ticker": "207940",
       "name": "삼성바이오로직스",
       "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 95.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
       "score": 100.0,
       "source": "daily_universe_scan",
       "score_breakdown": {
@@ -659,11 +325,215 @@
       }
     },
     {
+      "ticker": "005930",
+      "name": "삼성전자",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 100.0",
+      "signal": "auto:breakout:breakout:hod:relative volume",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
+      "score": 94.7059,
+      "source": "daily_universe_scan",
+      "score_breakdown": {
+        "tags": [
+          "breakout",
+          "market_ticks+orderbook",
+          "auto:breakout:breakout:hod:relative_volume"
+        ],
+        "surge": 29.21,
+        "sources": [
+          "daily_universe_scan",
+          "market_ticks_orderbook_surge",
+          "watchlist_hot_overrides"
+        ],
+        "override": 12.5,
+        "candidate": 35.0,
+        "signal_hits": [
+          "hod",
+          "breakout"
+        ],
+        "surge_stage": "breakout",
+        "signal_score": 9.5,
+        "strategy_variant": "leader_breakout",
+        "trigger_strength": 0.574,
+        "strategy_variant_bonus": 3.5,
+        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+        "derived_hot_override_reason": "auto:breakout:breakout:hod",
+        "derived_hot_override_priority": 150
+      },
+      "strategy_variant": "leader_breakout",
+      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+      "signal_hits": [
+        "hod",
+        "breakout"
+      ],
+      "derived_hot_override": {
+        "reason": "auto:breakout:breakout:hod",
+        "priority": 150
+      },
+      "hot_override": {
+        "reason": "auto:breakout:breakout:hod:relative_volume",
+        "symbol": "005930",
+        "priority": 150
+      }
+    },
+    {
+      "ticker": "005935",
+      "name": "삼성전자우",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 97.0",
+      "signal": "auto:breakout:breakout:hod:relative volume",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
+      "score": 94.2817,
+      "source": "daily_universe_scan",
+      "score_breakdown": {
+        "tags": [
+          "breakout",
+          "market_ticks+orderbook",
+          "auto:breakout:breakout:hod:relative_volume"
+        ],
+        "surge": 29.83,
+        "sources": [
+          "daily_universe_scan",
+          "market_ticks_orderbook_surge",
+          "watchlist_hot_overrides"
+        ],
+        "override": 12.5,
+        "candidate": 33.95,
+        "signal_hits": [
+          "hod",
+          "breakout"
+        ],
+        "surge_stage": "breakout",
+        "signal_score": 9.5,
+        "strategy_variant": "leader_breakout",
+        "trigger_strength": 0.604,
+        "strategy_variant_bonus": 3.5,
+        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+        "derived_hot_override_reason": "auto:breakout:breakout:hod",
+        "derived_hot_override_priority": 150
+      },
+      "strategy_variant": "leader_breakout",
+      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+      "signal_hits": [
+        "hod",
+        "breakout"
+      ],
+      "derived_hot_override": {
+        "reason": "auto:breakout:breakout:hod",
+        "priority": 150
+      },
+      "hot_override": {
+        "reason": "auto:breakout:breakout:hod:relative_volume",
+        "symbol": "005935",
+        "priority": 150
+      }
+    },
+    {
+      "ticker": "005490",
+      "name": "POSCO홀딩스",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 94.0",
+      "signal": "auto:breakout:breakout:hod:relative volume",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
+      "score": 91.7983,
+      "source": "daily_universe_scan",
+      "score_breakdown": {
+        "tags": [
+          "breakout",
+          "market_ticks+orderbook",
+          "auto:breakout:breakout:hod:relative_volume"
+        ],
+        "surge": 28.4,
+        "sources": [
+          "daily_universe_scan",
+          "market_ticks_orderbook_surge",
+          "watchlist_hot_overrides"
+        ],
+        "override": 12.5,
+        "candidate": 32.9,
+        "signal_hits": [
+          "hod",
+          "breakout"
+        ],
+        "surge_stage": "breakout",
+        "signal_score": 9.5,
+        "strategy_variant": "leader_breakout",
+        "trigger_strength": 0.544,
+        "strategy_variant_bonus": 3.5,
+        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+        "derived_hot_override_reason": "auto:breakout:breakout:hod",
+        "derived_hot_override_priority": 150
+      },
+      "strategy_variant": "leader_breakout",
+      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+      "signal_hits": [
+        "hod",
+        "breakout"
+      ],
+      "derived_hot_override": {
+        "reason": "auto:breakout:breakout:hod",
+        "priority": 150
+      },
+      "hot_override": {
+        "reason": "auto:breakout:breakout:hod:relative_volume",
+        "symbol": "005490",
+        "priority": 150
+      }
+    },
+    {
+      "ticker": "006400",
+      "name": "삼성SDI",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 92.0",
+      "signal": "auto:breakout:breakout:hod:relative volume",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
+      "score": 91.3253,
+      "source": "daily_universe_scan",
+      "score_breakdown": {
+        "tags": [
+          "breakout",
+          "market_ticks+orderbook",
+          "auto:breakout:breakout:hod:relative_volume"
+        ],
+        "surge": 28.63,
+        "sources": [
+          "daily_universe_scan",
+          "market_ticks_orderbook_surge",
+          "watchlist_hot_overrides"
+        ],
+        "override": 12.5,
+        "candidate": 32.2,
+        "signal_hits": [
+          "hod",
+          "breakout"
+        ],
+        "surge_stage": "breakout",
+        "signal_score": 9.5,
+        "strategy_variant": "leader_breakout",
+        "trigger_strength": 0.557,
+        "strategy_variant_bonus": 3.5,
+        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+        "derived_hot_override_reason": "auto:breakout:breakout:hod",
+        "derived_hot_override_priority": 150
+      },
+      "strategy_variant": "leader_breakout",
+      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+      "signal_hits": [
+        "hod",
+        "breakout"
+      ],
+      "derived_hot_override": {
+        "reason": "auto:breakout:breakout:hod",
+        "priority": 150
+      },
+      "hot_override": {
+        "reason": "auto:breakout:breakout:hod:relative_volume",
+        "symbol": "006400",
+        "priority": 150
+      }
+    },
+    {
       "ticker": "000270",
       "name": "기아",
       "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 96.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-15T06:00:00.752436+00:00",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
       "score": 85.496,
       "source": "daily_universe_scan",
       "score_breakdown": {
@@ -708,96 +578,189 @@
         "symbol": "000270",
         "priority": 150
       }
+    },
+    {
+      "ticker": "035420",
+      "name": "NAVER",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 돌파, 시장 틱·호가, auto:breakout:breakout:hod:relative volume / 시그널: 돌파 / 후보점수 93.0",
+      "signal": "auto:breakout:breakout:hod:relative volume",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
+      "score": 85.0195,
+      "source": "daily_universe_scan",
+      "score_breakdown": {
+        "tags": [
+          "breakout",
+          "market_ticks+orderbook",
+          "auto:breakout:breakout:hod:relative_volume"
+        ],
+        "surge": 22.97,
+        "sources": [
+          "daily_universe_scan",
+          "market_ticks_orderbook_surge",
+          "watchlist_hot_overrides"
+        ],
+        "override": 12.5,
+        "candidate": 32.55,
+        "signal_hits": [
+          "hod",
+          "breakout"
+        ],
+        "surge_stage": "breakout",
+        "signal_score": 9.5,
+        "strategy_variant": "leader_breakout",
+        "trigger_strength": 0.364,
+        "strategy_variant_bonus": 3.5,
+        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+        "derived_hot_override_reason": "auto:breakout:breakout:hod",
+        "derived_hot_override_priority": 150
+      },
+      "strategy_variant": "leader_breakout",
+      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+      "signal_hits": [
+        "hod",
+        "breakout"
+      ],
+      "derived_hot_override": {
+        "reason": "auto:breakout:breakout:hod",
+        "priority": 150
+      },
+      "hot_override": {
+        "reason": "auto:breakout:breakout:hod:relative_volume",
+        "symbol": "035420",
+        "priority": 150
+      }
+    },
+    {
+      "ticker": "093370",
+      "name": "093370",
+      "reason": "후성 장중 급등 추적용 hot override / 태그: 돌파, 시장 틱·호가, 후성 장중 급등 추적용 hot override / 시그널: 돌파",
+      "signal": "후성 장중 급등 추적용 hot override",
+      "collected_at": "2026-06-15T06:10:00.857520+00:00",
+      "score": 66.1929,
+      "source": "watchlist_active",
+      "score_breakdown": {
+        "tags": [
+          "breakout",
+          "market_ticks+orderbook",
+          "후성 장중 급등 추적용 hot override"
+        ],
+        "surge": 36.69,
+        "sources": [
+          "market_ticks_orderbook_surge",
+          "watchlist_hot_overrides"
+        ],
+        "override": 15.0,
+        "signal_hits": [
+          "breakout"
+        ],
+        "surge_stage": "breakout",
+        "signal_score": 5.0,
+        "strategy_variant": "leader_breakout",
+        "trigger_strength": 1.0,
+        "strategy_variant_bonus": 3.5,
+        "strategy_variant_reason": "리더 돌파·HOD·상대거래량"
+      },
+      "strategy_variant": "leader_breakout",
+      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+      "signal_hits": [
+        "breakout"
+      ],
+      "derived_hot_override": {},
+      "hot_override": {
+        "reason": "후성 장중 급등 추적용 hot override",
+        "symbol": "093370",
+        "priority": 1000
+      }
     }
   ],
   "signal_on": [
     {
-      "ticker": "000660",
-      "name": "000660",
-      "signal": "추세 지속",
-      "collected_at": "2026-06-15 15:00:07 KST",
-      "signal_at": "2026-06-15 15:00:07 KST",
+      "ticker": "207940",
+      "name": "207940",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 15:11:02 KST",
+      "signal_at": "2026-06-15 15:11:02 KST",
       "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "6,773,418,118,500원",
-      "change_pct_text": "+6.37%",
-      "trigger_strength": 0.5308
+      "trade_value_text": "49,520,652,000원",
+      "change_pct_text": "+2.78%",
+      "trigger_strength": 0.278
     },
     {
       "ticker": "093370",
       "name": "093370",
       "signal": "잠금",
-      "collected_at": "2026-06-15 15:00:07 KST",
-      "signal_at": "2026-06-15 15:00:07 KST",
+      "collected_at": "2026-06-15 15:11:02 KST",
+      "signal_at": "2026-06-15 15:11:02 KST",
       "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "284,970,497,395원",
-      "change_pct_text": "+18.36%",
-      "trigger_strength": 0.918
+      "trade_value_text": "338,339,301,445원",
+      "change_pct_text": "+17.31%",
+      "trigger_strength": 0.8655
     },
     {
-      "ticker": "207940",
-      "name": "207940",
+      "ticker": "000660",
+      "name": "000660",
       "signal": "돌파",
-      "collected_at": "2026-06-15 14:57:01 KST",
-      "signal_at": "2026-06-15 14:57:01 KST",
+      "collected_at": "2026-06-15 15:10:07 KST",
+      "signal_at": "2026-06-15 15:10:07 KST",
       "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "47,027,750,000원",
-      "change_pct_text": "+2.63%",
-      "trigger_strength": 0.263
-    },
-    {
-      "ticker": "005380",
-      "name": "005380",
-      "signal": "추세 지속",
-      "collected_at": "2026-06-15 14:57:01 KST",
-      "signal_at": "2026-06-15 14:57:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "624,705,707,500원",
-      "change_pct_text": "+5.93%",
-      "trigger_strength": 0.4942
-    },
-    {
-      "ticker": "005930",
-      "name": "005930",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 14:54:02 KST",
-      "signal_at": "2026-06-15 14:54:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "5,649,520,200,500원",
-      "change_pct_text": "+3.72%",
-      "trigger_strength": 0.372
-    },
-    {
-      "ticker": "005490",
-      "name": "005490",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 14:54:02 KST",
-      "signal_at": "2026-06-15 14:54:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "91,086,506,750원",
-      "change_pct_text": "+4.38%",
-      "trigger_strength": 0.438
-    },
-    {
-      "ticker": "005935",
-      "name": "005935",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 14:51:02 KST",
-      "signal_at": "2026-06-15 14:51:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "543,828,368,500원",
-      "change_pct_text": "+3.38%",
-      "trigger_strength": 0.338
+      "trade_value_text": "6,985,353,466,500원",
+      "change_pct_text": "+6.79%",
+      "trigger_strength": 0.679
     },
     {
       "ticker": "006400",
       "name": "006400",
       "signal": "돌파",
-      "collected_at": "2026-06-15 14:20:06 KST",
-      "signal_at": "2026-06-15 14:20:06 KST",
+      "collected_at": "2026-06-15 15:09:01 KST",
+      "signal_at": "2026-06-15 15:09:01 KST",
       "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "201,628,761,000원",
+      "trade_value_text": "266,128,418,000원",
       "change_pct_text": "+2.78%",
       "trigger_strength": 0.278
+    },
+    {
+      "ticker": "005935",
+      "name": "005935",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 15:08:02 KST",
+      "signal_at": "2026-06-15 15:08:02 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "582,596,253,250원",
+      "change_pct_text": "+4.11%",
+      "trigger_strength": 0.411
+    },
+    {
+      "ticker": "005930",
+      "name": "005930",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 15:07:01 KST",
+      "signal_at": "2026-06-15 15:07:01 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "5,861,235,937,500원",
+      "change_pct_text": "+4.50%",
+      "trigger_strength": 0.45
+    },
+    {
+      "ticker": "005490",
+      "name": "005490",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 15:07:01 KST",
+      "signal_at": "2026-06-15 15:07:01 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "97,878,750,750원",
+      "change_pct_text": "+5.17%",
+      "trigger_strength": 0.517
+    },
+    {
+      "ticker": "005380",
+      "name": "005380",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 15:02:02 KST",
+      "signal_at": "2026-06-15 15:02:02 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "628,511,238,500원",
+      "change_pct_text": "+6.10%",
+      "trigger_strength": 0.61
     }
   ],
   "buy_list": [
@@ -833,8 +796,8 @@
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-15 15:00:12 KST",
-  "generated_at_utc": "2026-06-15T06:00:12Z",
+  "updated_at": "2026-06-15 15:11:02 KST",
+  "generated_at_utc": "2026-06-15T06:11:02Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
