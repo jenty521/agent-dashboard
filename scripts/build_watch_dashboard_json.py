@@ -146,6 +146,76 @@ def safe_tag_list(value: Any) -> list[str]:
     return [str(v) for v in value if str(v).strip()]
 
 
+RISK_TAG_LABELS_KO: dict[str, str] = {
+    "etf_etn": "ETF/ETN 제외",
+    "leveraged_product": "레버리지·인버스 상품 위험",
+    "lp_or_nav_gap_watch": "괴리율·LP호가 점검 필요",
+    "tracking_error_risk": "추적오차/괴리율 위험",
+    "lp_quote_risk": "LP 호가 공백 위험",
+}
+
+
+PRODUCT_RISK_KEYWORDS: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("etf_etn", ("ETF", "ETN", "TIGER", "KODEX", "KOSEF", "ARIRANG", "ACE", "SOL", "KBSTAR", "HANARO", "KINDEX", "RISE", "TIMEFOLIO")),
+    ("leveraged_product", ("레버리지", "인버스", "2X", "-2X", "선물", "곱버스")),
+    ("tracking_error_risk", ("합성", "TR", "커버드콜", "채권", "달러", "원유", "금", "구리")),
+    ("lp_quote_risk", ("LP", "유동성공급자")),
+)
+
+
+def product_risk_tags(name: Any, meta: dict[str, Any] | None = None) -> list[str]:
+    meta = meta if isinstance(meta, dict) else {}
+    tags = set(str(tag).strip().lower() for tag in safe_tag_list(meta.get("risk_tags")))
+    text = str(name or "").upper()
+    for tag, keywords in PRODUCT_RISK_KEYWORDS:
+        if any(keyword.upper() in text for keyword in keywords):
+            tags.add(tag)
+    if meta.get("lp_quote_missing") or meta.get("indicative_value_gap_pct"):
+        tags.add("lp_or_nav_gap_watch")
+    return sorted(tag for tag in tags if tag)
+
+
+def risk_label_list(tags: list[str]) -> list[str]:
+    return [RISK_TAG_LABELS_KO.get(str(tag).lower(), str(tag)) for tag in tags]
+
+
+def source_provenance(*parts: Any) -> list[str]:
+    values: list[str] = []
+    for part in parts:
+        if isinstance(part, list):
+            values.extend(str(v) for v in part if str(v).strip())
+        elif part not in (None, ""):
+            values.append(str(part))
+    return list(dict.fromkeys(values))
+
+
+def _theme_score(item: dict[str, Any]) -> float:
+    value = item.get("active_score") if item.get("active_score") is not None else item.get("score")
+    if value is None:
+        value = item.get("candidate_score")
+    try:
+        return float(value or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def assign_theme_roles(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for item in items:
+        grouped.setdefault(str(item.get("theme") or "미분류"), []).append(item)
+    for group in grouped.values():
+        ranked = sorted(group, key=_theme_score, reverse=True)
+        leader_score = _theme_score(ranked[0]) if ranked else 0.0
+        for idx, item in enumerate(ranked):
+            item_score = _theme_score(item)
+            ratio = (item_score / leader_score) if leader_score > 0 else 0.0
+            role = "leader" if idx == 0 and item_score > 0 else ("follower" if ratio >= 0.65 else "watch")
+            item["theme_role"] = role
+            item["theme_role_label"] = {"leader": "테마 리더", "follower": "후행 동조", "watch": "관심 관찰"}.get(role, role)
+            item["theme_role_score"] = round(ratio * 100, 1) if leader_score > 0 else 0.0
+    return items
+
+
 def build_theme_summary(cur) -> list[dict[str, Any]]:
     cur.execute(
         f"""
@@ -226,6 +296,8 @@ def build_candidates(cur) -> list[dict[str, Any]]:
         theme = display_label(theme_tags[0]) if theme_tags else display_label(hot_override.get("reason") or surge.get("stage") or row.get("source") or "watchlist")
         signal = display_label(hot_override.get("reason") or surge.get("stage") or row.get("source") or f"score {float(row.get('score') or 0):.1f}")
         collected_at = row.get("active_updated_at") or row.get("list_date")
+        risk_tags = product_risk_tags(row.get("name"), active_meta or meta)
+        provenance = source_provenance(row.get("source") or "watchlist_candidates", active_meta.get("sources"), hot_override.get("source"), surge.get("source"))
         items.append(
             {
                 "ticker": row["symbol"],
@@ -234,11 +306,15 @@ def build_candidates(cur) -> list[dict[str, Any]]:
                 "signal": signal,
                 "collected_at": fmt_kst(collected_at),
                 "source": row.get("source") or "watchlist_candidates",
+                "source_provenance": provenance,
+                "risk_tags": risk_tags,
+                "risk_labels": risk_label_list(risk_tags),
+                "block_reason_label": " / ".join(risk_label_list(risk_tags)),
                 "candidate_score": float(row.get("score") or 0),
                 "active_score": float(row.get("active_score") or 0) if row.get("active_score") is not None else None,
             }
         )
-    return items
+    return assign_theme_roles(items)
 
 
 def build_watchlist(cur) -> list[dict[str, Any]]:
@@ -291,6 +367,8 @@ def build_watchlist(cur) -> list[dict[str, Any]]:
         if not reason_parts:
             reason_parts.append("관심 유지")
         signal = display_label(hot_override.get("reason") or surge.get("stage") or (theme_tags[0] if theme_tags else row.get("candidate_source") or "watch"))
+        risk_tags = product_risk_tags(row.get("name"), meta)
+        provenance = source_provenance(row.get("candidate_source") or "watchlist_active", sources, hot_override.get("source"), surge.get("source"))
         items.append(
             {
                 "ticker": row["symbol"],
@@ -300,6 +378,10 @@ def build_watchlist(cur) -> list[dict[str, Any]]:
                 "collected_at": fmt_kst(meta.get("selected_at") or row.get("updated_at")),
                 "score": float(row.get("score") or 0),
                 "source": row.get("candidate_source") or "watchlist_active",
+                "source_provenance": provenance,
+                "risk_tags": risk_tags,
+                "risk_labels": risk_label_list(risk_tags),
+                "block_reason_label": " / ".join(risk_label_list(risk_tags)),
                 "score_breakdown": meta.get("score_breakdown") or {},
                 "strategy_variant": meta.get("strategy_variant") or "",
                 "strategy_variant_reason": meta.get("strategy_variant_reason") or "",
@@ -308,7 +390,7 @@ def build_watchlist(cur) -> list[dict[str, Any]]:
                 "hot_override": hot_override or {},
             }
         )
-    return items
+    return assign_theme_roles(items)
 
 
 def build_signal_on(cur) -> list[dict[str, Any]]:
@@ -566,6 +648,11 @@ def build_risk_diagnostics(cur) -> dict[str, Any] | None:
         "broker_position_count": int(broker.get("broker_position_count") or 0),
         "broker_available_cash": broker.get("broker_available_cash"),
         "broker_can_trade": bool(broker.get("broker_can_trade")),
+        "product_risk_policy": {
+            "risk_tags": list(RISK_TAG_LABELS_KO.keys()),
+            "risk_labels": list(RISK_TAG_LABELS_KO.values()),
+            "block_reason_label": "ETF/ETN·레버리지·인버스·괴리율·LP호가 위험은 개별주 후보에서 제외/차단",
+        },
         "detail_source": "collector_status_snapshots",
     }
 
