@@ -172,7 +172,7 @@
       "name": "SK하이닉스",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 99.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
       "score": 83.4726,
       "source": "daily_universe_scan"
     },
@@ -181,7 +181,7 @@
       "name": "현대차",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 98.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
       "score": 83.4095,
       "source": "daily_universe_scan"
     },
@@ -190,7 +190,7 @@
       "name": "삼성전자",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 100.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
       "score": 77.5221,
       "source": "daily_universe_scan"
     },
@@ -199,7 +199,7 @@
       "name": "삼성전자우",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 97.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
       "score": 77.3326,
       "source": "daily_universe_scan"
     },
@@ -208,7 +208,7 @@
       "name": "POSCO홀딩스",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 94.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
       "score": 74.3958,
       "source": "daily_universe_scan"
     },
@@ -217,7 +217,7 @@
       "name": "삼성SDI",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 92.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
       "score": 74.0558,
       "source": "daily_universe_scan"
     },
@@ -226,8 +226,8 @@
       "name": "삼성바이오로직스",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 95.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
-      "score": 72.2916,
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
+      "score": 72.2896,
       "source": "daily_universe_scan"
     },
     {
@@ -235,8 +235,8 @@
       "name": "기아",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 96.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
-      "score": 68.7832,
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
+      "score": 68.7812,
       "source": "daily_universe_scan"
     },
     {
@@ -244,8 +244,8 @@
       "name": "NAVER",
       "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 93.0",
       "signal": "돌파",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
-      "score": 68.5326,
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
+      "score": 68.5307,
       "source": "daily_universe_scan"
     },
     {
@@ -253,33 +253,77 @@
       "name": "093370",
       "reason": "후성 장중 급등 추적용 hot override / 태그: 돌파, 시장 틱·호가, 후성 장중 급등 추적용 hot override / 시그널: 돌파",
       "signal": "후성 장중 급등 추적용 hot override",
-      "collected_at": "2026-06-15T04:00:01.181355+00:00",
-      "score": 62.0558,
+      "collected_at": "2026-06-15T04:10:01.146901+00:00",
+      "score": 62.0539,
       "source": "watchlist_active"
     }
   ],
   "signal_on": [
     {
-      "ticker": "093370",
-      "name": "093370",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 13:00:06 KST",
-      "signal_at": "2026-06-15 13:00:06 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "152,118,932,395원",
-      "change_pct_text": "+3.73%",
-      "trigger_strength": 0.373
-    },
-    {
       "ticker": "005380",
       "name": "005380",
       "signal": "추세 지속",
-      "collected_at": "2026-06-15 13:00:06 KST",
-      "signal_at": "2026-06-15 13:00:06 KST",
+      "collected_at": "2026-06-15 13:10:05 KST",
+      "signal_at": "2026-06-15 13:10:05 KST",
       "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "522,652,972,500원",
-      "change_pct_text": "+6.92%",
-      "trigger_strength": 0.5767
+      "trade_value_text": "530,595,792,500원",
+      "change_pct_text": "+6.75%",
+      "trigger_strength": 0.5625
+    },
+    {
+      "ticker": "093370",
+      "name": "093370",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 13:09:01 KST",
+      "signal_at": "2026-06-15 13:09:01 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "152,856,921,485원",
+      "change_pct_text": "+3.16%",
+      "trigger_strength": 0.316
+    },
+    {
+      "ticker": "006400",
+      "name": "006400",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 13:05:04 KST",
+      "signal_at": "2026-06-15 13:05:04 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "171,963,901,000원",
+      "change_pct_text": "+4.08%",
+      "trigger_strength": 0.408
+    },
+    {
+      "ticker": "000660",
+      "name": "000660",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 13:05:04 KST",
+      "signal_at": "2026-06-15 13:05:04 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "5,268,845,366,000원",
+      "change_pct_text": "+6.84%",
+      "trigger_strength": 0.684
+    },
+    {
+      "ticker": "005490",
+      "name": "005490",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 13:04:02 KST",
+      "signal_at": "2026-06-15 13:04:02 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "67,621,781,500원",
+      "change_pct_text": "+4.64%",
+      "trigger_strength": 0.464
+    },
+    {
+      "ticker": "207940",
+      "name": "207940",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 13:02:01 KST",
+      "signal_at": "2026-06-15 13:02:01 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "26,838,229,500원",
+      "change_pct_text": "+4.25%",
+      "trigger_strength": 0.425
     },
     {
       "ticker": "005935",
@@ -293,39 +337,6 @@
       "trigger_strength": 0.556
     },
     {
-      "ticker": "006400",
-      "name": "006400",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 12:57:01 KST",
-      "signal_at": "2026-06-15 12:57:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "168,381,976,500원",
-      "change_pct_text": "+4.64%",
-      "trigger_strength": 0.464
-    },
-    {
-      "ticker": "005490",
-      "name": "005490",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 12:57:01 KST",
-      "signal_at": "2026-06-15 12:57:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "66,224,820,250원",
-      "change_pct_text": "+5.17%",
-      "trigger_strength": 0.517
-    },
-    {
-      "ticker": "000660",
-      "name": "000660",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 12:53:01 KST",
-      "signal_at": "2026-06-15 12:53:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "5,156,271,435,500원",
-      "change_pct_text": "+6.88%",
-      "trigger_strength": 0.688
-    },
-    {
       "ticker": "005930",
       "name": "005930",
       "signal": "돌파",
@@ -335,17 +346,6 @@
       "trade_value_text": "4,161,489,270,500원",
       "change_pct_text": "+4.96%",
       "trigger_strength": 0.496
-    },
-    {
-      "ticker": "000270",
-      "name": "000270",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 12:34:01 KST",
-      "signal_at": "2026-06-15 12:34:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "128,781,592,750원",
-      "change_pct_text": "+2.58%",
-      "trigger_strength": 0.258
     }
   ],
   "buy_list": [
@@ -381,8 +381,8 @@
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-15 13:00:27 KST",
-  "generated_at_utc": "2026-06-15T04:00:27Z",
+  "updated_at": "2026-06-15 13:10:14 KST",
+  "generated_at_utc": "2026-06-15T04:10:14Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
