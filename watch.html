@@ -209,7 +209,6 @@
         <div class="actions">
           <a class="btn primary" href="#themes">테마 보기</a>
           <a class="btn" href="#buylist">매수 목록</a>
-          <a class="btn" href="#raw">원본 JSON</a>
           <a class="btn" href="./index.html">대시보드로</a>
         </div>
       </article>
@@ -298,17 +297,7 @@
       <div class="footer" id="buy-summary"></div>
     </section>
 
-    <section class="section" id="raw">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">json snapshot</div>
-          <h3 class="title">원본 JSON</h3>
-          <p class="section-sub">docs/data/watch.json · cache: no-store</p>
-        </div>
-      </div>
-      <pre id="raw-json">loading…</pre>
-      <div class="footer" id="meta"></div>
-    </section>
+    <div class="footer" id="meta"></div>
   </div>
 
   <script>
@@ -547,7 +536,7 @@
         $('dashboard-subtitle').textContent = data.subtitle || '오늘 관심 테마와 후보를 10분 단위로 갱신하는 페이지';
         $('state-pill').textContent = data.market_state || '대기';
         $('updated-pill').textContent = data.updated_at || '—';
-        $('source-pill').textContent = 'docs/data/watch.json · DB-first';
+        $('source-pill').textContent = 'DB-first';
         $('hero-summary').textContent = data.summary || '';
         $('snapshot-note').textContent = data.note || '';
         $('status-badge').textContent = `${data.market_state || '대기'} · ${data.summary || ''}`;
@@ -575,8 +564,7 @@
         } else {
           $('portfolio-summary').innerHTML = '계좌 자산 요약을 아직 계산하지 못했습니다.';
         }
-        $('meta').textContent = `updated_at: ${data.updated_at || '—'} · generated_at_utc: ${data.generated_at_utc || '—'} · source: ${data.source || 'json'}`;
-        $('raw-json').textContent = JSON.stringify(data, null, 2);
+        $('meta').textContent = `updated_at: ${data.updated_at || '—'} · generated_at_utc: ${data.generated_at_utc || '—'}`;
         renderTags(data.tags || []);
         renderStats(data);
         renderRiskDiagnostics(data);
@@ -588,9 +576,9 @@
         renderBuyTable(data.buy_list || []);
       })
       .catch(err => {
-        $('state-pill').textContent = 'JSON load failed';
+        $('state-pill').textContent = '로드 실패';
         $('status-badge').textContent = '불러오기 실패';
-        $('raw-json').innerHTML = `<span class="tag warn">데이터를 불러오지 못했습니다: ${esc(err.message)}</span>`;
+        $('meta').textContent = `데이터를 불러오지 못했습니다: ${esc(err.message)}`;
       });
   </script>
 </body>

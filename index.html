@@ -743,16 +743,15 @@
 
     <section class="hero">
       <article class="card hero-main">
-        <div class="hero-kicker">GitHub Pages · 10분 자동 갱신 · JSON driven</div>
+        <div class="hero-kicker">GitHub Pages · 10분 자동 갱신 · 상태판</div>
         <h2 class="hero-title"><span>전략 상태</span>를
           한 화면에서 정리해서 본다.</h2>
         <p class="hero-subtitle" id="hero-summary">
-          전략 상태를 한눈에 확인하는 GitHub Pages + JSON 대시보드
+          전략 상태를 한눈에 확인하는 GitHub Pages 대시보드
         </p>
         <div class="hero-tags" id="hero-tags"></div>
         <div class="hero-actions">
           <a class="btn primary" href="#strategy">전략 프레임 보기</a>
-          <a class="btn" href="#json">원본 JSON 보기</a>
           <a class="btn" href="./watch.html">관심목록 페이지</a>
         </div>
       </article>
@@ -825,17 +824,7 @@
       </article>
     </section>
 
-    <section class="card section" id="json">
-      <div class="json-toolbar">
-        <div>
-          <div class="eyebrow">json snapshot</div>
-          <h2>원본 JSON</h2>
-        </div>
-        <div class="footnote">docs/data/latest.json · cache: no-store</div>
-      </div>
-      <pre id="raw-json">loading…</pre>
-      <div class="footer" id="dashboard-meta"></div>
-    </section>
+    <div class="footer" id="dashboard-meta"></div>
   </div>
 
   <script>
@@ -926,12 +915,11 @@
         $('dashboard-subtitle').textContent = data.subtitle || '에이전트 기반 단타 전략 대시보드';
         $('market-pill').textContent = data.market_state || '대기';
         $('updated-pill').textContent = fmt(data.updated_at);
-        $('source-pill').textContent = fmt(data.source || 'json');
-        $('hero-summary').textContent = data.summary || '전략 상태를 한눈에 확인하는 GitHub Pages + JSON 대시보드';
+        $('source-pill').textContent = data.source_label || '대시보드';
+        $('hero-summary').textContent = data.summary || '전략 상태를 한눈에 확인하는 GitHub Pages 대시보드';
         $('snapshot-note').textContent = data.note || '';
         $('state-badge').textContent = `${fmt(data.market_state || '대기')} · ${fmt(data.summary || '')}`;
-        $('dashboard-meta').textContent = `updated_at: ${fmt(data.updated_at)} · generated_at_utc: ${fmt(data.generated_at_utc)} · source: ${fmt(data.source || 'json')}`;
-        $('raw-json').textContent = JSON.stringify(data, null, 2);
+        $('dashboard-meta').textContent = `updated_at: ${fmt(data.updated_at)} · generated_at_utc: ${fmt(data.generated_at_utc)}`;
         renderPills(data.tags || []);
         renderStats(data.stats || []);
         renderStrategyCards(data.strategy_cards || []);
@@ -941,9 +929,9 @@
         renderList('updates', data.updates || [], { title: 'name', status: 'status', body: 'detail', foot: 'time' });
       })
       .catch(err => {
-        $('market-pill').textContent = 'JSON load failed';
+        $('state-pill').textContent = '로드 실패';
         $('state-badge').textContent = '불러오기 실패';
-        $('raw-json').innerHTML = `<span class="error">데이터를 불러오지 못했습니다: ${escapeHTML(err.message)}</span>`;
+        $('dashboard-meta').textContent = `데이터를 불러오지 못했습니다: ${escapeHTML(err.message)}`;
       });
   </script>
 </body>
