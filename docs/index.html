@@ -913,7 +913,7 @@
       .then(data => {
         $('dashboard-title').textContent = data.title || 'COOLPEACE AGENT';
         $('dashboard-subtitle').textContent = data.subtitle || '에이전트 기반 단타 전략 대시보드';
-        $('market-pill').textContent = data.market_state || '대기';
+        $('state-pill').textContent = data.market_state || '대기';
         $('updated-pill').textContent = fmt(data.updated_at);
         $('source-pill').textContent = data.source_label || '대시보드';
         $('hero-summary').textContent = data.summary || '전략 상태를 한눈에 확인하는 GitHub Pages 대시보드';
