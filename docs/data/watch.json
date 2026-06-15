@@ -168,48 +168,75 @@
   ],
   "watchlist": [
     {
-      "ticker": "005930",
-      "name": "삼성전자",
-      "reason": "후보점수 100.0",
-      "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-06-15T00:00:01.020503+00:00",
-      "score": 49.4739,
-      "source": "daily_universe_scan"
-    },
-    {
       "ticker": "000660",
       "name": "SK하이닉스",
-      "reason": "후보점수 99.0",
-      "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-06-15T00:00:01.020503+00:00",
-      "score": 49.0691,
+      "reason": "태그: 추세 지속, 시장 틱·호가 / 시그널: 추세 지속 / 후보점수 99.0",
+      "signal": "추세 지속",
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
+      "score": 75.5535,
       "source": "daily_universe_scan"
     },
     {
-      "ticker": "005380",
-      "name": "현대차",
-      "reason": "후보점수 98.0",
-      "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-06-15T00:00:01.020503+00:00",
-      "score": 48.7007,
+      "ticker": "005930",
+      "name": "삼성전자",
+      "reason": "태그: 추세 지속, 시장 틱·호가 / 시그널: 추세 지속 / 후보점수 100.0",
+      "signal": "추세 지속",
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
+      "score": 74.2894,
       "source": "daily_universe_scan"
     },
     {
       "ticker": "005935",
       "name": "삼성전자우",
-      "reason": "후보점수 97.0",
-      "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-06-15T00:00:01.020503+00:00",
-      "score": 48.3324,
+      "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 97.0",
+      "signal": "돌파",
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
+      "score": 73.6389,
       "source": "daily_universe_scan"
+    },
+    {
+      "ticker": "005380",
+      "name": "현대차",
+      "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 98.0",
+      "signal": "돌파",
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
+      "score": 73.6105,
+      "source": "daily_universe_scan"
+    },
+    {
+      "ticker": "006400",
+      "name": "삼성SDI",
+      "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 92.0",
+      "signal": "돌파",
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
+      "score": 71.7663,
+      "source": "daily_universe_scan"
+    },
+    {
+      "ticker": "005490",
+      "name": "POSCO홀딩스",
+      "reason": "태그: 돌파, 시장 틱·호가 / 시그널: 돌파 / 후보점수 94.0",
+      "signal": "돌파",
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
+      "score": 69.112,
+      "source": "daily_universe_scan"
+    },
+    {
+      "ticker": "093370",
+      "name": "093370",
+      "reason": "후성 장중 급등 추적용 hot override / 태그: 추세 지속, 시장 틱·호가, 후성 장중 급등 추적용 hot override / 시그널: 추세 지속",
+      "signal": "후성 장중 급등 추적용 hot override",
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
+      "score": 57.4628,
+      "source": "watchlist_active"
     },
     {
       "ticker": "000270",
       "name": "기아",
       "reason": "후보점수 96.0",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-06-15T00:00:01.020503+00:00",
-      "score": 47.964,
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
+      "score": 48.0,
       "source": "daily_universe_scan"
     },
     {
@@ -217,21 +244,90 @@
       "name": "삼성바이오로직스",
       "reason": "후보점수 95.0",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-06-15T00:00:01.020503+00:00",
+      "collected_at": "2026-06-15T00:10:01.276765+00:00",
       "score": 47.6316,
-      "source": "daily_universe_scan"
-    },
-    {
-      "ticker": "005490",
-      "name": "POSCO홀딩스",
-      "reason": "후보점수 94.0",
-      "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-06-15T00:00:01.020503+00:00",
-      "score": 47.2632,
       "source": "daily_universe_scan"
     }
   ],
-  "signal_on": [],
+  "signal_on": [
+    {
+      "ticker": "005490",
+      "name": "005490",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 09:11:02 KST",
+      "signal_at": "2026-06-15 09:11:02 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "12,684,147,500원",
+      "change_pct_text": "+4.11%",
+      "trigger_strength": 0.411
+    },
+    {
+      "ticker": "005930",
+      "name": "005930",
+      "signal": "추세 지속",
+      "collected_at": "2026-06-15 09:11:02 KST",
+      "signal_at": "2026-06-15 09:11:02 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "820,128,576,000원",
+      "change_pct_text": "+5.27%",
+      "trigger_strength": 0.4392
+    },
+    {
+      "ticker": "093370",
+      "name": "093370",
+      "signal": "추세 지속",
+      "collected_at": "2026-06-15 09:11:02 KST",
+      "signal_at": "2026-06-15 09:11:02 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "58,674,792,945원",
+      "change_pct_text": "+5.47%",
+      "trigger_strength": 0.4558
+    },
+    {
+      "ticker": "005380",
+      "name": "005380",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 09:11:02 KST",
+      "signal_at": "2026-06-15 09:11:02 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "86,360,858,000원",
+      "change_pct_text": "+5.27%",
+      "trigger_strength": 0.527
+    },
+    {
+      "ticker": "006400",
+      "name": "006400",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 09:09:01 KST",
+      "signal_at": "2026-06-15 09:09:01 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "60,961,761,500원",
+      "change_pct_text": "+4.45%",
+      "trigger_strength": 0.445
+    },
+    {
+      "ticker": "000660",
+      "name": "000660",
+      "signal": "추세 지속",
+      "collected_at": "2026-06-15 09:08:01 KST",
+      "signal_at": "2026-06-15 09:08:01 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "785,841,749,000원",
+      "change_pct_text": "+5.95%",
+      "trigger_strength": 0.4958
+    },
+    {
+      "ticker": "005935",
+      "name": "005935",
+      "signal": "돌파",
+      "collected_at": "2026-06-15 09:07:01 KST",
+      "signal_at": "2026-06-15 09:07:01 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "82,397,931,500원",
+      "change_pct_text": "+4.11%",
+      "trigger_strength": 0.411
+    }
+  ],
   "buy_list": [
     {
       "ticker": "217590",
@@ -280,13 +376,13 @@
     "baseline_note": "seeded from user-confirmed current cash+holdings total"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines",
-  "updated_at": "2026-06-15 09:01:05 KST",
-  "generated_at_utc": "2026-06-15T00:01:05Z",
+  "updated_at": "2026-06-15 09:11:02 KST",
+  "generated_at_utc": "2026-06-15T00:11:02Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
-    "watchlist": 7,
-    "signals": 0,
+    "watchlist": 9,
+    "signals": 7,
     "buys": 2,
     "portfolio": 1
   }
