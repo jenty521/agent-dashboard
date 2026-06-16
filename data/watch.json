@@ -1064,39 +1064,6 @@
       "trade_value_text": "73,571,320,350원",
       "change_pct_text": "+11.17%",
       "trigger_strength": 1.0
-    },
-    {
-      "ticker": "005930",
-      "name": "005930",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 15:59:02 KST",
-      "signal_at": "2026-06-15 15:59:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "6,819,770,547,750원",
-      "change_pct_text": "+4.50%",
-      "trigger_strength": 0.45
-    },
-    {
-      "ticker": "005490",
-      "name": "005490",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 15:59:02 KST",
-      "signal_at": "2026-06-15 15:59:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "113,814,815,750원",
-      "change_pct_text": "+4.77%",
-      "trigger_strength": 0.477
-    },
-    {
-      "ticker": "000660",
-      "name": "000660",
-      "signal": "추세 지속",
-      "collected_at": "2026-06-15 15:59:02 KST",
-      "signal_at": "2026-06-15 15:59:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "8,182,737,338,000원",
-      "change_pct_text": "+6.42%",
-      "trigger_strength": 0.535
     }
   ],
   "buy_list": [
@@ -1167,13 +1134,13 @@
     "detail_source": "collector_status_snapshots"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots",
-  "updated_at": "2026-06-16 15:51:11 KST",
-  "generated_at_utc": "2026-06-16T06:51:11Z",
+  "updated_at": "2026-06-16 16:00:04 KST",
+  "generated_at_utc": "2026-06-16T07:00:04Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
     "watchlist": 12,
-    "signals": 8,
+    "signals": 5,
     "buys": 1,
     "portfolio": 1,
     "risk": 1
