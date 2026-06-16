@@ -1011,6 +1011,61 @@
   ],
   "signal_on": [
     {
+      "ticker": "086790",
+      "name": "086790",
+      "signal": "돌파",
+      "collected_at": "2026-06-16 09:01:00 KST",
+      "signal_at": "2026-06-16 09:01:00 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "137,702,236,650원",
+      "change_pct_text": "+6.86%",
+      "trigger_strength": 0.686
+    },
+    {
+      "ticker": "028260",
+      "name": "028260",
+      "signal": "잠금",
+      "collected_at": "2026-06-16 09:01:00 KST",
+      "signal_at": "2026-06-16 09:01:00 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "327,027,942,750원",
+      "change_pct_text": "+14.58%",
+      "trigger_strength": 0.729
+    },
+    {
+      "ticker": "009150",
+      "name": "009150",
+      "signal": "잠금",
+      "collected_at": "2026-06-16 09:01:00 KST",
+      "signal_at": "2026-06-16 09:01:00 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "2,887,929,934,000원",
+      "change_pct_text": "+16.63%",
+      "trigger_strength": 0.8315
+    },
+    {
+      "ticker": "032830",
+      "name": "032830",
+      "signal": "돌파",
+      "collected_at": "2026-06-16 09:01:00 KST",
+      "signal_at": "2026-06-16 09:01:00 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "186,484,963,750원",
+      "change_pct_text": "+9.73%",
+      "trigger_strength": 0.973
+    },
+    {
+      "ticker": "003550",
+      "name": "003550",
+      "signal": "돌파",
+      "collected_at": "2026-06-16 09:01:00 KST",
+      "signal_at": "2026-06-16 09:01:00 KST",
+      "source": "market_ticks_orderbook_surge",
+      "trade_value_text": "73,571,320,350원",
+      "change_pct_text": "+11.17%",
+      "trigger_strength": 1.0
+    },
+    {
       "ticker": "005930",
       "name": "005930",
       "signal": "돌파",
@@ -1042,61 +1097,6 @@
       "trade_value_text": "8,182,737,338,000원",
       "change_pct_text": "+6.42%",
       "trigger_strength": 0.535
-    },
-    {
-      "ticker": "005380",
-      "name": "005380",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 15:59:02 KST",
-      "signal_at": "2026-06-15 15:59:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "683,140,808,000원",
-      "change_pct_text": "+6.59%",
-      "trigger_strength": 0.659
-    },
-    {
-      "ticker": "093370",
-      "name": "093370",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 15:59:02 KST",
-      "signal_at": "2026-06-15 15:59:02 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "367,304,010,595원",
-      "change_pct_text": "+17.83%",
-      "trigger_strength": 1.0
-    },
-    {
-      "ticker": "005935",
-      "name": "005935",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 15:51:01 KST",
-      "signal_at": "2026-06-15 15:51:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "640,283,675,500원",
-      "change_pct_text": "+4.35%",
-      "trigger_strength": 0.435
-    },
-    {
-      "ticker": "207940",
-      "name": "207940",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 15:45:06 KST",
-      "signal_at": "2026-06-15 15:45:06 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "58,627,510,500원",
-      "change_pct_text": "+2.86%",
-      "trigger_strength": 0.286
-    },
-    {
-      "ticker": "006400",
-      "name": "006400",
-      "signal": "돌파",
-      "collected_at": "2026-06-15 15:44:01 KST",
-      "signal_at": "2026-06-15 15:44:01 KST",
-      "source": "market_ticks_orderbook_surge",
-      "trade_value_text": "296,988,128,500원",
-      "change_pct_text": "+2.60%",
-      "trigger_strength": 0.26
     }
   ],
   "buy_list": [
@@ -1167,8 +1167,8 @@
     "detail_source": "collector_status_snapshots"
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots",
-  "updated_at": "2026-06-16 09:00:12 KST",
-  "generated_at_utc": "2026-06-16T00:00:12Z",
+  "updated_at": "2026-06-16 09:10:26 KST",
+  "generated_at_utc": "2026-06-16T00:10:26Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
