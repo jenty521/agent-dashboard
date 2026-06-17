@@ -82,6 +82,48 @@ DEFAULT_PAYLOAD: dict[str, Any] = {
     "portfolio": {},
     "risk_diagnostics": {},
     "cron_runs_today": {"as_of": "", "summary": [], "recent_failures": [], "stuck_running": []},
+    # 2026-06-17: 신규 섹션 (모니터링 가시성 강화)
+    "system_status": {
+        "market_state": "unknown",  # pre_open / open / closed / after_hours / holiday
+        "session_state": "NO_TRADE",  # TRADE_OK / NO_TRADE / BLOCKED
+        "session_entered_at": "",
+        "session_age_minutes": 0,
+        "is_trade_window": False,
+        "next_cron_due_in_minutes": 0,
+        "kst_now": "",
+    },
+    "data_freshness": [],  # [{"key": "bars_1m", "label": "1분봉", "last": "...", "age_minutes": 5, "status": "fresh|stale|critical"}]
+    "health": {  # cron_runs_today 요약
+        "total_runs": 0,
+        "ok": 0,
+        "failed": 0,
+        "timeout": 0,
+        "running": 0,
+        "stuck_running_count": 0,
+        "ok_rate_pct": 0.0,
+        "alert_level": "ok",  # ok / warn / critical
+        "alerts": [],  # 사람이 읽을 수 있는 경고 메시지
+    },
+    "cron_recent_failures": [],  # 최근 24h 실패/timeout 10건 (cron_runs_today.recent_failures와 동일)
+    "cron_stuck_running": [],  # 5분+ running 상태
+    "strategy_candidates": {  # strategy_candidates 실시간 집계
+        "as_of": "",
+        "totals": {"buy": 0, "sell": 0, "ready_to_execute": 0, "blocked": 0, "all": 0},
+        "today": {"buy": 0, "sell": 0, "ready_to_execute": 0, "blocked": 0, "all": 0},
+        "ready_to_execute_list": [],  # READY_TO_EXECUTE 종목 (매수 후보)
+        "blocked_list": [],  # BLOCKED 사유와 함께
+    },
+    "orders_today": {  # 오늘 매수/매도 side별 status
+        "as_of": "",
+        "totals": {"buy": 0, "sell": 0, "submitted": 0, "filled": 0, "rejected": 0, "cancelled": 0},
+        "recent": [],  # 최근 5건
+    },
+    "open_positions": [],  # positions 테이블의 보유 종목 + 실시간 PnL
+    "watchlist_active_freshness": {  # watchlist_active의 신선도
+        "last_refreshed_at": "",
+        "age_minutes": 0,
+        "size": 0,
+    },
 }
 
 
@@ -704,19 +746,502 @@ def build_cron_runs_today(cur, *, top_failures: int = 5) -> dict[str, Any]:
             FROM cron_job_runs
             WHERE status = 'running' AND started_at < now() - interval '5 minutes'
             ORDER BY started_at ASC
-            """,
+            """
         )
         or [],
     }
 
 
+# 2026-06-17: 신규 헬퍼/빌더 (대시보드 모니터링 가시성 강화)
+
+KST_NOW_FN = lambda: datetime.now(KST)  # noqa: E731
+
+
+def _kst_now_text() -> str:
+    return datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S KST")
+
+
+def _age_minutes(dt: Any) -> int:
+    """DB timestamp → KST 기준 분 단위 age. None/빈값은 -1 (unknown)."""
+    if dt is None or dt == "":
+        return -1
+    if isinstance(dt, str):
+        try:
+            dt = datetime.fromisoformat(dt.replace("Z", "+00:00"))
+        except Exception:
+            return -1
+    if not isinstance(dt, datetime):
+        return -1
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    delta = datetime.now(KST) - dt.astimezone(KST)
+    return int(delta.total_seconds() // 60)
+
+
+def _freshness_status(age_minutes: int, *, threshold_stale: int = 30, threshold_critical: int = 120) -> str:
+    """age_minutes → fresh (≤threshold_stale) / stale (≤threshold_critical) / critical."""
+    if age_minutes < 0:
+        return "unknown"
+    if age_minutes <= threshold_stale:
+        return "fresh"
+    if age_minutes <= threshold_critical:
+        return "stale"
+    return "critical"
+
+
+def _market_state_label(kst_now: datetime) -> dict[str, Any]:
+    """현재 KST 시각 기준 market_state (pre_open / open / closed / after_hours / holiday).
+
+    한국 시장: 09:00~15:30 = open, 15:30~16:00 = after_hours, 16:00~次日08:30 = closed, 08:30~09:00 = pre_open.
+    """
+    weekday = kst_now.weekday()  # 0=월 ~ 6=일
+    hm = kst_now.hour * 60 + kst_now.minute
+    if weekday >= 5:
+        state = "holiday"
+    elif 540 <= hm < 930:  # 09:00~15:30
+        state = "open"
+    elif 930 <= hm < 960:  # 15:30~16:00
+        state = "after_hours"
+    elif 510 <= hm < 540:  # 08:30~09:00
+        state = "pre_open"
+    else:
+        state = "closed"
+    is_trade = state == "open"
+    return {"market_state": state, "is_trade_window": is_trade}
+
+
+def build_system_status(cur) -> dict[str, Any]:
+    """현재 KST 시각 기준 market_state + session_state + last_heartbeat."""
+    kst_now = datetime.now(KST)
+    market = _market_state_label(kst_now)
+    # session_state (가장 최근 row)
+    sess = fetch_one_safe(
+        cur,
+        """
+        SELECT current_state, previous_state, entered_at, reason_code
+        FROM session_state
+        ORDER BY session_id DESC
+        LIMIT 1
+        """,
+    )
+    cur_state = (sess or {}).get("current_state") or "NO_TRADE"
+    entered_at = (sess or {}).get("entered_at")
+    age_min = _age_minutes(entered_at)
+    return {
+        "market_state": market["market_state"],
+        "is_trade_window": market["is_trade_window"],
+        "session_state": cur_state,
+        "session_entered_at": fmt_kst(entered_at) if entered_at else "",
+        "session_age_minutes": age_min,
+        "kst_now": _kst_now_text(),
+    }
+
+
+def build_data_freshness(cur) -> list[dict[str, Any]]:
+    """각 데이터 소스의 신선도 (bars_1m / market_ticks / strategy_candidates / orders / positions / account_events / cron_job_runs / watchlist_active / watchlist_candidates).
+
+    임계치: 1분 단위 = 5분, 5분 단위 = 15분, 그 외 = 30분 stale / 120분 critical.
+    """
+    out: list[dict[str, Any]] = []
+    # 1분 단위 (5분 stale / 30분 critical)
+    one_min = fetch_all_safe(
+        cur,
+        """
+        SELECT 'bars_1m'::text AS key, '1분봉' AS label, MAX(bar_time) AS last FROM bars_1m WHERE symbol='005930'
+        UNION ALL SELECT 'market_ticks', '장중 틱(삼성)', MAX(observed_at) FROM market_ticks WHERE symbol='005930'
+        """
+    )
+    for row in one_min:
+        age = _age_minutes(row.get("last"))
+        out.append(
+            {
+                "key": row["key"],
+                "label": row["label"],
+                "last": fmt_kst(row.get("last")) if row.get("last") else "—",
+                "age_minutes": age,
+                "status": _freshness_status(age, threshold_stale=5, threshold_critical=30),
+                "tier": "1min",
+            }
+        )
+    # 5분 단위 (15분 stale / 60분 critical)
+    five_min = fetch_all_safe(
+        cur,
+        """
+        SELECT 'watchlist_active'::text AS key, '워치리스트' AS label, MAX(updated_at) AS last FROM watchlist_active WHERE is_active = true
+        UNION ALL SELECT 'watchlist_candidates', '후보 종목 풀', MAX(updated_at) FROM watchlist_candidates WHERE list_date = CURRENT_DATE
+        UNION ALL SELECT 'strategy_candidates', '매수 후보', MAX(created_at) FROM strategy_candidates WHERE created_at >= date_trunc('day', now() AT TIME ZONE 'Asia/Seoul')
+        UNION ALL SELECT 'cron_job_runs', '배치 실행 기록', MAX(started_at) FROM cron_job_runs
+        """
+    )
+    for row in five_min:
+        age = _age_minutes(row.get("last"))
+        out.append(
+            {
+                "key": row["key"],
+                "label": row["label"],
+                "last": fmt_kst(row.get("last")) if row.get("last") else "—",
+                "age_minutes": age,
+                "status": _freshness_status(age, threshold_stale=15, threshold_critical=60),
+                "tier": "5min",
+            }
+        )
+    # 그 외 (30분 stale / 120분 critical)
+    others = fetch_all_safe(
+        cur,
+        """
+        SELECT 'orders'::text AS key, '주문' AS label, MAX(created_at) AS last FROM orders
+        UNION ALL SELECT 'positions', '보유 포지션', MAX(updated_at) FROM positions WHERE quantity > 0
+        UNION ALL SELECT 'account_events', '계좌 스냅샷', MAX(observed_at) FROM account_events WHERE event_type = 'account_status_snapshot'
+        """
+    )
+    for row in others:
+        age = _age_minutes(row.get("last"))
+        out.append(
+            {
+                "key": row["key"],
+                "label": row["label"],
+                "last": fmt_kst(row.get("last")) if row.get("last") else "—",
+                "age_minutes": age,
+                "status": _freshness_status(age, threshold_stale=30, threshold_critical=120),
+                "tier": "snapshot",
+            }
+        )
+    return out
+
+
+def build_health(cur, cron_summary: list[dict[str, Any]], stuck_running: list[dict[str, Any]]) -> dict[str, Any]:
+    """cron_runs_today → 사람이 읽을 수 있는 health summary + alerts."""
+    total = sum(int(r.get("total") or 0) for r in cron_summary)
+    ok = sum(int(r.get("ok") or 0) for r in cron_summary)
+    failed = sum(int(r.get("fail") or 0) for r in cron_summary)
+    timeout = sum(int(r.get("timeout") or 0) for r in cron_summary)
+    running = sum(int(r.get("running") or 0) for r in cron_summary)
+    ok_rate = (ok / total * 100) if total else 0.0
+    stuck_n = len(stuck_running or [])
+
+    alerts: list[str] = []
+    if failed >= 1:
+        alerts.append(f"실패 {failed}건: 최근 실패는 cron_recent_failures 확인")
+    if timeout >= 1:
+        alerts.append(f"timeout {timeout}건 (5분+ 실행 잡 점검)")
+    if stuck_n >= 1:
+        alerts.append(f"stuck_running {stuck_n}건: 5분+ running 상태")
+    if total >= 1 and ok_rate < 80.0:
+        alerts.append(f"성공률 {ok_rate:.1f}% (80% 미만)")
+
+    if failed >= 5 or timeout >= 3 or stuck_n >= 3 or (total >= 5 and ok_rate < 60.0):
+        alert_level = "critical"
+    elif failed >= 1 or timeout >= 1 or stuck_n >= 1 or (total >= 5 and ok_rate < 90.0):
+        alert_level = "warn"
+    else:
+        alert_level = "ok"
+
+    return {
+        "total_runs": total,
+        "ok": ok,
+        "failed": failed,
+        "timeout": timeout,
+        "running": running,
+        "stuck_running_count": stuck_n,
+        "ok_rate_pct": round(ok_rate, 1),
+        "alert_level": alert_level,
+        "alerts": alerts,
+    }
+
+
+def build_strategy_candidates(cur) -> dict[str, Any]:
+    """strategy_candidates 실시간 집계 + READY_TO_EXECUTE/BLOCKED 목록."""
+    as_of = fmt_kst(datetime.now(KST))
+    # 전체 카운트 (instrument_id → instruments.name 조인)
+    rows = fetch_all_safe(
+        cur,
+        f"""
+        SELECT sc.side, sc.candidate_status, COUNT(*)::int AS cnt
+        FROM strategy_candidates sc
+        LEFT JOIN public.instruments i ON i.id = sc.instrument_id
+        WHERE {tradeable_name_sql_filter("coalesce(i.name, '')")}
+        GROUP BY 1, 2
+        """
+    ) or []
+    totals: dict[str, int] = {"buy": 0, "sell": 0, "ready_to_execute": 0, "blocked": 0, "all": 0}
+    for r in rows:
+        side = (r.get("side") or "").upper()
+        status = r.get("candidate_status") or ""
+        cnt = int(r.get("cnt") or 0)
+        totals["all"] += cnt
+        if side in ("BUY", "SELL"):
+            totals[side.lower()] += cnt
+        if status in ("READY_TO_EXECUTE", "APPROVED", "ORDER_SUBMITTED"):
+            totals["ready_to_execute"] += cnt
+        if status == "BLOCKED":
+            totals["blocked"] += cnt
+
+    # 오늘 카운트
+    today_rows = fetch_all_safe(
+        cur,
+        """
+        SELECT side, candidate_status, COUNT(*)::int AS cnt
+        FROM strategy_candidates
+        WHERE created_at >= date_trunc('day', now() AT TIME ZONE 'Asia/Seoul')
+        GROUP BY 1, 2
+        """
+    ) or []
+    today: dict[str, int] = {"buy": 0, "sell": 0, "ready_to_execute": 0, "blocked": 0, "all": 0}
+    for r in today_rows:
+        side = (r.get("side") or "").upper()
+        status = r.get("candidate_status") or ""
+        cnt = int(r.get("cnt") or 0)
+        today["all"] += cnt
+        if side in ("BUY", "SELL"):
+            today[side.lower()] += cnt
+        if status in ("READY_TO_EXECUTE", "APPROVED", "ORDER_SUBMITTED"):
+            today["ready_to_execute"] += cnt
+        if status == "BLOCKED":
+            today["blocked"] += cnt
+
+    # READY_TO_EXECUTE 종목
+    ready = fetch_all_safe(
+        cur,
+        f"""
+        SELECT sc.symbol_via_inst AS symbol, i.name, sc.side, sc.candidate_status,
+               sc.priority_score, sc.confidence_score, sc.entry_price,
+               sc.created_at
+        FROM (
+          SELECT sc.id, sc.instrument_id, sc.side, sc.candidate_status,
+                 sc.priority_score, sc.confidence_score, sc.entry_price, sc.created_at,
+                 i.symbol AS symbol_via_inst
+          FROM strategy_candidates sc
+          LEFT JOIN public.instruments i ON i.id = sc.instrument_id
+          WHERE sc.candidate_status IN ('READY_TO_EXECUTE', 'APPROVED', 'ORDER_SUBMITTED')
+            AND {tradeable_name_sql_filter("coalesce(i.name, '')")}
+          ORDER BY sc.priority_score DESC NULLS LAST, sc.created_at DESC
+          LIMIT 10
+        ) sc
+        LEFT JOIN public.instruments i ON i.id = sc.instrument_id
+        """
+    ) or []
+    ready_list = []
+    for r in ready:
+        ready_list.append(
+            {
+                "ticker": r.get("symbol"),
+                "name": r.get("name"),
+                "side": r.get("side"),
+                "status": r.get("candidate_status"),
+                "priority_score": float(r.get("priority_score") or 0),
+                "confidence_score": float(r.get("confidence_score") or 0),
+                "entry_price": float(r.get("entry_price") or 0),
+                "entry_price_text": money(r.get("entry_price")),
+                "created_at": fmt_kst(r.get("created_at")),
+            }
+        )
+
+    # BLOCKED 종목
+    blocked = fetch_all_safe(
+        cur,
+        f"""
+        SELECT i.symbol, i.name, sc.side, sc.candidate_status,
+               sc.invalidation_reason, sc.payload_json->>'block_reason' AS block_reason,
+               LEFT(sc.payload_json::text, 200) AS payload_excerpt, sc.created_at
+        FROM strategy_candidates sc
+        LEFT JOIN public.instruments i ON i.id = sc.instrument_id
+        WHERE sc.candidate_status = 'BLOCKED'
+          AND sc.created_at >= date_trunc('day', now() AT TIME ZONE 'Asia/Seoul')
+          AND {tradeable_name_sql_filter("coalesce(i.name, '')")}
+        ORDER BY sc.created_at DESC
+        LIMIT 10
+        """
+    ) or []
+    blocked_list = []
+    for r in blocked:
+        reason = r.get("invalidation_reason") or r.get("block_reason") or ""
+        if not reason and r.get("payload_excerpt"):
+            reason = str(r.get("payload_excerpt"))[:150]
+        blocked_list.append(
+            {
+                "ticker": r.get("symbol"),
+                "name": r.get("name"),
+                "side": r.get("side"),
+                "status": r.get("candidate_status"),
+                "reason": str(reason)[:200],
+                "reason_short": str(reason)[:80],
+                "created_at": fmt_kst(r.get("created_at")),
+            }
+        )
+
+    return {
+        "as_of": as_of,
+        "totals": totals,
+        "today": today,
+        "ready_to_execute_list": ready_list,
+        "blocked_list": blocked_list,
+    }
+
+
+def build_orders_today(cur) -> dict[str, Any]:
+    """오늘 매수/매도 side별 status + 최근 5건."""
+    as_of = fmt_kst(datetime.now(KST))
+    rows = fetch_all_safe(
+        cur,
+        """
+        SELECT side, status, COUNT(*)::int AS cnt
+        FROM orders
+        WHERE created_at >= date_trunc('day', now() AT TIME ZONE 'Asia/Seoul')
+        GROUP BY 1, 2
+        """
+    ) or []
+    totals = {"buy": 0, "sell": 0, "submitted": 0, "filled": 0, "rejected": 0, "cancelled": 0}
+    for r in rows:
+        side = (r.get("side") or "").upper()
+        status = (r.get("status") or "").upper()
+        cnt = int(r.get("cnt") or 0)
+        if side in ("BUY", "SELL"):
+            totals[side.lower()] += cnt
+        if status == "SUBMITTED":
+            totals["submitted"] += cnt
+        elif status in ("FILLED", "PARTIALLY_FILLED"):
+            totals["filled"] += cnt
+        elif status == "REJECTED":
+            totals["rejected"] += cnt
+        elif status in ("CANCELLED", "EXPIRED"):
+            totals["cancelled"] += cnt
+
+    recent = fetch_all_safe(
+        cur,
+        f"""
+        SELECT o.order_key, o.side, o.status, o.quantity, o.limit_price, o.created_at, o.submitted_at,
+               coalesce(i.symbol, '—') AS symbol, coalesce(i.name, '—') AS name
+        FROM orders o
+        LEFT JOIN public.instruments i ON i.id = o.instrument_id
+        WHERE {tradeable_name_sql_filter("coalesce(i.name, i.symbol)")}
+        ORDER BY o.created_at DESC
+        LIMIT 5
+        """
+    ) or []
+    recent_list = []
+    for r in recent:
+        recent_list.append(
+            {
+                "order_key": r.get("order_key"),
+                "side": r.get("side"),
+                "status": r.get("status"),
+                "symbol": r.get("symbol"),
+                "name": r.get("name"),
+                "quantity": float(r.get("quantity") or 0),
+                "limit_price": float(r.get("limit_price") or 0),
+                "limit_price_text": money(r.get("limit_price")),
+                "created_at": fmt_kst(r.get("created_at")),
+                "submitted_at": fmt_kst(r.get("submitted_at")),
+            }
+        )
+    return {"as_of": as_of, "totals": totals, "recent": recent_list}
+
+
+def build_open_positions(cur) -> list[dict[str, Any]]:
+    """positions 테이블의 보유 종목 + 실시간 손익.
+
+    (quantity > 0, ETF/ETN/레버리지/인버스 제외)
+    """
+    rows = fetch_all_safe(
+        cur,
+        f"""
+        SELECT i.symbol, coalesce(i.name, i.symbol) AS name, p.side, p.quantity, p.avg_price,
+               p.market_price, p.market_value, p.realized_pnl, p.unrealized_pnl,
+               p.last_updated_at
+        FROM public.positions p
+        LEFT JOIN public.instruments i ON i.id = p.instrument_id
+        WHERE coalesce(p.quantity, 0) > 0
+          AND {tradeable_name_sql_filter("coalesce(i.name, i.symbol)")}
+        ORDER BY p.market_value DESC NULLS LAST
+        """
+    ) or []
+    items = []
+    for r in rows:
+        qty = float(r.get("quantity") or 0)
+        avg = float(r.get("avg_price") or 0)
+        mkt = float(r.get("market_price") or 0)
+        mv = float(r.get("market_value") or 0)
+        if mv == 0 and mkt and qty:
+            mv = mkt * qty
+        cost = avg * qty
+        upnl = float(r.get("unrealized_pnl") or 0) or (mv - cost)
+        rate = (upnl / cost * 100) if cost else 0.0
+        items.append(
+            {
+                "ticker": r.get("symbol"),
+                "name": r.get("name"),
+                "side": r.get("side") or "BUY",
+                "quantity": qty,
+                "avg_price": avg,
+                "avg_price_text": money(avg),
+                "market_price": mkt,
+                "market_price_text": money(mkt),
+                "market_value": mv,
+                "market_value_text": money(mv),
+                "unrealized_pnl": upnl,
+                "unrealized_pnl_text": _signed_money_text(upnl),
+                "unrealized_pnl_rate": round(rate, 2),
+                "unrealized_pnl_rate_text": _signed_rate_text(rate),
+                "last_updated_at": fmt_kst(r.get("last_updated_at")),
+            }
+        )
+    return items
+
+
+def build_watchlist_active_freshness(cur) -> dict[str, Any]:
+    """watchlist_active의 신선도 (active 종목 수 + 마지막 갱신)."""
+    row = fetch_one_safe(
+        cur,
+        """
+        SELECT MAX(updated_at) AS last, COUNT(*)::int AS size
+        FROM watchlist_active
+        WHERE is_active = true
+        """
+    ) or {}
+    last = row.get("last")
+    return {
+        "last_refreshed_at": fmt_kst(last) if last else "",
+        "age_minutes": _age_minutes(last),
+        "size": int(row.get("size") or 0),
+    }
+
+
+def fetch_one_safe(cur, sql: str, params: list | None = None) -> dict[str, Any] | None:
+    """dict_row 사용 시 cur.fetchone()이 이미 dict를 반환하므로 그대로 사용."""
+    try:
+        cur.execute(sql, params or [])
+        row = cur.fetchone()
+        if row is None:
+            return None
+        if cur.description is None:
+            return None
+        # row가 이미 dict (dict_row)면 그대로 사용
+        if isinstance(row, dict):
+            return row
+        # 일반 row면 zip으로 dict 변환
+        cols = [d.name for d in cur.description]
+        return dict(zip(cols, row))
+    except Exception:
+        return None
+
+
 def fetch_all_safe(cur, sql: str, params: list | None = None) -> list[dict[str, Any]]:
-    """cron_job_runs 같은 신규 테이블이 아직 없을 때 빈 리스트로 fallback."""
+    """cron_job_runs 같은 신규 테이블이 아직 없을 때 빈 리스트로 fallback.
+
+    dict_row 사용 시 cur.fetchall()이 이미 dict list를 반환하므로 그대로 사용.
+    일반 cursor일 때는 컬럼명을 zip해서 dict list로 변환.
+    """
     try:
         cur.execute(sql, params or [])
         rows = cur.fetchall()
+        if not rows:
+            return []
         if cur.description is None:
             return []
+        # row가 이미 dict (dict_row)면 그대로 사용
+        if isinstance(rows[0], dict):
+            return list(rows)
+        # 일반 row면 zip으로 dict 변환
         cols = [d.name for d in cur.description]
         return [dict(zip(cols, r)) for r in rows]
     except Exception:
@@ -733,6 +1258,8 @@ def build_from_database(db_url: str) -> WatchPayload | None:
     try:
         with psycopg.connect(db_url, row_factory=dict_row) as conn:
             with conn.cursor() as cur:
+                # 2026-06-17: 시스템 상태 (시각 + market + session) 먼저
+                system_status = build_system_status(cur)
                 theme_summary = build_theme_summary(cur)
                 candidate_list = build_candidates(cur)
                 watchlist = build_watchlist(cur)
@@ -741,16 +1268,42 @@ def build_from_database(db_url: str) -> WatchPayload | None:
                 portfolio = build_portfolio_summary(cur) or {}
                 risk_diagnostics = build_risk_diagnostics(cur) or {}
                 cron_runs_today = build_cron_runs_today(cur)
+                # 신규 7개 (모니터링 가시성)
+                data_freshness = build_data_freshness(cur)
+                health = build_health(cur, cron_runs_today.get("summary", []), cron_runs_today.get("stuck_running", []))
+                strategy_candidates = build_strategy_candidates(cur)
+                orders_today = build_orders_today(cur)
+                open_positions = build_open_positions(cur)
+                watchlist_active_freshness = build_watchlist_active_freshness(cur)
+                # 2026-06-17: market_state를 시각 기준으로 갱신 (이전 빌더의 '대기' hardcode 대체)
+                market_state_text = {
+                    "pre_open": "장 시작 전",
+                    "open": "장중",
+                    "after_hours": "시간외",
+                    "closed": "장 마감",
+                    "holiday": "휴장",
+                    "unknown": "상태 불명",
+                }.get(system_status.get("market_state", "unknown"), "상태 불명")
+                # system_status에 다음 cron due까지의 시간도 계산 (간단 추정)
+                next_due_min = 0
+                if system_status.get("is_trade_window"):
+                    # 장중이면 다음 5분 단위 cron까지의 시간
+                    now_min = datetime.now(KST).minute
+                    next_due_min = max(0, 5 - (now_min % 5))
+                else:
+                    next_due_min = 0
+                system_status["next_cron_due_in_minutes"] = next_due_min
+                system_status["market_state_text"] = market_state_text
 
-                source_label = "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots"
+                source_label = "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state"
                 payload = deepcopy(DEFAULT_PAYLOAD)
                 payload.update(
                     {
                         "title": "COOLPEACE AGENT WATCH",
                         "subtitle": "오늘 관심 테마와 후보를 DB에서 읽어 10분 단위로 갱신하는 페이지",
-                        "market_state": "대기",
+                        "market_state": market_state_text,
                         "summary": "실제 PostgreSQL 데이터로 테마, 후보종목, 관심목록, 시그널, 보유종목을 보여줍니다.",
-                        "note": "watchlist_active / watchlist_candidates / surge_pool / news_events / positions / account_events를 읽어 생성합니다.",
+                        "note": "watchlist_active / watchlist_candidates / surge_pool / news_events / positions / account_events / cron_job_runs / strategy_candidates / orders / session_state를 읽어 생성합니다.",
                         "source": source_label,
                         "theme_summary": theme_summary,
                         "candidate_list": candidate_list,
@@ -760,9 +1313,31 @@ def build_from_database(db_url: str) -> WatchPayload | None:
                         "portfolio": portfolio,
                         "risk_diagnostics": risk_diagnostics,
                         "cron_runs_today": cron_runs_today,
+                        "system_status": system_status,
+                        "data_freshness": data_freshness,
+                        "health": health,
+                        "cron_recent_failures": cron_runs_today.get("recent_failures", []),
+                        "cron_stuck_running": cron_runs_today.get("stuck_running", []),
+                        "strategy_candidates": strategy_candidates,
+                        "orders_today": orders_today,
+                        "open_positions": open_positions,
+                        "watchlist_active_freshness": watchlist_active_freshness,
                     }
                 )
-                payload["tags"] = ["실데이터", "DB-first", "관심목록", "시그널", "보유종목", "계좌자산"]
+                # 신규 health alert level을 market_state pill에 반영
+                health_text = "OK" if health.get("alert_level") == "ok" else ("주의" if health.get("alert_level") == "warn" else "위험")
+                ok_pct = health.get("ok_rate_pct", 0)
+                payload["market_state"] = f"{market_state_text} · {health_text} · {ok_pct:.0f}%"
+                payload["tags"] = [
+                    "실데이터",
+                    "DB-first",
+                    "관심목록",
+                    "시그널",
+                    "보유종목",
+                    "계좌자산",
+                    "배치 헬스",
+                    "신선도",
+                ]
                 return WatchPayload(payload=payload, source_label=source_label)
     except Exception as exc:
         print(f"db fetch failed: {exc}")
@@ -809,7 +1384,26 @@ def finalize_payload(watch: WatchPayload, source_name: str) -> dict[str, Any]:
         "portfolio": 1 if payload.get("portfolio") else 0,
         "risk": 1 if payload.get("risk_diagnostics") else 0,
     }
+    # 2026-06-17: datetime/date 객체를 JSON 직렬화 가능한 문자열로 변환
+    payload = _jsonify(payload)
     return payload
+
+
+def _jsonify(obj: Any) -> Any:
+    """datetime/date 객체를 ISO 문자열로 변환 (재귀적으로)."""
+    if obj is None:
+        return None
+    if isinstance(obj, datetime):
+        return obj.isoformat()
+    if isinstance(obj, date):
+        return obj.isoformat()
+    if isinstance(obj, dict):
+        return {k: _jsonify(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_jsonify(v) for v in obj]
+    if isinstance(obj, tuple):
+        return tuple(_jsonify(v) for v in obj)
+    return obj
 
 
 def main() -> int:
