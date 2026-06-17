@@ -22,14 +22,8 @@
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 34건 뉴스 태그 · 최고 촉매 9.0",
+      "reason": "최근 33건 뉴스 태그 · 최고 촉매 9.0",
       "updated_at": "2026-06-17 00:48:00 KST"
-    },
-    {
-      "theme": "코스피",
-      "score": "A",
-      "reason": "최근 23건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-17 00:31:00 KST"
     },
     {
       "theme": "코스닥",
@@ -38,10 +32,16 @@
       "updated_at": "2026-06-17 00:36:00 KST"
     },
     {
-      "theme": "2차전지",
+      "theme": "코스피",
       "score": "A",
-      "reason": "최근 10건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-16 22:01:00 KST"
+      "reason": "최근 22건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-17 00:31:00 KST"
+    },
+    {
+      "theme": "급등",
+      "score": "A",
+      "reason": "최근 8건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-17 00:00:00 KST"
     }
   ],
   "candidate_list": [
@@ -927,7 +927,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-17 16:30:29 KST",
+    "as_of": "2026-06-17 16:40:31 KST",
     "summary": [
       {
         "job_name": "job_name",
@@ -979,8 +979,8 @@
     "stuck_running": []
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots",
-  "updated_at": "2026-06-17 16:30:29 KST",
-  "generated_at_utc": "2026-06-17T07:30:29Z",
+  "updated_at": "2026-06-17 16:40:31 KST",
+  "generated_at_utc": "2026-06-17T07:40:31Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
