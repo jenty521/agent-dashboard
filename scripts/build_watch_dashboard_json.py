@@ -81,6 +81,7 @@ DEFAULT_PAYLOAD: dict[str, Any] = {
     "buy_list": [],
     "portfolio": {},
     "risk_diagnostics": {},
+    "cron_runs_today": {"as_of": "", "summary": [], "recent_failures": [], "stuck_running": []},
 }
 
 
@@ -657,6 +658,71 @@ def build_risk_diagnostics(cur) -> dict[str, Any] | None:
     }
 
 
+def build_cron_runs_today(cur, *, top_failures: int = 5) -> dict[str, Any]:
+    """cron_job_runs 오늘 집계 + 최근 실패 N건 (2026-06-17).
+
+    대시보드에서 '배치 정상 작동?' 빠르게 확인용. cron_job_runs 테이블이 비어있으면
+    추적 미적용 잡만 있다는 뜻 (현재는 6개 핵심 잡 + purge 잡 적용).
+    """
+    summary_rows = fetch_all_safe(
+        cur,
+        """
+        SELECT job_name,
+               count(*)::int AS total,
+               sum(CASE WHEN status = 'succeeded' THEN 1 ELSE 0 END)::int AS ok,
+               sum(CASE WHEN status = 'failed' THEN 1 ELSE 0 END)::int AS fail,
+               sum(CASE WHEN status = 'timeout' THEN 1 ELSE 0 END)::int AS timeout,
+               sum(CASE WHEN status = 'running' THEN 1 ELSE 0 END)::int AS running,
+               max(started_at) AS last_started_at
+        FROM cron_job_runs
+        WHERE started_at >= date_trunc('day', now() AT TIME ZONE 'Asia/Seoul')
+        GROUP BY job_name
+        ORDER BY job_name ASC
+        """,
+    )
+    recent_failures = fetch_all_safe(
+        cur,
+        """
+        SELECT job_name, started_at, finished_at, duration_ms, exit_code,
+               substring(error_text, 1, 240) AS error_excerpt
+        FROM cron_job_runs
+        WHERE status IN ('failed', 'timeout')
+          AND started_at >= now() - interval '24 hours'
+        ORDER BY started_at DESC
+        LIMIT %s
+        """,
+        [int(top_failures)],
+    )
+    return {
+        "as_of": fmt_kst(datetime.now(ZoneInfo("Asia/Seoul"))),
+        "summary": summary_rows or [],
+        "recent_failures": recent_failures or [],
+        "stuck_running": fetch_all_safe(
+            cur,
+            """
+            SELECT job_name, started_at
+            FROM cron_job_runs
+            WHERE status = 'running' AND started_at < now() - interval '5 minutes'
+            ORDER BY started_at ASC
+            """,
+        )
+        or [],
+    }
+
+
+def fetch_all_safe(cur, sql: str, params: list | None = None) -> list[dict[str, Any]]:
+    """cron_job_runs 같은 신규 테이블이 아직 없을 때 빈 리스트로 fallback."""
+    try:
+        cur.execute(sql, params or [])
+        rows = cur.fetchall()
+        if cur.description is None:
+            return []
+        cols = [d.name for d in cur.description]
+        return [dict(zip(cols, r)) for r in rows]
+    except Exception:
+        return []
+
+
 @dataclass
 class WatchPayload:
     payload: dict[str, Any]
@@ -674,6 +740,7 @@ def build_from_database(db_url: str) -> WatchPayload | None:
                 buy_list = build_buy_list(cur)
                 portfolio = build_portfolio_summary(cur) or {}
                 risk_diagnostics = build_risk_diagnostics(cur) or {}
+                cron_runs_today = build_cron_runs_today(cur)
 
                 source_label = "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots"
                 payload = deepcopy(DEFAULT_PAYLOAD)
@@ -692,6 +759,7 @@ def build_from_database(db_url: str) -> WatchPayload | None:
                         "buy_list": buy_list,
                         "portfolio": portfolio,
                         "risk_diagnostics": risk_diagnostics,
+                        "cron_runs_today": cron_runs_today,
                     }
                 )
                 payload["tags"] = ["실데이터", "DB-first", "관심목록", "시그널", "보유종목", "계좌자산"]
