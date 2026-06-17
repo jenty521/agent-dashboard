@@ -927,7 +927,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-17 17:30:37 KST",
+    "as_of": "2026-06-17 17:40:38 KST",
     "summary": [
       {
         "job_name": "job_name",
@@ -979,8 +979,8 @@
     "stuck_running": []
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots",
-  "updated_at": "2026-06-17 17:30:37 KST",
-  "generated_at_utc": "2026-06-17T08:30:37Z",
+  "updated_at": "2026-06-17 17:40:38 KST",
+  "generated_at_utc": "2026-06-17T08:40:38Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
