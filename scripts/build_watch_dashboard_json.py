@@ -26,7 +26,7 @@ import psycopg
 from psycopg.rows import dict_row
 
 KST = ZoneInfo("Asia/Seoul")
-DEFAULT_DB_URL = "postgresql://jenty521@127.0.0.1:5432/invest?sslmode=disable"
+DEFAULT_DB_URL = "postgresql://jenty521@host.docker.internal:5432/invest?sslmode=disable"
 EXCLUDED_PRODUCT_NAME_RE = (
     r"^(TIGER|KODEX|KOSEF|ARIRANG|ACE|SOL|KBSTAR|HANARO|KINDEX|PLUS|RISE|TREX|TIMEFOLIO|"
     r"WON|SMART|FOCUS|TRUE|MIRAE|KIWOOM|BNK|IBK|SHINYOUNG|NH|AUM)"
