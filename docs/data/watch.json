@@ -907,7 +907,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-20 00:50:13 KST",
+    "as_of": "2026-06-20 01:00:14 KST",
     "summary": [
       {
         "job_name": "run_registered_job_market-holiday-sync",
@@ -960,8 +960,8 @@
     "is_trade_window": false,
     "session_state": "TRADE_OK",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 16739,
-    "kst_now": "2026-06-20 00:50:13 KST",
+    "session_age_minutes": 16749,
+    "kst_now": "2026-06-20 01:00:14 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "휴장"
   },
@@ -970,7 +970,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-19 13:01:00 KST",
-      "age_minutes": 709,
+      "age_minutes": 719,
       "status": "critical",
       "tier": "1min"
     },
@@ -978,7 +978,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-19 13:00:04 KST",
-      "age_minutes": 710,
+      "age_minutes": 720,
       "status": "critical",
       "tier": "1min"
     },
@@ -986,7 +986,7 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-06-19 15:55:00 KST",
-      "age_minutes": 535,
+      "age_minutes": 545,
       "status": "critical",
       "tier": "5min"
     },
@@ -1010,7 +1010,7 @@
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
       "last": "2026-06-20 00:10:00 KST",
-      "age_minutes": 40,
+      "age_minutes": 50,
       "status": "stale",
       "tier": "5min"
     },
@@ -1034,7 +1034,7 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-15 16:45:02 KST",
-      "age_minutes": 6245,
+      "age_minutes": 6255,
       "status": "critical",
       "tier": "snapshot"
     }
@@ -1086,7 +1086,7 @@
   ],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-06-20 00:50:13 KST",
+    "as_of": "2026-06-20 01:00:14 KST",
     "totals": {
       "buy": 104,
       "sell": 845,
@@ -1161,7 +1161,7 @@
     "blocked_list": []
   },
   "orders_today": {
-    "as_of": "2026-06-20 00:50:13 KST",
+    "as_of": "2026-06-20 01:00:14 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -1175,12 +1175,12 @@
   "open_positions": [],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-06-19 15:55:00 KST",
-    "age_minutes": 535,
+    "age_minutes": 545,
     "size": 9
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-06-20 00:50:13 KST",
-  "generated_at_utc": "2026-06-19T15:50:13Z",
+  "updated_at": "2026-06-20 01:00:14 KST",
+  "generated_at_utc": "2026-06-19T16:00:14Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
