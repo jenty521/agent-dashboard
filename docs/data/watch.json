@@ -18,32 +18,32 @@
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 52건 뉴스 태그 · 최고 촉매 7.0",
-      "updated_at": "2026-06-19 12:58:00 KST"
+      "reason": "최근 70건 뉴스 태그 · 최고 촉매 7.0",
+      "updated_at": "2026-06-19 13:44:00 KST"
     },
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 40건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-19 12:58:00 KST"
+      "reason": "최근 54건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-19 13:43:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 18건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-19 12:46:00 KST"
+      "reason": "최근 30건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-19 13:40:00 KST"
     },
     {
       "theme": "SK하이닉스",
       "score": "A",
-      "reason": "최근 15건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-19 12:56:00 KST"
+      "reason": "최근 20건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-19 13:40:00 KST"
     },
     {
-      "theme": "방산",
+      "theme": "삼성전자",
       "score": "A-",
-      "reason": "최근 15건 뉴스 태그 · 최고 촉매 8.0",
-      "updated_at": "2026-06-19 12:58:00 KST"
+      "reason": "최근 20건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-06-19 13:41:00 KST"
     }
   ],
   "candidate_list": [
@@ -280,10 +280,10 @@
     {
       "ticker": "000270",
       "name": "기아",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 자동차, auto:breakout:breakout:hod:relative volume / 후보점수 96.0",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: AI, 플랫폼/인터넷, 2차전지 / 후보점수 96.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-19T04:40:00.535110+00:00",
-      "score": 93.5972,
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
+      "score": 94.5706,
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan",
@@ -297,10 +297,12 @@
       "score_breakdown": {
         "news": 14.0,
         "tags": [
-          "자동차",
+          "AI",
+          "플랫폼/인터넷",
+          "2차전지",
           "auto:breakout:breakout:hod:relative_volume"
         ],
-        "active": 11.75,
+        "active": 11.74,
         "sources": [
           "daily_universe_scan",
           "watchlist_active",
@@ -317,7 +319,7 @@
           "trend"
         ],
         "signal_score": 24.5,
-        "news_freshness": 2.85,
+        "news_freshness": 3.83,
         "strategy_variant": "follower_trend",
         "combo_sector_trend": 2.0,
         "strategy_variant_bonus": 2.0,
@@ -350,10 +352,10 @@
     {
       "ticker": "005380",
       "name": "현대차",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: AI, 자동차, auto:breakout:breakout:hod:relative volume / 후보점수 98.0",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: AI, 로봇, auto:breakout:breakout:hod:relative volume / 후보점수 98.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-19T04:40:00.535110+00:00",
-      "score": 88.3368,
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
+      "score": 88.8601,
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan",
@@ -368,10 +370,10 @@
         "news": 14.0,
         "tags": [
           "AI",
-          "자동차",
+          "로봇",
           "auto:breakout:breakout:hod:relative_volume"
         ],
-        "active": 11.54,
+        "active": 11.53,
         "sources": [
           "daily_universe_scan",
           "watchlist_active",
@@ -386,7 +388,7 @@
           "breakout"
         ],
         "signal_score": 19.0,
-        "news_freshness": 3.3,
+        "news_freshness": 3.83,
         "strategy_variant": "leader_breakout",
         "strategy_variant_bonus": 3.5,
         "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
@@ -411,15 +413,15 @@
       },
       "theme_role": "follower",
       "theme_role_label": "후행 동조",
-      "theme_role_score": 94.4
+      "theme_role_score": 94.0
     },
     {
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 바이오, auto:breakout:breakout:hod:relative volume / 후보점수 95.0",
+      "ticker": "005935",
+      "name": "삼성전자우",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 반도체, 바이오, auto:breakout:breakout:hod:relative volume / 후보점수 97.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-19T04:40:00.535110+00:00",
-      "score": 79.2539,
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
+      "score": 87.8321,
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan",
@@ -431,77 +433,17 @@
       "risk_labels": [],
       "block_reason_label": "",
       "score_breakdown": {
-        "news": 8.0,
+        "news": 14.0,
         "tags": [
+          "반도체",
           "바이오",
-          "auto:breakout:breakout:hod:relative_volume"
-        ],
-        "active": 11.17,
-        "sources": [
-          "daily_universe_scan",
-          "watchlist_active",
-          "news_items",
-          "watchlist_hot_overrides"
-        ],
-        "override": 12.5,
-        "candidate": 23.75,
-        "signal_hits": [
-          "relative_volume",
-          "hod",
-          "breakout"
-        ],
-        "signal_score": 19.0,
-        "news_freshness": 1.33,
-        "strategy_variant": "leader_breakout",
-        "strategy_variant_bonus": 3.5,
-        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-        "derived_hot_override_reason": "auto:breakout:hod:relative_volume",
-        "derived_hot_override_priority": 135
-      },
-      "strategy_variant": "leader_breakout",
-      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
-      "signal_hits": [
-        "relative_volume",
-        "hod",
-        "breakout"
-      ],
-      "derived_hot_override": {
-        "reason": "auto:breakout:hod:relative_volume",
-        "priority": 135
-      },
-      "hot_override": {
-        "reason": "auto:breakout:breakout:hod:relative_volume",
-        "symbol": "207940",
-        "priority": 150
-      },
-      "theme_role": "follower",
-      "theme_role_label": "후행 동조",
-      "theme_role_score": 84.7
-    },
-    {
-      "ticker": "005935",
-      "name": "삼성전자우",
-      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: auto:breakout:breakout:hod:relative volume / 후보점수 97.0",
-      "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-19T04:40:00.535110+00:00",
-      "score": 70.0521,
-      "source": "daily_universe_scan",
-      "source_provenance": [
-        "daily_universe_scan",
-        "watchlist_active",
-        "watchlist_hot_overrides"
-      ],
-      "risk_tags": [],
-      "risk_labels": [],
-      "block_reason_label": "",
-      "score_breakdown": {
-        "tags": [
           "auto:breakout:breakout:hod:relative_volume"
         ],
         "active": 10.8,
         "sources": [
           "daily_universe_scan",
           "watchlist_active",
+          "news_items",
           "watchlist_hot_overrides"
         ],
         "override": 12.5,
@@ -512,6 +454,7 @@
           "breakout"
         ],
         "signal_score": 19.0,
+        "news_freshness": 3.78,
         "strategy_variant": "leader_breakout",
         "strategy_variant_bonus": 3.5,
         "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
@@ -536,14 +479,79 @@
       },
       "theme_role": "follower",
       "theme_role_label": "후행 동조",
-      "theme_role_score": 74.8
+      "theme_role_score": 92.9
+    },
+    {
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
+      "reason": "auto:breakout:breakout:hod:relative_volume / 태그: 바이오, auto:breakout:breakout:hod:relative volume / 후보점수 95.0",
+      "signal": "auto:breakout:breakout:hod:relative volume",
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
+      "score": 87.7168,
+      "source": "daily_universe_scan",
+      "source_provenance": [
+        "daily_universe_scan",
+        "watchlist_active",
+        "news_items",
+        "watchlist_hot_overrides"
+      ],
+      "risk_tags": [],
+      "risk_labels": [],
+      "block_reason_label": "",
+      "score_breakdown": {
+        "news": 14.0,
+        "tags": [
+          "바이오",
+          "auto:breakout:breakout:hod:relative_volume"
+        ],
+        "active": 11.17,
+        "sources": [
+          "daily_universe_scan",
+          "watchlist_active",
+          "news_items",
+          "watchlist_hot_overrides"
+        ],
+        "override": 12.5,
+        "candidate": 23.75,
+        "signal_hits": [
+          "relative_volume",
+          "hod",
+          "breakout"
+        ],
+        "signal_score": 19.0,
+        "news_freshness": 3.8,
+        "strategy_variant": "leader_breakout",
+        "strategy_variant_bonus": 3.5,
+        "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+        "derived_hot_override_reason": "auto:breakout:hod:relative_volume",
+        "derived_hot_override_priority": 135
+      },
+      "strategy_variant": "leader_breakout",
+      "strategy_variant_reason": "리더 돌파·HOD·상대거래량",
+      "signal_hits": [
+        "relative_volume",
+        "hod",
+        "breakout"
+      ],
+      "derived_hot_override": {
+        "reason": "auto:breakout:hod:relative_volume",
+        "priority": 135
+      },
+      "hot_override": {
+        "reason": "auto:breakout:breakout:hod:relative_volume",
+        "symbol": "207940",
+        "priority": 150
+      },
+      "theme_role": "follower",
+      "theme_role_label": "후행 동조",
+      "theme_role_score": 92.8
     },
     {
       "ticker": "005490",
       "name": "POSCO홀딩스",
       "reason": "auto:breakout:breakout:hod:relative_volume / 태그: auto:breakout:breakout:hod:relative volume / 후보점수 94.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-19T04:40:00.535110+00:00",
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
       "score": 69.2708,
       "source": "daily_universe_scan",
       "source_provenance": [
@@ -596,14 +604,14 @@
       },
       "theme_role": "follower",
       "theme_role_label": "후행 동조",
-      "theme_role_score": 74.0
+      "theme_role_score": 73.2
     },
     {
       "ticker": "006400",
       "name": "삼성SDI",
       "reason": "auto:breakout:breakout:hod:relative_volume / 태그: auto:breakout:breakout:hod:relative volume / 후보점수 92.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-19T04:40:00.535110+00:00",
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
       "score": 68.75,
       "source": "daily_universe_scan",
       "source_provenance": [
@@ -656,15 +664,15 @@
       },
       "theme_role": "follower",
       "theme_role_label": "후행 동조",
-      "theme_role_score": 73.5
+      "theme_role_score": 72.7
     },
     {
       "ticker": "009150",
       "name": "삼성전기",
       "reason": "태그: 반도체, 바이오 / 후보점수 76.0",
       "signal": "반도체",
-      "collected_at": "2026-06-19T04:40:00.535110+00:00",
-      "score": 68.5452,
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
+      "score": 68.3685,
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan",
@@ -680,7 +688,7 @@
           "반도체",
           "바이오"
         ],
-        "active": 10.75,
+        "active": 10.74,
         "sources": [
           "daily_universe_scan",
           "watchlist_active",
@@ -694,7 +702,7 @@
           "trend"
         ],
         "signal_score": 18.5,
-        "news_freshness": 2.3,
+        "news_freshness": 2.13,
         "strategy_variant": "follower_trend",
         "combo_sector_trend": 2.0,
         "strategy_variant_bonus": 2.0,
@@ -712,14 +720,14 @@
       "hot_override": {},
       "theme_role": "follower",
       "theme_role_label": "후행 동조",
-      "theme_role_score": 73.2
+      "theme_role_score": 72.3
     },
     {
       "ticker": "237690",
       "name": "에스티팜",
       "reason": "auto:breakout:breakout:hod:relative_volume / 태그: auto:breakout:breakout:hod:relative volume / 후보점수 54.0",
       "signal": "auto:breakout:breakout:hod:relative volume",
-      "collected_at": "2026-06-19T04:40:00.535110+00:00",
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
       "score": 58.8542,
       "source": "daily_universe_scan",
       "source_provenance": [
@@ -772,7 +780,47 @@
       },
       "theme_role": "watch",
       "theme_role_label": "관심 관찰",
-      "theme_role_score": 62.9
+      "theme_role_score": 62.2
+    },
+    {
+      "ticker": "028260",
+      "name": "삼성물산",
+      "reason": "태그: 반도체 / 후보점수 88.0",
+      "signal": "반도체",
+      "collected_at": "2026-06-19T04:50:00.942866+00:00",
+      "score": 41.88,
+      "source": "daily_universe_scan",
+      "source_provenance": [
+        "daily_universe_scan",
+        "news_items"
+      ],
+      "risk_tags": [],
+      "risk_labels": [],
+      "block_reason_label": "",
+      "score_breakdown": {
+        "news": 14.0,
+        "tags": [
+          "반도체"
+        ],
+        "sources": [
+          "daily_universe_scan",
+          "news_items"
+        ],
+        "candidate": 22.0,
+        "signal_hits": [],
+        "news_freshness": 3.88,
+        "strategy_variant": "follower_trend",
+        "strategy_variant_bonus": 2.0,
+        "strategy_variant_reason": "후행 추세·섹터 동조"
+      },
+      "strategy_variant": "follower_trend",
+      "strategy_variant_reason": "후행 추세·섹터 동조",
+      "signal_hits": [],
+      "derived_hot_override": {},
+      "hot_override": {},
+      "theme_role": "watch",
+      "theme_role_label": "관심 관찰",
+      "theme_role_score": 44.3
     }
   ],
   "signal_on": [],
@@ -810,7 +858,7 @@
   },
   "risk_diagnostics": {
     "status": "blocked",
-    "observed_at": "2026-06-19 13:40:05 KST",
+    "observed_at": "2026-06-19 13:50:05 KST",
     "blocked_reason": "Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026061913\">\n<script type=\"text/javascript\">\n\nfunction goPrev() {\n\t//location.href = document.referrer;\n\twindow.history.back();\n}\n\nfunction goHome() {\n\tlocation.href=\"/main\";\n}\n</script>\n\n\n<!-- webContent -->\n<div class=\"error-container\">\n    <div class=\"error-wrap\">\n        <div class=\"error-area url\">\n            <h1><span class=\"logo\"><img src=\"/resources/portal/images/common/header-logo.png\" alt=\"키움증권\"></span></h1>\n            <p class=\"title\">서비스 이용에 불편을 드려 대단히 죄송합니다.<br>요청하신 화면을 찾을 수 없습니다.</p>\n            <div class=\"content\">\n                <!-- url error -->\n                <p class=\"text\" id=\"messageText\">찾으시려는 페이지 주소가 잘못 입력되었거나, 페이지 주소의 변경 혹은 삭제로 인해 현재 사용하실 수 없습니다.<br> 입력하신 주소가 정확한지 다시 한번 확인해 주시기 바랍니다.</p>\n            </div>\n            <p class=\"center\">키움금융센터 1544-9000</p>\n        </div>\n        <div class=\"btn-bottom-wrap\">\n            <button class=\"btn primary\" id=\"homeBtn\" onclick=\"javascript:goHome();\">홈</button>\n        </div>\n    </div>\n</div>\n<!-- //webContent -->\n\n\n",
     "mismatch_count": 1,
     "mismatches": [
@@ -843,7 +891,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-19 13:40:49 KST",
+    "as_of": "2026-06-19 13:50:50 KST",
     "summary": [
       {
         "job_name": "daily_pnl_and_risk_summary",
@@ -856,48 +904,48 @@
       },
       {
         "job_name": "entry_signal_execution",
-        "total": 61,
-        "ok": 61,
+        "total": 63,
+        "ok": 63,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:11.030418+09:00"
+        "last_started_at": "2026-06-19T13:50:10.919388+09:00"
       },
       {
         "job_name": "exit_signal_execution",
-        "total": 61,
-        "ok": 61,
+        "total": 63,
+        "ok": 63,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:11.537349+09:00"
+        "last_started_at": "2026-06-19T13:50:11.392277+09:00"
       },
       {
         "job_name": "intraday_bars_rollup",
-        "total": 282,
-        "ok": 282,
+        "total": 292,
+        "ok": 292,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:09.148574+09:00"
+        "last_started_at": "2026-06-19T13:50:09.132219+09:00"
       },
       {
         "job_name": "intraday_surge_detector",
-        "total": 286,
-        "ok": 286,
+        "total": 296,
+        "ok": 296,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:20.110276+09:00"
+        "last_started_at": "2026-06-19T13:50:22.349067+09:00"
       },
       {
         "job_name": "live_market_snapshot",
-        "total": 281,
-        "ok": 281,
+        "total": 291,
+        "ok": 291,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:06.186697+09:00"
+        "last_started_at": "2026-06-19T13:50:06.136134+09:00"
       },
       {
         "job_name": "purge_cron_job_runs",
@@ -919,21 +967,21 @@
       },
       {
         "job_name": "run_registered_job_account-holdings-snapshot",
-        "total": 23,
-        "ok": 23,
+        "total": 24,
+        "ok": 24,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:30:13.896349+09:00"
+        "last_started_at": "2026-06-19T13:45:12.862559+09:00"
       },
       {
         "job_name": "run_registered_job_broker-readiness-snapshot",
-        "total": 35,
-        "ok": 35,
+        "total": 36,
+        "ok": 36,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:04.255860+09:00"
+        "last_started_at": "2026-06-19T13:50:04.321257+09:00"
       },
       {
         "job_name": "run_registered_job_daily-universe-scan",
@@ -946,84 +994,84 @@
       },
       {
         "job_name": "run_registered_job_entry-signal-execution",
-        "total": 61,
-        "ok": 61,
+        "total": 63,
+        "ok": 63,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:10.874963+09:00"
+        "last_started_at": "2026-06-19T13:50:10.761370+09:00"
       },
       {
         "job_name": "run_registered_job_exit-signal-execution",
-        "total": 61,
-        "ok": 61,
+        "total": 63,
+        "ok": 63,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:11.435030+09:00"
+        "last_started_at": "2026-06-19T13:50:11.291797+09:00"
       },
       {
         "job_name": "run_registered_job_intraday-bars-rollup",
-        "total": 281,
-        "ok": 281,
+        "total": 291,
+        "ok": 291,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:09.050100+09:00"
+        "last_started_at": "2026-06-19T13:50:09.032186+09:00"
       },
       {
         "job_name": "run_registered_job_intraday-risk-reconciliation",
-        "total": 29,
-        "ok": 29,
+        "total": 30,
+        "ok": 30,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:05.133784+09:00"
+        "last_started_at": "2026-06-19T13:50:05.088390+09:00"
       },
       {
         "job_name": "run_registered_job_intraday-surge-detector",
-        "total": 281,
-        "ok": 281,
+        "total": 291,
+        "ok": 291,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:19.927817+09:00"
+        "last_started_at": "2026-06-19T13:50:22.189850+09:00"
       },
       {
         "job_name": "run_registered_job_intraday-watchlist-refresh",
-        "total": 57,
-        "ok": 57,
+        "total": 59,
+        "ok": 59,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:00.409683+09:00"
+        "last_started_at": "2026-06-19T13:50:00.816103+09:00"
       },
       {
         "job_name": "run_registered_job_kis-ranking-scan",
-        "total": 57,
-        "ok": 57,
+        "total": 59,
+        "ok": 59,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:12.313793+09:00"
+        "last_started_at": "2026-06-19T13:50:12.145822+09:00"
       },
       {
         "job_name": "run_registered_job_live-market-snapshot",
-        "total": 281,
-        "ok": 281,
+        "total": 291,
+        "ok": 291,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:06.084449+09:00"
+        "last_started_at": "2026-06-19T13:50:06.035125+09:00"
       },
       {
         "job_name": "run_registered_job_live-order-execution",
-        "total": 57,
-        "ok": 57,
+        "total": 59,
+        "ok": 59,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:11.931779+09:00"
+        "last_started_at": "2026-06-19T13:50:11.769354+09:00"
       },
       {
         "job_name": "run_registered_job_market-holiday-sync",
@@ -1036,12 +1084,12 @@
       },
       {
         "job_name": "run_registered_job_market-news-refresh",
-        "total": 23,
-        "ok": 23,
+        "total": 24,
+        "ok": 24,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:30:01.419412+09:00"
+        "last_started_at": "2026-06-19T13:45:00.664891+09:00"
       },
       {
         "job_name": "run_registered_job_minute-bar-retention-cleanup",
@@ -1081,57 +1129,57 @@
       },
       {
         "job_name": "run_registered_job_session-state-heartbeat",
-        "total": 281,
-        "ok": 281,
+        "total": 291,
+        "ok": 291,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:04.682747+09:00"
+        "last_started_at": "2026-06-19T13:50:04.732019+09:00"
       },
       {
         "job_name": "run_registered_job_signal-chart-capture",
-        "total": 57,
-        "ok": 57,
+        "total": 59,
+        "ok": 59,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:20.455238+09:00"
+        "last_started_at": "2026-06-19T13:50:22.614407+09:00"
       },
       {
         "job_name": "run_registered_job_strategy-pipeline-tick",
-        "total": 61,
-        "ok": 61,
+        "total": 63,
+        "ok": 63,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:09.421680+09:00"
+        "last_started_at": "2026-06-19T13:50:09.398111+09:00"
       },
       {
         "job_name": "run_registered_job_sync-cash",
-        "total": 69,
-        "ok": 69,
+        "total": 71,
+        "ok": 71,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:05.639111+09:00"
+        "last_started_at": "2026-06-19T13:50:05.605733+09:00"
       },
       {
         "job_name": "run_registered_job_toss-candles-loader",
-        "total": 57,
-        "ok": 57,
+        "total": 59,
+        "ok": 59,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:12.664467+09:00"
+        "last_started_at": "2026-06-19T13:50:12.486204+09:00"
       },
       {
         "job_name": "run_registered_job_toss-market-snapshot",
-        "total": 57,
-        "ok": 57,
+        "total": 59,
+        "ok": 59,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-19T13:40:00.786615+09:00"
+        "last_started_at": "2026-06-19T13:50:01.213145+09:00"
       },
       {
         "job_name": "run_registered_job_toss-reference-refresh",
@@ -1192,8 +1240,8 @@
     "is_trade_window": true,
     "session_state": "TRADE_OK",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 16070,
-    "kst_now": "2026-06-19 13:40:49 KST",
+    "session_age_minutes": 16080,
+    "kst_now": "2026-06-19 13:50:50 KST",
     "next_cron_due_in_minutes": 5,
     "market_state_text": "장중"
   },
@@ -1202,7 +1250,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-19 13:01:00 KST",
-      "age_minutes": 39,
+      "age_minutes": 49,
       "status": "critical",
       "tier": "1min"
     },
@@ -1210,14 +1258,14 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-19 13:00:04 KST",
-      "age_minutes": 40,
+      "age_minutes": 50,
       "status": "critical",
       "tier": "1min"
     },
     {
       "key": "watchlist_active",
       "label": "워치리스트",
-      "last": "2026-06-19 13:40:00 KST",
+      "last": "2026-06-19 13:50:00 KST",
       "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
@@ -1226,14 +1274,14 @@
       "key": "watchlist_candidates",
       "label": "후보 종목 풀",
       "last": "2026-06-19 08:00:01 KST",
-      "age_minutes": 340,
+      "age_minutes": 350,
       "status": "critical",
       "tier": "5min"
     },
     {
       "key": "strategy_candidates",
       "label": "매수 후보",
-      "last": "2026-06-19 13:40:10 KST",
+      "last": "2026-06-19 13:50:10 KST",
       "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
@@ -1241,7 +1289,7 @@
     {
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
-      "last": "2026-06-19 13:40:20 KST",
+      "last": "2026-06-19 13:50:22 KST",
       "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
@@ -1266,14 +1314,14 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-15 16:45:02 KST",
-      "age_minutes": 5575,
+      "age_minutes": 5585,
       "status": "critical",
       "tier": "snapshot"
     }
   ],
   "health": {
-    "total_runs": 2816,
-    "ok": 2812,
+    "total_runs": 2914,
+    "ok": 2910,
     "failed": 4,
     "timeout": 0,
     "running": 0,
@@ -1328,20 +1376,20 @@
   ],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-06-19 13:40:49 KST",
+    "as_of": "2026-06-19 13:50:50 KST",
     "totals": {
-      "buy": 82,
+      "buy": 84,
       "sell": 845,
       "ready_to_execute": 5,
-      "blocked": 922,
-      "all": 927
+      "blocked": 924,
+      "all": 929
     },
     "today": {
-      "buy": 44,
+      "buy": 46,
       "sell": 0,
       "ready_to_execute": 0,
-      "blocked": 44,
-      "all": 44
+      "blocked": 46,
+      "all": 46
     },
     "ready_to_execute_list": [
       {
@@ -1401,6 +1449,24 @@
       }
     ],
     "blocked_list": [
+      {
+        "ticker": "000270",
+        "name": "기아",
+        "side": "BUY",
+        "status": "BLOCKED",
+        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026061913\">\n<script type=\"text/javascript\">\n\nfunction",
+        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
+        "created_at": "2026-06-19 13:50:10 KST"
+      },
+      {
+        "ticker": "000270",
+        "name": "기아",
+        "side": "BUY",
+        "status": "BLOCKED",
+        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026061913\">\n<script type=\"text/javascript\">\n\nfunction",
+        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
+        "created_at": "2026-06-19 13:45:11 KST"
+      },
       {
         "ticker": "000270",
         "name": "기아",
@@ -1472,29 +1538,11 @@
         "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026061913\">\n<script type=\"text/javascript\">\n\nfunction",
         "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
         "created_at": "2026-06-19 12:55:09 KST"
-      },
-      {
-        "ticker": "237690",
-        "name": "에스티팜",
-        "side": "BUY",
-        "status": "BLOCKED",
-        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026061912\">\n<script type=\"text/javascript\">\n\nfunction",
-        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
-        "created_at": "2026-06-19 12:55:09 KST"
-      },
-      {
-        "ticker": "237690",
-        "name": "에스티팜",
-        "side": "BUY",
-        "status": "BLOCKED",
-        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026061912\">\n<script type=\"text/javascript\">\n\nfunction",
-        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
-        "created_at": "2026-06-19 12:40:11 KST"
       }
     ]
   },
   "orders_today": {
-    "as_of": "2026-06-19 13:40:49 KST",
+    "as_of": "2026-06-19 13:50:50 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -1507,17 +1555,17 @@
   },
   "open_positions": [],
   "watchlist_active_freshness": {
-    "last_refreshed_at": "2026-06-19 13:40:00 KST",
+    "last_refreshed_at": "2026-06-19 13:50:00 KST",
     "age_minutes": 0,
-    "size": 8
+    "size": 9
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-06-19 13:40:49 KST",
-  "generated_at_utc": "2026-06-19T04:40:49Z",
+  "updated_at": "2026-06-19 13:50:50 KST",
+  "generated_at_utc": "2026-06-19T04:50:50Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
-    "watchlist": 8,
+    "watchlist": 9,
     "signals": 0,
     "buys": 1,
     "portfolio": 1,
