@@ -407,7 +407,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-22 17:00:09 KST",
+    "as_of": "2026-06-22 17:10:10 KST",
     "summary": [
       {
         "job_name": "daily_pnl_and_risk_summary",
@@ -774,8 +774,8 @@
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 20589,
-    "kst_now": "2026-06-22 17:00:09 KST",
+    "session_age_minutes": 20599,
+    "kst_now": "2026-06-22 17:10:10 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "장 마감"
   },
@@ -784,7 +784,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 424,
+      "age_minutes": 434,
       "status": "critical",
       "tier": "1min"
     },
@@ -792,7 +792,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 15,
+      "age_minutes": 25,
       "status": "stale",
       "tier": "1min"
     },
@@ -800,7 +800,7 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-06-22 15:55:05 KST",
-      "age_minutes": 65,
+      "age_minutes": 75,
       "status": "critical",
       "tier": "5min"
     },
@@ -808,15 +808,15 @@
       "key": "watchlist_candidates",
       "label": "후보 종목 풀",
       "last": "2026-06-22 08:00:01 KST",
-      "age_minutes": 540,
+      "age_minutes": 550,
       "status": "critical",
       "tier": "5min"
     },
     {
       "key": "strategy_candidates",
       "label": "매수 후보",
-      "last": "2026-06-22 16:59:21 KST",
-      "age_minutes": 0,
+      "last": "2026-06-22 17:05:07 KST",
+      "age_minutes": 5,
       "status": "fresh",
       "tier": "5min"
     },
@@ -824,15 +824,15 @@
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
       "last": "2026-06-22 16:58:14 KST",
-      "age_minutes": 1,
+      "age_minutes": 11,
       "status": "fresh",
       "tier": "5min"
     },
     {
       "key": "orders",
       "label": "주문",
-      "last": "2026-06-22 16:59:21 KST",
-      "age_minutes": 0,
+      "last": "2026-06-22 17:07:51 KST",
+      "age_minutes": 2,
       "status": "fresh",
       "tier": "snapshot"
     },
@@ -840,7 +840,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 100,
+      "age_minutes": 110,
       "status": "stale",
       "tier": "snapshot"
     },
@@ -848,7 +848,7 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 100,
+      "age_minutes": 110,
       "status": "stale",
       "tier": "snapshot"
     }
@@ -920,20 +920,20 @@
     }
   ],
   "strategy_candidates": {
-    "as_of": "2026-06-22 17:00:09 KST",
+    "as_of": "2026-06-22 17:10:10 KST",
     "totals": {
-      "buy": 144,
+      "buy": 153,
       "sell": 890,
       "ready_to_execute": 0,
       "blocked": 1018,
-      "all": 1034
+      "all": 1043
     },
     "today": {
-      "buy": 40,
+      "buy": 49,
       "sell": 45,
       "ready_to_execute": 0,
       "blocked": 74,
-      "all": 85
+      "all": 94
     },
     "ready_to_execute_list": [],
     "blocked_list": [
@@ -1030,18 +1030,30 @@
     ]
   },
   "orders_today": {
-    "as_of": "2026-06-22 17:00:09 KST",
+    "as_of": "2026-06-22 17:10:10 KST",
     "totals": {
-      "buy": 37,
+      "buy": 58,
       "sell": 0,
-      "submitted": 24,
-      "filled": 13,
+      "submitted": 36,
+      "filled": 22,
       "rejected": 0,
       "cancelled": 0
     },
     "recent": [
       {
-        "order_key": "6fb0f0c34d444c8787744611e29fdaea",
+        "order_key": "a101d69c2b61400a840b2fb49183d16c",
+        "side": "buy",
+        "status": "FILLED",
+        "symbol": "005930",
+        "name": "삼성전자",
+        "quantity": 1.0,
+        "limit_price": 70000.0,
+        "limit_price_text": "70,000원",
+        "created_at": "2026-06-22 17:07:51 KST",
+        "submitted_at": "2026-06-22 17:07:51 KST"
+      },
+      {
+        "order_key": "4fa326f3d8434f7d85eb6dc69f419884",
         "side": "BUY",
         "status": "SUBMITTED",
         "symbol": "093370",
@@ -1049,11 +1061,11 @@
         "quantity": 5.0,
         "limit_price": 18910.0,
         "limit_price_text": "18,910원",
-        "created_at": "2026-06-22 16:59:21 KST",
-        "submitted_at": "2026-06-22 16:59:21 KST"
+        "created_at": "2026-06-22 17:05:07 KST",
+        "submitted_at": "2026-06-22 17:05:07 KST"
       },
       {
-        "order_key": "d3c6758adcee4cd9bb93cbdba35ef759",
+        "order_key": "3cb8f060a7194d6c8288a6a69485a182",
         "side": "BUY",
         "status": "FILLED",
         "symbol": "093370",
@@ -1061,11 +1073,11 @@
         "quantity": 2.0,
         "limit_price": 18910.0,
         "limit_price_text": "18,910원",
-        "created_at": "2026-06-22 16:59:21 KST",
-        "submitted_at": "2026-06-22 16:59:21 KST"
+        "created_at": "2026-06-22 17:05:07 KST",
+        "submitted_at": "2026-06-22 17:05:07 KST"
       },
       {
-        "order_key": "55c82e7662be460eb46f1185ad08e153",
+        "order_key": "0eb7b0907f984a0ab12f5432fe9e3e65",
         "side": "BUY",
         "status": "SUBMITTED",
         "symbol": "093370",
@@ -1073,11 +1085,11 @@
         "quantity": 2.0,
         "limit_price": 18910.0,
         "limit_price_text": "18,910원",
-        "created_at": "2026-06-22 16:59:21 KST",
-        "submitted_at": "2026-06-22 16:59:21 KST"
+        "created_at": "2026-06-22 17:05:07 KST",
+        "submitted_at": "2026-06-22 17:05:07 KST"
       },
       {
-        "order_key": "b275713603a1409f8294905c49bcc3e3",
+        "order_key": "26364416238a456eb640069328b00d3f",
         "side": "BUY",
         "status": "FILLED",
         "symbol": "093370",
@@ -1085,20 +1097,8 @@
         "quantity": 1.0,
         "limit_price": 18910.0,
         "limit_price_text": "18,910원",
-        "created_at": "2026-06-22 16:59:21 KST",
-        "submitted_at": "2026-06-22 16:59:21 KST"
-      },
-      {
-        "order_key": "c2dbd58bca3e491b94e4db37b5c0538f",
-        "side": "BUY",
-        "status": "SUBMITTED",
-        "symbol": "093370",
-        "name": "test target",
-        "quantity": 1.0,
-        "limit_price": 18910.0,
-        "limit_price_text": "18,910원",
-        "created_at": "2026-06-22 16:59:21 KST",
-        "submitted_at": "2026-06-22 16:59:21 KST"
+        "created_at": "2026-06-22 17:05:07 KST",
+        "submitted_at": "2026-06-22 17:05:07 KST"
       }
     ]
   },
@@ -1123,12 +1123,12 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-06-22 15:55:05 KST",
-    "age_minutes": 65,
+    "age_minutes": 75,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-06-22 17:00:09 KST",
-  "generated_at_utc": "2026-06-22T08:00:09Z",
+  "updated_at": "2026-06-22 17:10:10 KST",
+  "generated_at_utc": "2026-06-22T08:10:10Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
