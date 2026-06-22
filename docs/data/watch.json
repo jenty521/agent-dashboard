@@ -407,7 +407,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-22 16:50:07 KST",
+    "as_of": "2026-06-22 17:00:09 KST",
     "summary": [
       {
         "job_name": "daily_pnl_and_risk_summary",
@@ -456,12 +456,12 @@
       },
       {
         "job_name": "live_market_snapshot",
-        "total": 777,
-        "ok": 745,
+        "total": 779,
+        "ok": 747,
         "fail": 32,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-22T15:59:03.248029+09:00"
+        "last_started_at": "2026-06-22T16:58:14.781337+09:00"
       },
       {
         "job_name": "purge_cron_job_runs",
@@ -774,8 +774,8 @@
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 20579,
-    "kst_now": "2026-06-22 16:50:07 KST",
+    "session_age_minutes": 20589,
+    "kst_now": "2026-06-22 17:00:09 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "장 마감"
   },
@@ -784,7 +784,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 414,
+      "age_minutes": 424,
       "status": "critical",
       "tier": "1min"
     },
@@ -792,55 +792,55 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 5,
-      "status": "fresh",
+      "age_minutes": 15,
+      "status": "stale",
       "tier": "1min"
     },
     {
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-06-22 15:55:05 KST",
-      "age_minutes": 55,
-      "status": "stale",
+      "age_minutes": 65,
+      "status": "critical",
       "tier": "5min"
     },
     {
       "key": "watchlist_candidates",
       "label": "후보 종목 풀",
       "last": "2026-06-22 08:00:01 KST",
-      "age_minutes": 530,
+      "age_minutes": 540,
       "status": "critical",
       "tier": "5min"
     },
     {
       "key": "strategy_candidates",
       "label": "매수 후보",
-      "last": "2026-06-22 15:55:09 KST",
-      "age_minutes": 54,
-      "status": "stale",
+      "last": "2026-06-22 16:59:21 KST",
+      "age_minutes": 0,
+      "status": "fresh",
       "tier": "5min"
     },
     {
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
-      "last": "2026-06-22 16:50:03 KST",
-      "age_minutes": 0,
+      "last": "2026-06-22 16:58:14 KST",
+      "age_minutes": 1,
       "status": "fresh",
       "tier": "5min"
     },
     {
       "key": "orders",
       "label": "주문",
-      "last": "—",
-      "age_minutes": -1,
-      "status": "unknown",
+      "last": "2026-06-22 16:59:21 KST",
+      "age_minutes": 0,
+      "status": "fresh",
       "tier": "snapshot"
     },
     {
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 90,
+      "age_minutes": 100,
       "status": "stale",
       "tier": "snapshot"
     },
@@ -848,14 +848,14 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 90,
+      "age_minutes": 100,
       "status": "stale",
       "tier": "snapshot"
     }
   ],
   "health": {
-    "total_runs": 7589,
-    "ok": 7498,
+    "total_runs": 7591,
+    "ok": 7500,
     "failed": 89,
     "timeout": 0,
     "running": 2,
@@ -920,20 +920,20 @@
     }
   ],
   "strategy_candidates": {
-    "as_of": "2026-06-22 16:50:07 KST",
+    "as_of": "2026-06-22 17:00:09 KST",
     "totals": {
-      "buy": 135,
+      "buy": 144,
       "sell": 890,
       "ready_to_execute": 0,
       "blocked": 1018,
-      "all": 1025
+      "all": 1034
     },
     "today": {
-      "buy": 31,
+      "buy": 40,
       "sell": 45,
       "ready_to_execute": 0,
       "blocked": 74,
-      "all": 76
+      "all": 85
     },
     "ready_to_execute_list": [],
     "blocked_list": [
@@ -1030,16 +1030,77 @@
     ]
   },
   "orders_today": {
-    "as_of": "2026-06-22 16:50:07 KST",
+    "as_of": "2026-06-22 17:00:09 KST",
     "totals": {
-      "buy": 0,
+      "buy": 37,
       "sell": 0,
-      "submitted": 0,
-      "filled": 0,
+      "submitted": 24,
+      "filled": 13,
       "rejected": 0,
       "cancelled": 0
     },
-    "recent": []
+    "recent": [
+      {
+        "order_key": "6fb0f0c34d444c8787744611e29fdaea",
+        "side": "BUY",
+        "status": "SUBMITTED",
+        "symbol": "093370",
+        "name": "test target",
+        "quantity": 5.0,
+        "limit_price": 18910.0,
+        "limit_price_text": "18,910원",
+        "created_at": "2026-06-22 16:59:21 KST",
+        "submitted_at": "2026-06-22 16:59:21 KST"
+      },
+      {
+        "order_key": "d3c6758adcee4cd9bb93cbdba35ef759",
+        "side": "BUY",
+        "status": "FILLED",
+        "symbol": "093370",
+        "name": "test target",
+        "quantity": 2.0,
+        "limit_price": 18910.0,
+        "limit_price_text": "18,910원",
+        "created_at": "2026-06-22 16:59:21 KST",
+        "submitted_at": "2026-06-22 16:59:21 KST"
+      },
+      {
+        "order_key": "55c82e7662be460eb46f1185ad08e153",
+        "side": "BUY",
+        "status": "SUBMITTED",
+        "symbol": "093370",
+        "name": "test target",
+        "quantity": 2.0,
+        "limit_price": 18910.0,
+        "limit_price_text": "18,910원",
+        "created_at": "2026-06-22 16:59:21 KST",
+        "submitted_at": "2026-06-22 16:59:21 KST"
+      },
+      {
+        "order_key": "b275713603a1409f8294905c49bcc3e3",
+        "side": "BUY",
+        "status": "FILLED",
+        "symbol": "093370",
+        "name": "test target",
+        "quantity": 1.0,
+        "limit_price": 18910.0,
+        "limit_price_text": "18,910원",
+        "created_at": "2026-06-22 16:59:21 KST",
+        "submitted_at": "2026-06-22 16:59:21 KST"
+      },
+      {
+        "order_key": "c2dbd58bca3e491b94e4db37b5c0538f",
+        "side": "BUY",
+        "status": "SUBMITTED",
+        "symbol": "093370",
+        "name": "test target",
+        "quantity": 1.0,
+        "limit_price": 18910.0,
+        "limit_price_text": "18,910원",
+        "created_at": "2026-06-22 16:59:21 KST",
+        "submitted_at": "2026-06-22 16:59:21 KST"
+      }
+    ]
   },
   "open_positions": [
     {
@@ -1062,12 +1123,12 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-06-22 15:55:05 KST",
-    "age_minutes": 55,
+    "age_minutes": 65,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-06-22 16:50:07 KST",
-  "generated_at_utc": "2026-06-22T07:50:07Z",
+  "updated_at": "2026-06-22 17:00:09 KST",
+  "generated_at_utc": "2026-06-22T08:00:09Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
