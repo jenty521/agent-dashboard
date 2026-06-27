@@ -406,7 +406,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-27 15:10:21 KST",
+    "as_of": "2026-06-27 15:20:21 KST",
     "summary": [
       {
         "job_name": "purge_cron_job_runs",
@@ -469,22 +469,6 @@
         "duration_ms": 1794,
         "exit_code": 1,
         "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
-      },
-      {
-        "job_name": "intraday_bars_rollup",
-        "started_at": "2026-06-26T15:20:01.428794+09:00",
-        "finished_at": "2026-06-26T15:20:02.883368+09:00",
-        "duration_ms": 1477,
-        "exit_code": 1,
-        "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
-      },
-      {
-        "job_name": "live_market_snapshot",
-        "started_at": "2026-06-26T15:11:00.794770+09:00",
-        "finished_at": "2026-06-26T15:11:01.944818+09:00",
-        "duration_ms": 1146,
-        "exit_code": 1,
-        "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
       }
     ],
     "stuck_running": []
@@ -494,8 +478,8 @@
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 27679,
-    "kst_now": "2026-06-27 15:10:20 KST",
+    "session_age_minutes": 27689,
+    "kst_now": "2026-06-27 15:20:21 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "휴장"
   },
@@ -504,7 +488,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 7514,
+      "age_minutes": 7524,
       "status": "critical",
       "tier": "1min"
     },
@@ -512,7 +496,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 7105,
+      "age_minutes": 7115,
       "status": "critical",
       "tier": "1min"
     },
@@ -520,7 +504,7 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-06-26 15:55:01 KST",
-      "age_minutes": 1395,
+      "age_minutes": 1405,
       "status": "critical",
       "tier": "5min"
     },
@@ -544,7 +528,7 @@
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
       "last": "2026-06-27 03:00:01 KST",
-      "age_minutes": 730,
+      "age_minutes": 740,
       "status": "critical",
       "tier": "5min"
     },
@@ -552,7 +536,7 @@
       "key": "orders",
       "label": "주문",
       "last": "2026-06-22 17:07:51 KST",
-      "age_minutes": 7082,
+      "age_minutes": 7092,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -560,7 +544,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 7190,
+      "age_minutes": 7200,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -568,7 +552,7 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 7190,
+      "age_minutes": 7200,
       "status": "critical",
       "tier": "snapshot"
     }
@@ -608,27 +592,11 @@
       "duration_ms": 1794,
       "exit_code": 1,
       "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
-    },
-    {
-      "job_name": "intraday_bars_rollup",
-      "started_at": "2026-06-26T15:20:01.428794+09:00",
-      "finished_at": "2026-06-26T15:20:02.883368+09:00",
-      "duration_ms": 1477,
-      "exit_code": 1,
-      "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
-    },
-    {
-      "job_name": "live_market_snapshot",
-      "started_at": "2026-06-26T15:11:00.794770+09:00",
-      "finished_at": "2026-06-26T15:11:01.944818+09:00",
-      "duration_ms": 1146,
-      "exit_code": 1,
-      "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
     }
   ],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-06-27 15:10:21 KST",
+    "as_of": "2026-06-27 15:20:22 KST",
     "totals": {
       "buy": 390,
       "sell": 1656,
@@ -647,7 +615,7 @@
     "blocked_list": []
   },
   "orders_today": {
-    "as_of": "2026-06-27 15:10:21 KST",
+    "as_of": "2026-06-27 15:20:22 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -740,12 +708,12 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-06-26 15:55:01 KST",
-    "age_minutes": 1395,
+    "age_minutes": 1405,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-06-27 15:10:21 KST",
-  "generated_at_utc": "2026-06-27T06:10:21Z",
+  "updated_at": "2026-06-27 15:20:22 KST",
+  "generated_at_utc": "2026-06-27T06:20:22Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
