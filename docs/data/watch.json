@@ -375,7 +375,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-28 19:00:42 KST",
+    "as_of": "2026-06-28 19:10:44 KST",
     "summary": [
       {
         "job_name": "purge_cron_job_runs",
@@ -422,8 +422,8 @@
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 29349,
-    "kst_now": "2026-06-28 19:00:42 KST",
+    "session_age_minutes": 29359,
+    "kst_now": "2026-06-28 19:10:44 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "휴장"
   },
@@ -432,7 +432,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 9184,
+      "age_minutes": 9194,
       "status": "critical",
       "tier": "1min"
     },
@@ -440,7 +440,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 8776,
+      "age_minutes": 8786,
       "status": "critical",
       "tier": "1min"
     },
@@ -448,7 +448,7 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-06-26 15:55:01 KST",
-      "age_minutes": 3065,
+      "age_minutes": 3075,
       "status": "critical",
       "tier": "5min"
     },
@@ -472,7 +472,7 @@
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
       "last": "2026-06-28 03:00:03 KST",
-      "age_minutes": 960,
+      "age_minutes": 970,
       "status": "critical",
       "tier": "5min"
     },
@@ -480,7 +480,7 @@
       "key": "orders",
       "label": "주문",
       "last": "2026-06-22 17:07:51 KST",
-      "age_minutes": 8752,
+      "age_minutes": 8762,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -488,7 +488,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 8861,
+      "age_minutes": 8871,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -496,7 +496,7 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 8861,
+      "age_minutes": 8871,
       "status": "critical",
       "tier": "snapshot"
     }
@@ -515,7 +515,7 @@
   "cron_recent_failures": [],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-06-28 19:00:42 KST",
+    "as_of": "2026-06-28 19:10:44 KST",
     "totals": {
       "buy": 390,
       "sell": 1656,
@@ -534,7 +534,7 @@
     "blocked_list": []
   },
   "orders_today": {
-    "as_of": "2026-06-28 19:00:42 KST",
+    "as_of": "2026-06-28 19:10:44 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -627,12 +627,12 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-06-26 15:55:01 KST",
-    "age_minutes": 3065,
+    "age_minutes": 3075,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-06-28 19:00:42 KST",
-  "generated_at_utc": "2026-06-28T10:00:42Z",
+  "updated_at": "2026-06-28 19:10:44 KST",
+  "generated_at_utc": "2026-06-28T10:10:44Z",
   "counts": {
     "themes": 0,
     "candidates": 12,
