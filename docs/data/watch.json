@@ -18,32 +18,32 @@
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 113건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-29 11:14:00 KST"
+      "reason": "최근 117건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-29 11:28:00 KST"
     },
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 98건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-29 11:14:00 KST"
+      "reason": "최근 110건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-29 11:28:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 59건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-29 11:14:00 KST"
+      "reason": "최근 61건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-29 11:26:00 KST"
     },
     {
       "theme": "코스닥",
       "score": "A",
-      "reason": "최근 40건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-06-29 10:56:00 KST"
+      "reason": "최근 42건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-29 11:26:00 KST"
     },
     {
-      "theme": "2차전지",
+      "theme": "삼성전자",
       "score": "A",
-      "reason": "최근 34건 뉴스 태그 · 최고 촉매 8.0",
-      "updated_at": "2026-06-29 11:14:00 KST"
+      "reason": "최근 35건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-06-29 11:28:00 KST"
     }
   ],
   "candidate_list": [
@@ -282,7 +282,7 @@
       "name": "카카오",
       "reason": "auto:continuation:news_catalyst:sector_sympathy:trend / 태그: auto:continuation:news catalyst:sector sympathy:trend / 후보점수 90.0",
       "signal": "auto:continuation:news catalyst:sector sympathy:trend",
-      "collected_at": "2026-06-29T02:20:01.856445+00:00",
+      "collected_at": "2026-06-29T02:30:01.622170+00:00",
       "score": 61.1979,
       "source": "daily_universe_scan",
       "source_provenance": [
@@ -369,7 +369,7 @@
   },
   "risk_diagnostics": {
     "status": "blocked",
-    "observed_at": "2026-06-29 11:20:07 KST",
+    "observed_at": "2026-06-29 11:30:06 KST",
     "blocked_reason": "Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction goPrev() {\n\t//location.href = document.referrer;\n\twindow.history.back();\n}\n\nfunction goHome() {\n\tlocation.href=\"/main\";\n}\n</script>\n\n\n<!-- webContent -->\n<div class=\"error-container\">\n    <div class=\"error-wrap\">\n        <div class=\"error-area url\">\n            <h1><span class=\"logo\"><img src=\"/resources/portal/images/common/header-logo.png\" alt=\"키움증권\"></span></h1>\n            <p class=\"title\">서비스 이용에 불편을 드려 대단히 죄송합니다.<br>요청하신 화면을 찾을 수 없습니다.</p>\n            <div class=\"content\">\n                <!-- url error -->\n                <p class=\"text\" id=\"messageText\">찾으시려는 페이지 주소가 잘못 입력되었거나, 페이지 주소의 변경 혹은 삭제로 인해 현재 사용하실 수 없습니다.<br> 입력하신 주소가 정확한지 다시 한번 확인해 주시기 바랍니다.</p>\n            </div>\n            <p class=\"center\">키움금융센터 1544-9000</p>\n        </div>\n        <div class=\"btn-bottom-wrap\">\n            <button class=\"btn primary\" id=\"homeBtn\" onclick=\"javascript:goHome();\">홈</button>\n        </div>\n    </div>\n</div>\n<!-- //webContent -->\n\n\n",
     "mismatch_count": 1,
     "mismatches": [
@@ -402,52 +402,52 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-06-29 11:20:43 KST",
+    "as_of": "2026-06-29 11:30:44 KST",
     "summary": [
       {
         "job_name": "entry_signal_execution",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:17.827297+09:00"
+        "last_started_at": "2026-06-29T11:30:16.885460+09:00"
       },
       {
         "job_name": "exit_signal_execution",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:18.372732+09:00"
+        "last_started_at": "2026-06-29T11:30:17.423341+09:00"
       },
       {
         "job_name": "intraday_bars_rollup",
-        "total": 282,
-        "ok": 267,
-        "fail": 15,
+        "total": 302,
+        "ok": 286,
+        "fail": 16,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:11.114388+09:00"
+        "last_started_at": "2026-06-29T11:30:10.275415+09:00"
       },
       {
         "job_name": "intraday_surge_detector",
-        "total": 282,
-        "ok": 273,
-        "fail": 9,
+        "total": 302,
+        "ok": 292,
+        "fail": 10,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:21.970713+09:00"
+        "last_started_at": "2026-06-29T11:30:21.487665+09:00"
       },
       {
         "job_name": "live_market_snapshot",
-        "total": 283,
-        "ok": 275,
+        "total": 303,
+        "ok": 295,
         "fail": 8,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:08.126716+09:00"
+        "last_started_at": "2026-06-29T11:30:07.350469+09:00"
       },
       {
         "job_name": "purge_cron_job_runs",
@@ -460,21 +460,21 @@
       },
       {
         "job_name": "run_registered_job_account-holdings-snapshot",
-        "total": 28,
-        "ok": 28,
+        "total": 30,
+        "ok": 30,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:15:20.611321+09:00"
+        "last_started_at": "2026-06-29T11:30:19.162728+09:00"
       },
       {
         "job_name": "run_registered_job_broker-readiness-snapshot",
-        "total": 42,
-        "ok": 42,
+        "total": 44,
+        "ok": 44,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:06.326640+09:00"
+        "last_started_at": "2026-06-29T11:30:05.445106+09:00"
       },
       {
         "job_name": "run_registered_job_daily-universe-scan",
@@ -487,84 +487,84 @@
       },
       {
         "job_name": "run_registered_job_entry-signal-execution",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:17.670106+09:00"
+        "last_started_at": "2026-06-29T11:30:16.726785+09:00"
       },
       {
         "job_name": "run_registered_job_exit-signal-execution",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:18.214600+09:00"
+        "last_started_at": "2026-06-29T11:30:17.265811+09:00"
       },
       {
         "job_name": "run_registered_job_intraday-bars-rollup",
-        "total": 282,
-        "ok": 282,
+        "total": 302,
+        "ok": 302,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:11.013451+09:00"
+        "last_started_at": "2026-06-29T11:30:10.175807+09:00"
       },
       {
         "job_name": "run_registered_job_intraday-risk-reconciliation",
-        "total": 30,
-        "ok": 30,
+        "total": 32,
+        "ok": 32,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:07.103285+09:00"
+        "last_started_at": "2026-06-29T11:30:06.354260+09:00"
       },
       {
         "job_name": "run_registered_job_intraday-surge-detector",
-        "total": 282,
-        "ok": 282,
+        "total": 302,
+        "ok": 302,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:21.808682+09:00"
+        "last_started_at": "2026-06-29T11:30:21.328591+09:00"
       },
       {
         "job_name": "run_registered_job_intraday-watchlist-refresh",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:01.401002+09:00"
+        "last_started_at": "2026-06-29T11:30:01.357614+09:00"
       },
       {
         "job_name": "run_registered_job_kis-ranking-scan",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:20.099251+09:00"
+        "last_started_at": "2026-06-29T11:30:19.627319+09:00"
       },
       {
         "job_name": "run_registered_job_live-market-snapshot",
-        "total": 283,
-        "ok": 283,
+        "total": 303,
+        "ok": 303,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:08.024168+09:00"
+        "last_started_at": "2026-06-29T11:30:07.246656+09:00"
       },
       {
         "job_name": "run_registered_job_live-order-execution",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:19.723374+09:00"
+        "last_started_at": "2026-06-29T11:30:18.788904+09:00"
       },
       {
         "job_name": "run_registered_job_market-holiday-sync",
@@ -577,12 +577,12 @@
       },
       {
         "job_name": "run_registered_job_market-news-refresh",
-        "total": 29,
-        "ok": 29,
+        "total": 31,
+        "ok": 31,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:15:04.273502+09:00"
+        "last_started_at": "2026-06-29T11:30:02.131241+09:00"
       },
       {
         "job_name": "run_registered_job_minute-bar-retention-cleanup",
@@ -622,57 +622,57 @@
       },
       {
         "job_name": "run_registered_job_session-state-heartbeat",
-        "total": 282,
-        "ok": 282,
+        "total": 302,
+        "ok": 302,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:06.743245+09:00"
+        "last_started_at": "2026-06-29T11:30:05.866235+09:00"
       },
       {
         "job_name": "run_registered_job_signal-chart-capture",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:22.214236+09:00"
+        "last_started_at": "2026-06-29T11:30:21.728574+09:00"
       },
       {
         "job_name": "run_registered_job_strategy-pipeline-tick",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:11.351135+09:00"
+        "last_started_at": "2026-06-29T11:30:10.514846+09:00"
       },
       {
         "job_name": "run_registered_job_sync-cash",
-        "total": 82,
-        "ok": 82,
+        "total": 86,
+        "ok": 86,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:07.594944+09:00"
+        "last_started_at": "2026-06-29T11:30:06.820580+09:00"
       },
       {
         "job_name": "run_registered_job_toss-candles-loader",
-        "total": 58,
-        "ok": 58,
+        "total": 62,
+        "ok": 62,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:20.440610+09:00"
+        "last_started_at": "2026-06-29T11:30:19.969459+09:00"
       },
       {
         "job_name": "run_registered_job_toss-market-snapshot",
-        "total": 70,
-        "ok": 70,
+        "total": 75,
+        "ok": 75,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-06-29T11:20:05.577716+09:00"
+        "last_started_at": "2026-06-29T11:30:04.322989+09:00"
       },
       {
         "job_name": "run_registered_job_toss-reference-refresh",
@@ -685,6 +685,22 @@
       }
     ],
     "recent_failures": [
+      {
+        "job_name": "intraday_surge_detector",
+        "started_at": "2026-06-29T11:30:02.095489+09:00",
+        "finished_at": "2026-06-29T11:30:03.269546+09:00",
+        "duration_ms": 1195,
+        "exit_code": 1,
+        "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
+      },
+      {
+        "job_name": "intraday_bars_rollup",
+        "started_at": "2026-06-29T11:24:04.034644+09:00",
+        "finished_at": "2026-06-29T11:24:05.192391+09:00",
+        "duration_ms": 1154,
+        "exit_code": 1,
+        "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
+      },
       {
         "job_name": "intraday_bars_rollup",
         "started_at": "2026-06-29T11:20:01.866227+09:00",
@@ -708,22 +724,6 @@
         "duration_ms": 1173,
         "exit_code": 1,
         "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
-      },
-      {
-        "job_name": "intraday_bars_rollup",
-        "started_at": "2026-06-29T11:00:04.990568+09:00",
-        "finished_at": "2026-06-29T11:00:06.742275+09:00",
-        "duration_ms": 1774,
-        "exit_code": 1,
-        "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
-      },
-      {
-        "job_name": "intraday_surge_detector",
-        "started_at": "2026-06-29T10:57:01.154572+09:00",
-        "finished_at": "2026-06-29T10:57:02.323046+09:00",
-        "duration_ms": 1166,
-        "exit_code": 1,
-        "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
       }
     ],
     "stuck_running": []
@@ -733,8 +733,8 @@
     "is_trade_window": true,
     "session_state": "TRADE_OK",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 30329,
-    "kst_now": "2026-06-29 11:20:43 KST",
+    "session_age_minutes": 30339,
+    "kst_now": "2026-06-29 11:30:44 KST",
     "next_cron_due_in_minutes": 5,
     "market_state_text": "장중"
   },
@@ -743,7 +743,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 10164,
+      "age_minutes": 10174,
       "status": "critical",
       "tier": "1min"
     },
@@ -751,14 +751,14 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 9756,
+      "age_minutes": 9766,
       "status": "critical",
       "tier": "1min"
     },
     {
       "key": "watchlist_active",
       "label": "워치리스트",
-      "last": "2026-06-29 11:20:01 KST",
+      "last": "2026-06-29 11:30:01 KST",
       "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
@@ -767,14 +767,14 @@
       "key": "watchlist_candidates",
       "label": "후보 종목 풀",
       "last": "2026-06-29 08:00:02 KST",
-      "age_minutes": 200,
+      "age_minutes": 210,
       "status": "critical",
       "tier": "5min"
     },
     {
       "key": "strategy_candidates",
       "label": "매수 후보",
-      "last": "2026-06-29 11:20:19 KST",
+      "last": "2026-06-29 11:30:18 KST",
       "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
@@ -782,7 +782,7 @@
     {
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
-      "last": "2026-06-29 11:20:22 KST",
+      "last": "2026-06-29 11:30:21 KST",
       "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
@@ -791,7 +791,7 @@
       "key": "orders",
       "label": "주문",
       "last": "2026-06-22 17:07:51 KST",
-      "age_minutes": 9732,
+      "age_minutes": 9742,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -799,7 +799,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 9841,
+      "age_minutes": 9851,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -807,25 +807,41 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 9841,
+      "age_minutes": 9851,
       "status": "critical",
       "tier": "snapshot"
     }
   ],
   "health": {
-    "total_runs": 2854,
-    "ok": 2822,
-    "failed": 32,
+    "total_runs": 3051,
+    "ok": 3017,
+    "failed": 34,
     "timeout": 0,
     "running": 0,
     "stuck_running_count": 0,
     "ok_rate_pct": 98.9,
     "alert_level": "critical",
     "alerts": [
-      "실패 32건: 최근 실패는 cron_recent_failures 확인"
+      "실패 34건: 최근 실패는 cron_recent_failures 확인"
     ]
   },
   "cron_recent_failures": [
+    {
+      "job_name": "intraday_surge_detector",
+      "started_at": "2026-06-29T11:30:02.095489+09:00",
+      "finished_at": "2026-06-29T11:30:03.269546+09:00",
+      "duration_ms": 1195,
+      "exit_code": 1,
+      "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
+    },
+    {
+      "job_name": "intraday_bars_rollup",
+      "started_at": "2026-06-29T11:24:04.034644+09:00",
+      "finished_at": "2026-06-29T11:24:05.192391+09:00",
+      "duration_ms": 1154,
+      "exit_code": 1,
+      "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
+    },
     {
       "job_name": "intraday_bars_rollup",
       "started_at": "2026-06-29T11:20:01.866227+09:00",
@@ -849,43 +865,81 @@
       "duration_ms": 1173,
       "exit_code": 1,
       "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
-    },
-    {
-      "job_name": "intraday_bars_rollup",
-      "started_at": "2026-06-29T11:00:04.990568+09:00",
-      "finished_at": "2026-06-29T11:00:06.742275+09:00",
-      "duration_ms": 1774,
-      "exit_code": 1,
-      "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
-    },
-    {
-      "job_name": "intraday_surge_detector",
-      "started_at": "2026-06-29T10:57:01.154572+09:00",
-      "finished_at": "2026-06-29T10:57:02.323046+09:00",
-      "duration_ms": 1166,
-      "exit_code": 1,
-      "error_excerpt": "Traceback (most recent call last):\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app/batch_runner.py\", line 182, in track_cron_run\n    yield yield_ctx\n  File \"/Users/jenty521/HermesCompanies/investment_firm/workspace/app"
     }
   ],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-06-29 11:20:43 KST",
+    "as_of": "2026-06-29 11:30:44 KST",
     "totals": {
-      "buy": 419,
-      "sell": 1714,
+      "buy": 421,
+      "sell": 1718,
       "ready_to_execute": 0,
-      "blocked": 2109,
-      "all": 2133
+      "blocked": 2115,
+      "all": 2139
     },
     "today": {
-      "buy": 29,
-      "sell": 58,
+      "buy": 31,
+      "sell": 62,
       "ready_to_execute": 0,
-      "blocked": 87,
-      "all": 87
+      "blocked": 93,
+      "all": 93
     },
     "ready_to_execute_list": [],
     "blocked_list": [
+      {
+        "ticker": "093370",
+        "name": "후성",
+        "side": "SELL",
+        "status": "BLOCKED",
+        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
+        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
+        "created_at": "2026-06-29 11:30:18 KST"
+      },
+      {
+        "ticker": "093370",
+        "name": "후성",
+        "side": "BUY",
+        "status": "BLOCKED",
+        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
+        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
+        "created_at": "2026-06-29 11:30:07 KST"
+      },
+      {
+        "ticker": "093370",
+        "name": "후성",
+        "side": "SELL",
+        "status": "BLOCKED",
+        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
+        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
+        "created_at": "2026-06-29 11:30:03 KST"
+      },
+      {
+        "ticker": "093370",
+        "name": "후성",
+        "side": "SELL",
+        "status": "BLOCKED",
+        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
+        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
+        "created_at": "2026-06-29 11:25:19 KST"
+      },
+      {
+        "ticker": "093370",
+        "name": "후성",
+        "side": "BUY",
+        "status": "BLOCKED",
+        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
+        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
+        "created_at": "2026-06-29 11:25:07 KST"
+      },
+      {
+        "ticker": "093370",
+        "name": "후성",
+        "side": "SELL",
+        "status": "BLOCKED",
+        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
+        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
+        "created_at": "2026-06-29 11:25:02 KST"
+      },
       {
         "ticker": "093370",
         "name": "후성",
@@ -921,65 +975,11 @@
         "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
         "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
         "created_at": "2026-06-29 11:15:19 KST"
-      },
-      {
-        "ticker": "093370",
-        "name": "후성",
-        "side": "BUY",
-        "status": "BLOCKED",
-        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
-        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
-        "created_at": "2026-06-29 11:15:10 KST"
-      },
-      {
-        "ticker": "093370",
-        "name": "후성",
-        "side": "SELL",
-        "status": "BLOCKED",
-        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
-        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
-        "created_at": "2026-06-29 11:15:05 KST"
-      },
-      {
-        "ticker": "093370",
-        "name": "후성",
-        "side": "SELL",
-        "status": "BLOCKED",
-        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
-        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
-        "created_at": "2026-06-29 11:10:16 KST"
-      },
-      {
-        "ticker": "093370",
-        "name": "후성",
-        "side": "BUY",
-        "status": "BLOCKED",
-        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
-        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
-        "created_at": "2026-06-29 11:10:10 KST"
-      },
-      {
-        "ticker": "093370",
-        "name": "후성",
-        "side": "SELL",
-        "status": "BLOCKED",
-        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
-        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
-        "created_at": "2026-06-29 11:10:06 KST"
-      },
-      {
-        "ticker": "093370",
-        "name": "후성",
-        "side": "SELL",
-        "status": "BLOCKED",
-        "reason": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"stylesheet\" type=\"text/css\" href=\"/resources/portal/css/error.css?2026062911\">\n<script type=\"text/javascript\">\n\nfunction",
-        "reason_short": "account status lookup failed: Kiwoom token request failed: HTTP 404 \n<link rel=\"",
-        "created_at": "2026-06-29 11:05:16 KST"
       }
     ]
   },
   "orders_today": {
-    "as_of": "2026-06-29 11:20:43 KST",
+    "as_of": "2026-06-29 11:30:44 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -1071,13 +1071,13 @@
     }
   ],
   "watchlist_active_freshness": {
-    "last_refreshed_at": "2026-06-29 11:20:01 KST",
+    "last_refreshed_at": "2026-06-29 11:30:01 KST",
     "age_minutes": 0,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-06-29 11:20:43 KST",
-  "generated_at_utc": "2026-06-29T02:20:43Z",
+  "updated_at": "2026-06-29 11:30:44 KST",
+  "generated_at_utc": "2026-06-29T02:30:44Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
