@@ -18,7 +18,7 @@
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 491건 뉴스 태그 · 최고 촉매 9.0",
+      "reason": "최근 490건 뉴스 태그 · 최고 촉매 9.0",
       "updated_at": "2026-07-03 07:58:00 KST"
     },
     {
@@ -413,7 +413,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-07-03 08:30:07 KST",
+    "as_of": "2026-07-03 08:40:08 KST",
     "summary": [
       {
         "job_name": "purge_cron_job_runs",
@@ -435,12 +435,12 @@
       },
       {
         "job_name": "run_registered_job_broker-readiness-snapshot",
-        "total": 8,
-        "ok": 8,
+        "total": 10,
+        "ok": 10,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-07-03T08:30:02.305798+09:00"
+        "last_started_at": "2026-07-03T08:40:04.444701+09:00"
       },
       {
         "job_name": "run_registered_job_daily-universe-scan",
@@ -498,12 +498,12 @@
       },
       {
         "job_name": "run_registered_job_sync-cash",
-        "total": 14,
-        "ok": 14,
+        "total": 18,
+        "ok": 18,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-07-03T08:30:02.869711+09:00"
+        "last_started_at": "2026-07-03T08:40:04.444817+09:00"
       },
       {
         "job_name": "run_registered_job_toss-reference-refresh",
@@ -564,8 +564,8 @@
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 35919,
-    "kst_now": "2026-07-03 08:30:07 KST",
+    "session_age_minutes": 35929,
+    "kst_now": "2026-07-03 08:40:08 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "장 시작 전"
   },
@@ -574,7 +574,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 15754,
+      "age_minutes": 15764,
       "status": "critical",
       "tier": "1min"
     },
@@ -582,7 +582,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 15345,
+      "age_minutes": 15355,
       "status": "critical",
       "tier": "1min"
     },
@@ -590,7 +590,7 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-07-02 15:55:02 KST",
-      "age_minutes": 995,
+      "age_minutes": 1005,
       "status": "critical",
       "tier": "5min"
     },
@@ -598,7 +598,7 @@
       "key": "watchlist_candidates",
       "label": "후보 종목 풀",
       "last": "2026-07-03 08:00:01 KST",
-      "age_minutes": 30,
+      "age_minutes": 40,
       "status": "stale",
       "tier": "5min"
     },
@@ -613,7 +613,7 @@
     {
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
-      "last": "2026-07-03 08:30:03 KST",
+      "last": "2026-07-03 08:40:04 KST",
       "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
@@ -622,7 +622,7 @@
       "key": "orders",
       "label": "주문",
       "last": "2026-06-22 17:07:51 KST",
-      "age_minutes": 15322,
+      "age_minutes": 15332,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -630,7 +630,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 15430,
+      "age_minutes": 15440,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -638,14 +638,14 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 15430,
+      "age_minutes": 15440,
       "status": "critical",
       "tier": "snapshot"
     }
   ],
   "health": {
-    "total_runs": 48,
-    "ok": 48,
+    "total_runs": 54,
+    "ok": 54,
     "failed": 0,
     "timeout": 0,
     "running": 0,
@@ -698,7 +698,7 @@
   ],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-07-03 08:30:07 KST",
+    "as_of": "2026-07-03 08:40:08 KST",
     "totals": {
       "buy": 705,
       "sell": 2424,
@@ -717,7 +717,7 @@
     "blocked_list": []
   },
   "orders_today": {
-    "as_of": "2026-07-03 08:30:07 KST",
+    "as_of": "2026-07-03 08:40:08 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -810,12 +810,12 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-07-02 15:55:02 KST",
-    "age_minutes": 995,
+    "age_minutes": 1005,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-07-03 08:30:07 KST",
-  "generated_at_utc": "2026-07-02T23:30:07Z",
+  "updated_at": "2026-07-03 08:40:08 KST",
+  "generated_at_utc": "2026-07-02T23:40:08Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
