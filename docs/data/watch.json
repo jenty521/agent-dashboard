@@ -18,32 +18,32 @@
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 472건 뉴스 태그 · 최고 촉매 8.0",
-      "updated_at": "2026-07-03 15:29:00 KST"
+      "reason": "최근 476건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-07-03 15:58:00 KST"
     },
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 457건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-07-03 15:29:00 KST"
+      "reason": "최근 467건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-07-03 15:58:00 KST"
     },
     {
       "theme": "코스피",
       "score": "A",
-      "reason": "최근 155건 뉴스 태그 · 최고 촉매 8.0",
-      "updated_at": "2026-07-03 15:28:00 KST"
-    },
-    {
-      "theme": "로봇",
-      "score": "A",
-      "reason": "최근 146건 뉴스 태그 · 최고 촉매 9.0",
-      "updated_at": "2026-07-03 15:28:00 KST"
+      "reason": "최근 171건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-07-03 15:58:00 KST"
     },
     {
       "theme": "SK하이닉스",
       "score": "A",
-      "reason": "최근 145건 뉴스 태그 · 최고 촉매 8.0",
-      "updated_at": "2026-07-03 15:29:00 KST"
+      "reason": "최근 150건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-07-03 15:58:00 KST"
+    },
+    {
+      "theme": "삼성전자",
+      "score": "A",
+      "reason": "최근 150건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-07-03 15:58:00 KST"
     }
   ],
   "candidate_list": [
@@ -405,8 +405,17 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-07-03 16:00:02 KST",
+    "as_of": "2026-07-03 16:10:03 KST",
     "summary": [
+      {
+        "job_name": "daily_pnl_and_risk_summary",
+        "total": 2,
+        "ok": 2,
+        "fail": 0,
+        "timeout": 0,
+        "running": 0,
+        "last_started_at": "2026-07-03T16:10:01.661458+09:00"
+      },
       {
         "job_name": "entry_signal_execution",
         "total": 168,
@@ -463,21 +472,30 @@
       },
       {
         "job_name": "run_registered_job_account-holdings-snapshot",
-        "total": 64,
-        "ok": 64,
+        "total": 66,
+        "ok": 66,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-07-03T15:45:16.587635+09:00"
+        "last_started_at": "2026-07-03T16:00:03.597604+09:00"
       },
       {
         "job_name": "run_registered_job_broker-readiness-snapshot",
-        "total": 98,
-        "ok": 97,
+        "total": 101,
+        "ok": 101,
         "fail": 0,
         "timeout": 0,
-        "running": 1,
-        "last_started_at": "2026-07-03T16:00:01.871129+09:00"
+        "running": 0,
+        "last_started_at": "2026-07-03T16:10:01.554837+09:00"
+      },
+      {
+        "job_name": "run_registered_job_daily-pnl-and-risk-summary",
+        "total": 2,
+        "ok": 2,
+        "fail": 0,
+        "timeout": 0,
+        "running": 0,
+        "last_started_at": "2026-07-03T16:10:01.554341+09:00"
       },
       {
         "job_name": "run_registered_job_daily-universe-scan",
@@ -580,12 +598,12 @@
       },
       {
         "job_name": "run_registered_job_market-news-refresh",
-        "total": 65,
-        "ok": 65,
+        "total": 66,
+        "ok": 66,
         "fail": 0,
         "timeout": 0,
         "running": 0,
-        "last_started_at": "2026-07-03T16:00:01.020041+09:00"
+        "last_started_at": "2026-07-03T16:00:03.597393+09:00"
       },
       {
         "job_name": "run_registered_job_minute-bar-retention-cleanup",
@@ -745,8 +763,8 @@
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 36369,
-    "kst_now": "2026-07-03 16:00:02 KST",
+    "session_age_minutes": 36379,
+    "kst_now": "2026-07-03 16:10:03 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "장 마감"
   },
@@ -755,7 +773,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 16204,
+      "age_minutes": 16214,
       "status": "critical",
       "tier": "1min"
     },
@@ -763,7 +781,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 15795,
+      "age_minutes": 15805,
       "status": "critical",
       "tier": "1min"
     },
@@ -771,7 +789,7 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-07-03 15:55:02 KST",
-      "age_minutes": 4,
+      "age_minutes": 15,
       "status": "fresh",
       "tier": "5min"
     },
@@ -779,7 +797,7 @@
       "key": "watchlist_candidates",
       "label": "후보 종목 풀",
       "last": "2026-07-03 08:00:01 KST",
-      "age_minutes": 480,
+      "age_minutes": 490,
       "status": "critical",
       "tier": "5min"
     },
@@ -787,14 +805,14 @@
       "key": "strategy_candidates",
       "label": "매수 후보",
       "last": "2026-07-03 15:55:06 KST",
-      "age_minutes": 4,
+      "age_minutes": 14,
       "status": "fresh",
       "tier": "5min"
     },
     {
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
-      "last": "2026-07-03 16:00:01 KST",
+      "last": "2026-07-03 16:10:01 KST",
       "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
@@ -803,7 +821,7 @@
       "key": "orders",
       "label": "주문",
       "last": "2026-06-22 17:07:51 KST",
-      "age_minutes": 15772,
+      "age_minutes": 15782,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -811,7 +829,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 15880,
+      "age_minutes": 15890,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -819,19 +837,19 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 15880,
+      "age_minutes": 15890,
       "status": "critical",
       "tier": "snapshot"
     }
   ],
   "health": {
-    "total_runs": 8291,
-    "ok": 8179,
+    "total_runs": 8301,
+    "ok": 8190,
     "failed": 111,
     "timeout": 0,
-    "running": 1,
+    "running": 0,
     "stuck_running_count": 0,
-    "ok_rate_pct": 98.6,
+    "ok_rate_pct": 98.7,
     "alert_level": "critical",
     "alerts": [
       "실패 111건: 최근 실패는 cron_recent_failures 확인"
@@ -881,7 +899,7 @@
   ],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-07-03 16:00:02 KST",
+    "as_of": "2026-07-03 16:10:03 KST",
     "totals": {
       "buy": 787,
       "sell": 2620,
@@ -991,7 +1009,7 @@
     ]
   },
   "orders_today": {
-    "as_of": "2026-07-03 16:00:02 KST",
+    "as_of": "2026-07-03 16:10:03 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -1084,12 +1102,12 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-07-03 15:55:02 KST",
-    "age_minutes": 4,
+    "age_minutes": 15,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-07-03 16:00:02 KST",
-  "generated_at_utc": "2026-07-03T07:00:02Z",
+  "updated_at": "2026-07-03 16:10:03 KST",
+  "generated_at_utc": "2026-07-03T07:10:03Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
