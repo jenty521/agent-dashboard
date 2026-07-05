@@ -14,14 +14,45 @@
     "배치 헬스",
     "신선도"
   ],
-  "theme_summary": [],
+  "theme_summary": [
+    {
+      "theme": "반도체",
+      "score": "A-",
+      "reason": "최근 13건 뉴스 태그 · 최고 촉매 8.0",
+      "updated_at": "2026-07-06 07:58:00 KST"
+    },
+    {
+      "theme": "AI",
+      "score": "A-",
+      "reason": "최근 8건 뉴스 태그 · 최고 촉매 7.0",
+      "updated_at": "2026-07-06 07:59:00 KST"
+    },
+    {
+      "theme": "로봇",
+      "score": "A-",
+      "reason": "최근 5건 뉴스 태그 · 최고 촉매 7.0",
+      "updated_at": "2026-07-06 07:58:00 KST"
+    },
+    {
+      "theme": "삼성전자",
+      "score": "A-",
+      "reason": "최근 5건 뉴스 태그 · 최고 촉매 7.0",
+      "updated_at": "2026-07-06 07:58:00 KST"
+    },
+    {
+      "theme": "바이오",
+      "score": "A-",
+      "reason": "최근 5건 뉴스 태그 · 최고 촉매 7.0",
+      "updated_at": "2026-07-06 07:58:00 KST"
+    }
+  ],
   "candidate_list": [
     {
       "ticker": "298040",
       "name": "성일하이텍",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -40,7 +71,7 @@
       "name": "엘비루체",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -59,7 +90,7 @@
       "name": "켐온",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -78,7 +109,7 @@
       "name": "제이엘케이인스티튜트",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -97,7 +128,7 @@
       "name": "에스피시스템즈",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -116,7 +147,7 @@
       "name": "우리로",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -135,7 +166,7 @@
       "name": "넥스트타입",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -154,7 +185,7 @@
       "name": "티씨케이",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -173,7 +204,7 @@
       "name": "PI첨단소재",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -192,7 +223,7 @@
       "name": "피엔티",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -211,7 +242,7 @@
       "name": "셀바스AI",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -230,7 +261,7 @@
       "name": "에이치엘비",
       "theme": "일일 유니버스 스캔",
       "signal": "일일 유니버스 스캔",
-      "collected_at": "2026-07-03",
+      "collected_at": "2026-07-06",
       "source": "daily_universe_scan",
       "source_provenance": [
         "daily_universe_scan"
@@ -374,7 +405,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-07-06 07:50:42 KST",
+    "as_of": "2026-07-06 08:00:43 KST",
     "summary": [
       {
         "job_name": "purge_cron_job_runs",
@@ -386,6 +417,33 @@
         "last_started_at": "2026-07-06T03:00:01.170018+09:00"
       },
       {
+        "job_name": "run_registered_job_account-holdings-snapshot",
+        "total": 2,
+        "ok": 2,
+        "fail": 0,
+        "timeout": 0,
+        "running": 0,
+        "last_started_at": "2026-07-06T08:00:05.576701+09:00"
+      },
+      {
+        "job_name": "run_registered_job_broker-readiness-snapshot",
+        "total": 2,
+        "ok": 2,
+        "fail": 0,
+        "timeout": 0,
+        "running": 0,
+        "last_started_at": "2026-07-06T08:00:04.547129+09:00"
+      },
+      {
+        "job_name": "run_registered_job_daily-universe-scan",
+        "total": 2,
+        "ok": 2,
+        "fail": 0,
+        "timeout": 0,
+        "running": 0,
+        "last_started_at": "2026-07-06T08:00:03.790504+09:00"
+      },
+      {
         "job_name": "run_registered_job_market-holiday-sync",
         "total": 2,
         "ok": 2,
@@ -393,6 +451,15 @@
         "timeout": 0,
         "running": 0,
         "last_started_at": "2026-07-06T00:10:01.013809+09:00"
+      },
+      {
+        "job_name": "run_registered_job_market-news-refresh",
+        "total": 2,
+        "ok": 2,
+        "fail": 0,
+        "timeout": 0,
+        "running": 0,
+        "last_started_at": "2026-07-06T08:00:03.766723+09:00"
       },
       {
         "job_name": "run_registered_job_minute-bar-retention-cleanup",
@@ -413,6 +480,15 @@
         "last_started_at": "2026-07-06T03:00:01.062188+09:00"
       },
       {
+        "job_name": "run_registered_job_sync-cash",
+        "total": 2,
+        "ok": 2,
+        "fail": 0,
+        "timeout": 0,
+        "running": 0,
+        "last_started_at": "2026-07-06T08:00:05.131339+09:00"
+      },
+      {
         "job_name": "run_registered_job_toss-reference-refresh",
         "total": 2,
         "ok": 2,
@@ -430,8 +506,8 @@
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 40199,
-    "kst_now": "2026-07-06 07:50:42 KST",
+    "session_age_minutes": 40209,
+    "kst_now": "2026-07-06 08:00:43 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "장 마감"
   },
@@ -440,7 +516,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 20034,
+      "age_minutes": 20044,
       "status": "critical",
       "tier": "1min"
     },
@@ -448,7 +524,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 19626,
+      "age_minutes": 19636,
       "status": "critical",
       "tier": "1min"
     },
@@ -456,16 +532,16 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-07-03 15:55:02 KST",
-      "age_minutes": 3835,
+      "age_minutes": 3845,
       "status": "critical",
       "tier": "5min"
     },
     {
       "key": "watchlist_candidates",
       "label": "후보 종목 풀",
-      "last": "—",
-      "age_minutes": -1,
-      "status": "unknown",
+      "last": "2026-07-06 08:00:01 KST",
+      "age_minutes": 0,
+      "status": "fresh",
       "tier": "5min"
     },
     {
@@ -479,8 +555,8 @@
     {
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
-      "last": "2026-07-06 07:40:02 KST",
-      "age_minutes": 10,
+      "last": "2026-07-06 08:00:05 KST",
+      "age_minutes": 0,
       "status": "fresh",
       "tier": "5min"
     },
@@ -488,7 +564,7 @@
       "key": "orders",
       "label": "주문",
       "last": "2026-06-22 17:07:51 KST",
-      "age_minutes": 19602,
+      "age_minutes": 19612,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -496,7 +572,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 19711,
+      "age_minutes": 19721,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -504,14 +580,14 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 19711,
+      "age_minutes": 19721,
       "status": "critical",
       "tier": "snapshot"
     }
   ],
   "health": {
-    "total_runs": 10,
-    "ok": 10,
+    "total_runs": 20,
+    "ok": 20,
     "failed": 0,
     "timeout": 0,
     "running": 0,
@@ -523,7 +599,7 @@
   "cron_recent_failures": [],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-07-06 07:50:42 KST",
+    "as_of": "2026-07-06 08:00:43 KST",
     "totals": {
       "buy": 787,
       "sell": 2620,
@@ -542,7 +618,7 @@
     "blocked_list": []
   },
   "orders_today": {
-    "as_of": "2026-07-06 07:50:42 KST",
+    "as_of": "2026-07-06 08:00:43 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -635,14 +711,14 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-07-03 15:55:02 KST",
-    "age_minutes": 3835,
+    "age_minutes": 3845,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-07-06 07:50:42 KST",
-  "generated_at_utc": "2026-07-05T22:50:42Z",
+  "updated_at": "2026-07-06 08:00:43 KST",
+  "generated_at_utc": "2026-07-05T23:00:43Z",
   "counts": {
-    "themes": 0,
+    "themes": 5,
     "candidates": 12,
     "watchlist": 1,
     "signals": 0,
