@@ -1,7 +1,7 @@
 {
   "title": "COOLPEACE AGENT WATCH",
   "subtitle": "오늘 관심 테마와 후보를 DB에서 읽어 10분 단위로 갱신하는 페이지",
-  "market_state": "휴장 · OK · 100%",
+  "market_state": "장 마감 · OK · 0%",
   "summary": "실제 PostgreSQL 데이터로 테마, 후보종목, 관심목록, 시그널, 보유종목을 보여줍니다.",
   "note": "watchlist_active / watchlist_candidates / surge_pool / news_events / positions / account_events / cron_job_runs / strategy_candidates / orders / session_state를 읽어 생성합니다.",
   "tags": [
@@ -374,73 +374,27 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-07-12 23:50:52 KST",
-    "summary": [
-      {
-        "job_name": "purge_cron_job_runs",
-        "total": 4,
-        "ok": 4,
-        "fail": 0,
-        "timeout": 0,
-        "running": 0,
-        "last_started_at": "2026-07-12T23:00:01.068770+09:00"
-      },
-      {
-        "job_name": "run_registered_job_market-holiday-sync",
-        "total": 2,
-        "ok": 2,
-        "fail": 0,
-        "timeout": 0,
-        "running": 0,
-        "last_started_at": "2026-07-12T00:10:03.718937+09:00"
-      },
-      {
-        "job_name": "run_registered_job_minute-bar-retention-cleanup",
-        "total": 2,
-        "ok": 2,
-        "fail": 0,
-        "timeout": 0,
-        "running": 0,
-        "last_started_at": "2026-07-12T02:30:02.329136+09:00"
-      },
-      {
-        "job_name": "run_registered_job_purge-cron-job-runs-0300",
-        "total": 2,
-        "ok": 2,
-        "fail": 0,
-        "timeout": 0,
-        "running": 0,
-        "last_started_at": "2026-07-12T03:00:00.327854+09:00"
-      },
-      {
-        "job_name": "run_registered_job_purge-cron-job-runs-2300",
-        "total": 2,
-        "ok": 2,
-        "fail": 0,
-        "timeout": 0,
-        "running": 0,
-        "last_started_at": "2026-07-12T23:00:00.969119+09:00"
-      }
-    ],
+    "as_of": "2026-07-13 00:00:53 KST",
+    "summary": [],
     "recent_failures": [],
     "stuck_running": []
   },
   "system_status": {
-    "market_state": "holiday",
+    "market_state": "closed",
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 49800,
-    "kst_now": "2026-07-12 23:50:52 KST",
+    "session_age_minutes": 49810,
+    "kst_now": "2026-07-13 00:00:53 KST",
     "next_cron_due_in_minutes": 0,
-    "market_state_text": "휴장"
+    "market_state_text": "장 마감"
   },
   "data_freshness": [
     {
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 29634,
+      "age_minutes": 29644,
       "status": "critical",
       "tier": "1min"
     },
@@ -448,7 +402,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 29226,
+      "age_minutes": 29236,
       "status": "critical",
       "tier": "1min"
     },
@@ -456,7 +410,7 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-07-10 15:55:05 KST",
-      "age_minutes": 3355,
+      "age_minutes": 3365,
       "status": "critical",
       "tier": "5min"
     },
@@ -480,7 +434,7 @@
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
       "last": "2026-07-12 23:00:01 KST",
-      "age_minutes": 50,
+      "age_minutes": 60,
       "status": "stale",
       "tier": "5min"
     },
@@ -488,7 +442,7 @@
       "key": "orders",
       "label": "주문",
       "last": "2026-06-22 17:07:51 KST",
-      "age_minutes": 29203,
+      "age_minutes": 29213,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -496,7 +450,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 29311,
+      "age_minutes": 29321,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -504,26 +458,26 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 29311,
+      "age_minutes": 29321,
       "status": "critical",
       "tier": "snapshot"
     }
   ],
   "health": {
-    "total_runs": 12,
-    "ok": 12,
+    "total_runs": 0,
+    "ok": 0,
     "failed": 0,
     "timeout": 0,
     "running": 0,
     "stuck_running_count": 0,
-    "ok_rate_pct": 100.0,
+    "ok_rate_pct": 0.0,
     "alert_level": "ok",
     "alerts": []
   },
   "cron_recent_failures": [],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-07-12 23:50:52 KST",
+    "as_of": "2026-07-13 00:00:53 KST",
     "totals": {
       "buy": 1181,
       "sell": 3405,
@@ -542,7 +496,7 @@
     "blocked_list": []
   },
   "orders_today": {
-    "as_of": "2026-07-12 23:50:52 KST",
+    "as_of": "2026-07-13 00:00:53 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -635,12 +589,12 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-07-10 15:55:05 KST",
-    "age_minutes": 3355,
+    "age_minutes": 3365,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-07-12 23:50:52 KST",
-  "generated_at_utc": "2026-07-12T14:50:52Z",
+  "updated_at": "2026-07-13 00:00:53 KST",
+  "generated_at_utc": "2026-07-12T15:00:53Z",
   "counts": {
     "themes": 0,
     "candidates": 12,
