@@ -18,20 +18,14 @@
     {
       "theme": "AI",
       "score": "A",
-      "reason": "최근 96건 뉴스 태그 · 최고 촉매 8.0",
+      "reason": "최근 92건 뉴스 태그 · 최고 촉매 8.0",
       "updated_at": "2026-07-10 16:44:00 KST"
     },
     {
       "theme": "반도체",
       "score": "A",
-      "reason": "최근 84건 뉴스 태그 · 최고 촉매 8.0",
+      "reason": "최근 77건 뉴스 태그 · 최고 촉매 8.0",
       "updated_at": "2026-07-10 16:42:00 KST"
-    },
-    {
-      "theme": "삼성전자",
-      "score": "A",
-      "reason": "최근 35건 뉴스 태그 · 최고 촉매 8.0",
-      "updated_at": "2026-07-10 16:43:00 KST"
     },
     {
       "theme": "코스피",
@@ -40,9 +34,15 @@
       "updated_at": "2026-07-10 16:42:00 KST"
     },
     {
+      "theme": "바이오",
+      "score": "A",
+      "reason": "최근 30건 뉴스 태그 · 최고 촉매 9.0",
+      "updated_at": "2026-07-10 16:29:00 KST"
+    },
+    {
       "theme": "기아",
       "score": "A",
-      "reason": "최근 32건 뉴스 태그 · 최고 촉매 8.0",
+      "reason": "최근 30건 뉴스 태그 · 최고 촉매 8.0",
       "updated_at": "2026-07-10 16:44:00 KST"
     }
   ],
@@ -405,7 +405,7 @@
     "detail_source": "collector_status_snapshots"
   },
   "cron_runs_today": {
-    "as_of": "2026-07-12 12:50:34 KST",
+    "as_of": "2026-07-12 13:00:35 KST",
     "summary": [
       {
         "job_name": "purge_cron_job_runs",
@@ -452,8 +452,8 @@
     "is_trade_window": false,
     "session_state": "NO_TRADE",
     "session_entered_at": "2026-06-08 09:50:46 KST",
-    "session_age_minutes": 49139,
-    "kst_now": "2026-07-12 12:50:34 KST",
+    "session_age_minutes": 49149,
+    "kst_now": "2026-07-12 13:00:35 KST",
     "next_cron_due_in_minutes": 0,
     "market_state_text": "휴장"
   },
@@ -462,7 +462,7 @@
       "key": "bars_1m",
       "label": "1분봉",
       "last": "2026-06-22 09:56:00 KST",
-      "age_minutes": 28974,
+      "age_minutes": 28984,
       "status": "critical",
       "tier": "1min"
     },
@@ -470,7 +470,7 @@
       "key": "market_ticks",
       "label": "장중 틱(삼성)",
       "last": "2026-06-22 16:44:38 KST",
-      "age_minutes": 28565,
+      "age_minutes": 28575,
       "status": "critical",
       "tier": "1min"
     },
@@ -478,7 +478,7 @@
       "key": "watchlist_active",
       "label": "워치리스트",
       "last": "2026-07-10 15:55:05 KST",
-      "age_minutes": 2695,
+      "age_minutes": 2705,
       "status": "critical",
       "tier": "5min"
     },
@@ -502,7 +502,7 @@
       "key": "cron_job_runs",
       "label": "배치 실행 기록",
       "last": "2026-07-12 03:00:00 KST",
-      "age_minutes": 590,
+      "age_minutes": 600,
       "status": "critical",
       "tier": "5min"
     },
@@ -510,7 +510,7 @@
       "key": "orders",
       "label": "주문",
       "last": "2026-06-22 17:07:51 KST",
-      "age_minutes": 28542,
+      "age_minutes": 28552,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -518,7 +518,7 @@
       "key": "positions",
       "label": "보유 포지션",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 28651,
+      "age_minutes": 28661,
       "status": "critical",
       "tier": "snapshot"
     },
@@ -526,7 +526,7 @@
       "key": "account_events",
       "label": "계좌 스냅샷",
       "last": "2026-06-22 15:19:31 KST",
-      "age_minutes": 28651,
+      "age_minutes": 28661,
       "status": "critical",
       "tier": "snapshot"
     }
@@ -545,7 +545,7 @@
   "cron_recent_failures": [],
   "cron_stuck_running": [],
   "strategy_candidates": {
-    "as_of": "2026-07-12 12:50:34 KST",
+    "as_of": "2026-07-12 13:00:35 KST",
     "totals": {
       "buy": 1181,
       "sell": 3405,
@@ -564,7 +564,7 @@
     "blocked_list": []
   },
   "orders_today": {
-    "as_of": "2026-07-12 12:50:34 KST",
+    "as_of": "2026-07-12 13:00:35 KST",
     "totals": {
       "buy": 0,
       "sell": 0,
@@ -657,12 +657,12 @@
   ],
   "watchlist_active_freshness": {
     "last_refreshed_at": "2026-07-10 15:55:05 KST",
-    "age_minutes": 2695,
+    "age_minutes": 2705,
     "size": 1
   },
   "source": "db:public.news_events+watchlist_active+watchlist_candidates+surge_pool+positions+account_events+account_capital_baselines+collector_status_snapshots+cron_job_runs+strategy_candidates+orders+session_state",
-  "updated_at": "2026-07-12 12:50:34 KST",
-  "generated_at_utc": "2026-07-12T03:50:34Z",
+  "updated_at": "2026-07-12 13:00:35 KST",
+  "generated_at_utc": "2026-07-12T04:00:35Z",
   "counts": {
     "themes": 5,
     "candidates": 12,
